@@ -214,9 +214,9 @@ body {
     color: #0A1931;
     line-height: 1.4;
     margin-bottom: 5px;
-    display: -webkit-box; /*para cortar el texto si es muy largo */
-    line-clamp: 3;
-    -webkit-line-clamp: 3;
+    display: -webkit-box; 
+    line-clamp: 3;  /*para cortar el texto si es muy largo */
+    -webkit-line-clamp: 3; /* creo q esto es algo para otros navegadores */
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
