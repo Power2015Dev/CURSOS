@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon:ital@0;1&family=Momo+Trust+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sarala:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <img src="../imagenes/kursa_logo.png" alt="logo" class="vector_size" id="logo"></img>
+        
+            <div id="search_bar">
+           
+                <input type="text" name="search" placeholder="Buscar cursos o freelancers"></input>
+                <img src="../imagenes/dashboard_img/lupa.png" alt="lupa" class="vector_size"></img>
+            
+            </div>
+
+            <div id="profile_bar">
+
+                <img src="../imagenes/dashboard_img/perfil.png" alt="perfil" class="vector_size"></img>
+                <img src="../imagenes/dashboard_img/bell.png" alt="campana" class="vector_size"></img>
+                <img src="../imagenes/placeholder2.jpg" alt="profile" id="profile_picture"></img>
+
+            </div>
+        
+        </nav>
+    </header>
+
+    <div id="grid_layout"> <!-- este contenedor es donde aplico el grid lo de antes lo maneja flexbox -->
+
+        <div class="grid_item grid_1"><div></div></div> <!-- dentro del div anidado aplico flexbox -->
+        <div class="grid_item grid_2">2</div>
+        <div class="grid_item grid_3">3</div>
+
+    </div>
+    
+</body>
+</html>
