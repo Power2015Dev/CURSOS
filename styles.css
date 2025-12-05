@@ -1,0 +1,198 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #131a24;
+    color: white;
+}
+
+/* estilos para la barra de navegacion */
+
+.nav{
+    background:  linear-gradient( rgb(15, 22, 28) 88%, transparent);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.nav_list{
+    margin: 0;
+    text-align: right;
+
+}
+
+.nav_list_items {
+    display: inline-block;
+    padding: 18px 6px;
+}
+
+    .nav_list_items a {
+    font-size: 0.9rem;
+        color: white;
+    text-decoration: none;
+    margin:  1.3rem;
+    
+}
+
+.nav_list_items .nav_iniciar{
+    font-size: 0.8 ;
+    margin-left: 80px;
+    margin-right: 7rem;
+    border: 1px  solid #b3cfe5;
+    box-shadow: 0 0 4px #fff;
+    background-color: #0091ff;
+    padding: 5px 4px;
+    border-radius: 8px;
+  
+}
+
+.nav_list_items .nav_iniciar:hover{
+    background-color: #00867b;
+}
+.nav_list_items:not(.no-style):hover {
+    border-top: 1px solid #b3cfe5;
+    background: linear-gradient(#131a24 88%, transparent);
+}
+
+
+/* estilos para el header del titulo */
+
+header{
+    height: 37rem;
+    color: white;
+    background-image: url('imagenes/fondo_titulo2.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.caja_titulo{
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#titulo{
+    font-family: "Roboto", sans-serif;
+    font-size: 12rem;
+    margin: 0;
+    text-shadow: 2px 2px 10px rgb(0, 0, 0);
+    color: #69bcf8;
+    
+}
+
+.caja_titulo h1::first-letter{
+    font-size: 20rem;
+      text-shadow: 2px 2px 8px rgb(112, 177, 230);
+    color: #044d85;
+    line-height: 1;
+}
+
+.titulo_descripcion{
+    font-size: 1.5rem;
+    color: rgb(255, 255, 254);
+}
+
+.caja_titulo .nav_iniciar{
+     max-width: 7rem;
+     padding: 15px;
+     border-radius: 8px;
+     color: #ffffff;
+     border: 1px solid #a3a3a3;
+    text-decoration: none;
+    background-color: #0091ff;
+    box-shadow: 0 0 15px #00d9ff;
+
+}
+
+.caja_titulo .nav_iniciar:hover{
+    background-color: #044d85;
+    box-shadow: 0 0 15px #000000;
+}
+
+
+/* estilos a los beneficios*/
+
+.section_beneficios{
+    margin: 20px;
+    padding:20px 10px ;
+}
+
+.section_titulo{
+    font-size: 3.3rem ;
+    margin-bottom: 0;
+}
+
+.section_beneficios p{
+    font-size: 1rem;
+}
+
+.caja_items{
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap:3.5rem;
+}
+
+.caja_item_beneficios{
+    background: #46a2da;
+    flex: 1;
+    color: #000000;
+    border: 1px solid #f5f5f5;
+    box-shadow: 0 0 15px #0c90ce ;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.caja_item_beneficios:hover{
+    background-color: #014a81;
+    box-shadow: 0 0 15px white;
+}
+
+.caja_item_beneficios .descripcion_item_beneficio{
+    font-size: 1rem;
+    text-align: justify;
+}
+
+.section_profesor{
+
+    padding:20px 60px ;
+    background-image: url('/imagenes/profesor3.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-attachment: fixed;
+}
+
+.titulo_item_profesor{
+    margin: 0;
+}
+
+.caja_items_profesor{
+    max-width:550px ;
+    display: flex;
+    background: #0000008c;
+    border-radius: 15px ;
+    padding: 25px;
+    height: max-content;
+    flex-wrap: wrap;
+}
+
+.caja_img{
+    flex-wrap: wrap;
+    display: flex;
+    gap: 50px;
+}
+.profesor_img{
+    max-height: 700px;
+}
+
