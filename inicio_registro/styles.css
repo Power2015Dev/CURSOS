@@ -1,0 +1,196 @@
+
+:root {
+  --navy: #0A1931;
+  --teal: #1A3D63;
+  --blue: #4A7FA7;
+  --light: #B3CFE5;
+  --snow: #F6FAFD;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  background-color: var(--navy);
+  color: var(--snow);
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+
+.left-panel {
+  flex: 1;
+  
+  background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.overlay {
+  background: linear-gradient(180deg, rgba(10, 25, 49, 0.72), rgba(10, 25, 49, 0.72));
+  backdrop-filter: saturate(120%) blur(0.5px);
+  color: var(--snow);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 48px;
+}
+
+.logo-img {
+  width: 300px;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 4px 10px rgba(100, 183, 235, 0.4));
+}
+
+.overlay p {
+  
+  
+  color: #F6FAFD;
+ font-size: 1.8em;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(10, 25, 49, 0.4);
+
+}
+
+/* Panel derecho (formulario) */
+.right-panel {
+  flex: 1;
+  background-color: var(--snow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(74, 127, 167, 0.25);
+  animation: slideIn 600ms ease both;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.login-box h2 {
+  color: var(--teal);
+  margin-bottom: 24px;
+  font-size: 1.8em;
+  text-align: center;
+}
+
+/* Inputs y labels */
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  border: 1px solid var(--light);
+  border-radius: 10px;
+  background-color: var(--snow);
+  color: var(--navy);
+  font-size: 1em;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input::placeholder {
+  color: var(--blue);
+}
+/* Efecto al enfocar el input */
+input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(74, 127, 167, 0.2);
+}
+
+/* Botón principal */
+button {
+  width: 100%;
+  padding: 14px;
+  background: var(--teal);
+  color: var(--snow);
+  border: none;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.06s ease;
+}
+
+button:hover {
+  background-color: var(--blue);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Enlace de registro */
+.registro {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 0.92em;
+  color: var(--teal);
+}
+
+.registro a {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.registro a:hover {
+  text-decoration: underline;
+}
+
+/*  el responsive */
+@media (max-width: 980px) {
+  .container {
+    flex-direction: column;
+  }
+  .left-panel {
+    height: 40vh;
+  }
+  .overlay {
+    align-items: center;
+    text-align: center;
+    padding: 32px;
+  }
+}
+/* Estilo  para el cuadro de iniciar sesion */
+.login-box {
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-shadow:
+    0 0 12px rgba(74, 127, 167, 0.4),   
+    0 0 24px rgba(179, 207, 229, 0.3);  
+  border-top: 6px solid #4A7FA7;
+  border-left: 6px solid #1A3D63;
+  animation: slideIn 600ms ease both;
+}
+
