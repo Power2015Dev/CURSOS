@@ -109,17 +109,25 @@ body {
     margin-top: 3%;
     width: auto;
     height: 150vh;
-   
+  
 }
 
 .grid_1{
     grid-column:  1 / span 4;
     grid-row: 1/ span 2;
-    background-color: white;
+    background-color: #F6FAFD;
     border-radius: 20px;
-    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 25px 20px -15px rgba(0, 0, 0, 0.5);
     overflow: hidden;
+    margin-bottom: 50px;
+    position: relative;
+    overflow-y: auto;
+
 }
+
+
+
+
 
 .grid_2{
 
@@ -128,6 +136,7 @@ body {
     background-color: white;
     border-radius: 20px;
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 .grid_3{
@@ -136,29 +145,30 @@ body {
     background-color: white;
     border-radius: 20px;
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 .grid_1 h2{
-    display: flex;
     margin: 2%;
-
+    position: relative;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     color: #0A1931;
     font-size: 24px;
     width: auto;
-    
+    z-index: 3;
 }
 
-.cuatro_cajas {
-    display: flex;
-    flex-direction: row;
-    padding-left: 20px;
-    margin-right: 20px;
-    gap: 20px;
-    justify-content: center;
-    
+.cuatro_cajas { /* esto es la caja de las 4 tarjetas (8 porque se duplican para crear el efecto) */
+    padding: 20px 0px;
+    -webkit-mask-image: linear-gradient( 90deg, transparent 0%, black 10%, black 90%, transparent 100% );
+    mask-image: linear-gradient( 90deg, transparent 0%, black 10%, black 90%, transparent 100% );
+    border-radius: 12%;
 }
+
+
+
+
 
 .course_card {
     background-color: white;
@@ -169,10 +179,36 @@ body {
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease;
+    flex-shrink: 0;
+    will-change: transform;
+}
+
+.cuatro_cajas:hover .slider-track {
+    animation-play-state: paused;
+}
+
+.slider-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    padding-right: 20px;
+    animation: loop 10s linear infinite; /* ajusta la duracion segun sea necesario */
+    z-index: 1;
+}
+
+@keyframes loop { /* este keyframe es para cuatro cajas cuando pasa de la pantalla y se empieze a repetir*/
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% / 4));
+    }
 }
 
 .course_card:hover {
-    transform: translateY(-5px); 
+    transform: translateY(-10px); 
+    z-index: 3;
+    position: relative;
 }
 
 .card_header {
@@ -255,4 +291,41 @@ body {
 
 .card_footer:hover {
     background-color: #9abdd6; 
+}
+
+#functions_container {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+#functions_container .left{
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    transform: translateY(-50%) scaleX(-1);
+
+    font-size: 30px;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 4;
+
+}
+
+#functions_container .right{
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 4;
+
 }
