@@ -321,6 +321,15 @@ footer{
     #titulo{
         font-size: 6rem;
     }
+    .profesor_img{
+    height: 300px;
+}
+.caja_titulo h1::first-letter{
+    font-size: 14rem;
+    text-shadow: 2px 2px 8px rgb(112, 177, 230);
+    color: #044d85;
+    line-height: 1;
+}
 }
 
 
