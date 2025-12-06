@@ -135,8 +135,104 @@ body {
     grid-row: 3 / span 2;
     background-color: white;
     border-radius: 20px;
-    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 25px 20px -15px rgba(0, 0, 0, 0.5);
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    overflow: hidden;
+}
+
+.grid_2 h2{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #0A1931;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.cursos_actuales {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+    height: 100%;
+    padding-right: 5px; 
+}
+
+/* Estilo de la barra de scroll para este contenedor */
+.cursos_actuales::-webkit-scrollbar {
+    width: 6px;
+}
+.cursos_actuales::-webkit-scrollbar-thumb {
+    background-color: #B3CFE5;
+    border-radius: 10px;
+}
+
+/* La tarjeta individual de cada curso */
+.curso_actual {
+    display: flex;
+    align-items: center;
+    background-color: #F6FAFD; /* Un tono muy suave para diferenciar del blanco */
+    padding: 12px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.curso_actual:hover {
+    background-color: #fff;
+    border-color: #B3CFE5;
+    transform: translateX(5px); /* Efecto de movimiento a la derecha */
+    box-shadow: 0 4px 10px rgba(10, 25, 49, 0.1);
+}
+
+.curso_img {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-right: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.curso_info { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.curso_info h3 {
+    font-size: 15px;
+    color: #0A1931;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+/* --- Barra de Progreso Visual --- */
+.progress_container {
+    width: 100%;
+    background-color: #dcebf7;
+    border-radius: 10px;
+    height: 6px;
+    margin-bottom: 4px;
+    overflow: hidden;
+}
+
+.progress_fill {
+    height: 100%;
+    background-color: #0A1931; /* Azul oscuro del tema */
+    border-radius: 10px;
+    /* La anchura se define en el HTML con style="width: 45%" */
+}
+
+.progress_text {
+    font-size: 11px;
+    color: #666;
+    align-self: flex-end; /* Pone el texto a la derecha */
+    font-weight: 500;
 }
 
 .grid_3{
@@ -144,7 +240,7 @@ body {
     grid-row: 3 / span 2;
     background-color: white;
     border-radius: 20px;
-    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 25px 20px -15px rgba(0, 0, 0, 0.5);
     margin-top: 20px;
 }
 
