@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro | Kursa</title>
+  <link rel="stylesheet" href="estiloregistro.css">
+  <link rel="icon" type="image/png" href="/imagenes/icono2d.png">
+</head>
+<body>
+  <div id="fondo">
+    <div id="registro">
+      <h2>Registro</h2>
+      <form id="formulario">
+        <div class="columnas">
+          <div class="columna">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" placeholder="Ingrese nombre" required>
+
+            <label for="correo">Email</label>
+            <input type="email" id="correo" placeholder="Ingrese Email" required>
+
+            <label for="clave">Contraseña</label>
+            <input type="password" id="clave" placeholder="Ingrese Contraseña" required>
+          </div>
+
+          <div class="columna">
+            <label for="usuario">Usuario</label>
+            <input type="text" id="usuario" placeholder="Ingrese usuario" required>
+
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" placeholder="Ingrese Teléfono" required>
+
+            <label for="confirmar">Confirmar Contraseña</label>
+            <input type="password" id="confirmar" placeholder="Ingrese Contraseña" required>
+          </div>
+        </div>
+
+        <button id="boton">Registrarse</button>
+      </form>
+
+      <p id="texto">O inicia sesión con</p>
+      <div id="sociales">
+        <button class="icono"><img src="/imagenes/icons8-logo-de-google-24.png" alt="Google"></button>
+        <button class="icono"><img src="/imagenes/icons8-github-44.png" alt="GitHub"></button>
+        <button class="icono"><img src="/imagenes/icons8-facebook-nuevo-35.png" alt="Facebook"></button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
