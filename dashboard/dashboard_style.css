@@ -169,11 +169,11 @@ body {
     border-radius: 10px;
 }
 
-/* La tarjeta individual de cada curso */
+
 .curso_actual {
     display: flex;
     align-items: center;
-    background-color: #F6FAFD; /* Un tono muy suave para diferenciar del blanco */
+    background-color: #F6FAFD; 
     padding: 12px;
     border-radius: 15px;
     transition: all 0.3s ease;
@@ -184,7 +184,7 @@ body {
 .curso_actual:hover {
     background-color: #fff;
     border-color: #B3CFE5;
-    transform: translateX(5px); /* Efecto de movimiento a la derecha */
+    transform: translateX(5px); 
     box-shadow: 0 4px 10px rgba(10, 25, 49, 0.1);
 }
 
@@ -211,7 +211,7 @@ body {
     line-height: 1.2;
 }
 
-/* --- Barra de Progreso Visual --- */
+
 .progress_container {
     width: 100%;
     background-color: #dcebf7;
@@ -223,7 +223,7 @@ body {
 
 .progress_fill {
     height: 100%;
-    background-color: #0A1931; /* Azul oscuro del tema */
+    background-color: #0A1931;
     border-radius: 10px;
     /* La anchura se define en el HTML con style="width: 45%" */
 }
@@ -231,7 +231,7 @@ body {
 .progress_text {
     font-size: 11px;
     color: #666;
-    align-self: flex-end; /* Pone el texto a la derecha */
+    align-self: flex-end;
     font-weight: 500;
 }
 
@@ -288,7 +288,7 @@ body {
     gap: 20px;
     width: max-content;
     padding-right: 20px;
-    animation: loop 10s linear infinite; /* ajusta la duracion segun sea necesario */
+    animation: loop 10s linear infinite; 
     z-index: 1;
 }
 
