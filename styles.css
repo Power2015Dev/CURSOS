@@ -7,7 +7,7 @@
         font-size: 14px; /* Bajamos la base */
     }
     body{
-        width: 100vh;
+        width: 100%;
     }
 }
 
@@ -17,7 +17,7 @@
         font-size: 12px; /* Bajamos más la base */
     }
     body{
-        width: 100vh;
+        width: 100%;
     }
 }
 
@@ -127,7 +127,7 @@ header{
 
 .caja_titulo h1::first-letter{
     font-size: 20rem;
-      text-shadow: 2px 2px 8px rgb(112, 177, 230);
+    text-shadow: 2px 2px 8px rgb(112, 177, 230);
     color: #044d85;
     line-height: 1;
 }
@@ -182,7 +182,8 @@ header{
 
 .caja_item_beneficios{
     background: #00aeff;
-    flex: 1;
+    flex: 1 1 260px;
+    min-width: 220px;
     flex-wrap: wrap;
     border-radius: 10px;
     box-shadow: 5px 5px 0  #20495393;
@@ -269,7 +270,7 @@ header{
     background-color: #00aeff;
     border-radius: 10px;
     color: #ffffff;
-       box-shadow: 5px 5px 0  #20495393;
+    box-shadow: 5px 5px 0  #20495393;
     padding: 20px;
 }
 .titulo_items_preguntas{
@@ -293,7 +294,6 @@ header{
     padding: 10px;
     box-shadow: 0 0 8px #ffffffc7;
     color: rgb(0, 0, 0);
-
 }
 .btn_contacto:hover{
     background-color: #19767c;
@@ -305,6 +305,22 @@ footer{
     padding: 25px;
     font-size: 1.2rem;
 
+}
+
+/* Responsive: forzar apilado en pantallas pequeñas */
+@media (max-width: 600px) {
+    .caja_item_beneficios {
+        flex-basis: 100% !important;
+        min-width: 100% !important;
+    }
+    .caja_items {
+        gap: 1rem;
+        padding: 0.5rem;
+        justify-content: center;
+    }
+    #titulo{
+        font-size: 6rem;
+    }
 }
 
 
