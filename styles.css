@@ -56,10 +56,10 @@ body{
     font-size: 0.8 ;
     margin-left: 80px;
     margin-right: 7rem;
-    border: 1px  solid #b3cfe5;
-    box-shadow: 0 0 4px #fff;
+    border: 1px  solid #000000;
+    box-shadow: 0 0 4px #0000004b;
     background-color: #0091ff;
-    padding: 5px 4px;
+    padding: 8px 9px;
     border-radius: 8px;
   
 }
@@ -119,14 +119,13 @@ header{
 }
 
 .caja_titulo .nav_iniciar{
-     max-width: 7rem;
-     padding: 15px;
-     border-radius: 8px;
-     color: #ffffff;
-     border: 1px solid #a3a3a3;
+    max-width: 7rem;
+    padding: 15px;
+    border-radius: 8px;
+    color: #ffffff;
     text-decoration: none;
     background-color: #0091ff;
-    box-shadow: 0 0 15px #00d9ff;
+    box-shadow: 7px 7px 8px #00d9ff33;
 
 }
 
@@ -167,10 +166,7 @@ header{
     flex: 1;
     flex-wrap: wrap;
     border-radius: 10px;
-    color: #000000;
-    border: 1px solid #fff;
-    box-shadow: 0 0 15px #ffffff;
-    border-radius: 10px;
+    box-shadow: 5px 5px 0  #20495393;
     padding: 30px;
 }
 
@@ -249,13 +245,12 @@ header{
 }
 
 .caja_items_preguntas{
-    max-width: 290px;
+    min-width: 100px;
     flex-wrap: wrap;
     background-color: #00aeff;
     border-radius: 10px;
-    color: #000000;
-    border: 1px solid #fff;
-    box-shadow: 0 0 15px #ffffff;
+    color: #ffffff;
+       box-shadow: 5px 5px 0  #20495393;
     padding: 20px;
 }
 .titulo_items_preguntas{
@@ -271,12 +266,13 @@ header{
 }
 
 .btn_contacto{
+    font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
-    border: 1px solid rgb(172, 172, 172);
-    background-color: #0bffd6;
+    border: none;
+    background-color: #0bceff;
     border-radius: 9px;
     padding: 10px;
-    box-shadow: 0 0 10px #fff;
+    box-shadow: 0 0 8px #ffffffc7;
     color: rgb(0, 0, 0);
 
 }
@@ -291,3 +287,4 @@ footer{
     font-size: 1.2rem;
 
 }
+
