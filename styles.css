@@ -9,6 +9,18 @@ body{
 
 /* estilos para la barra de navegacion */
 
+.nav_logo{
+    float: left;
+    margin-left: 30px;
+    margin-top: 8px;
+}
+
+.nav_logo img {
+    height: 50px;       
+    width: auto;        
+    vertical-align: middle; /* Alinea la imagen con el texto invisible */
+}
+
 .nav{
     background:  linear-gradient( rgb(15, 22, 28) 88%, transparent);
     width: 100%;
@@ -228,6 +240,7 @@ header{
     align-items: center;
     align-content:center;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     gap: 30px;
 }
 
