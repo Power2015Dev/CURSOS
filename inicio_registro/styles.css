@@ -1,10 +1,12 @@
-
+*{
+    font-family: 'Montserrat', sans-serif;
+}
 :root {
-  --navy: #0A1931;
-  --teal: #1A3D63;
-  --blue: #4A7FA7;
-  --light: #B3CFE5;
-  --snow: #F6FAFD;
+  --primero: #0A1931;   /* navy */
+  --segundo: #1A3D63;   /* teal */
+  --tercero: #4A7FA7;   /* blue */
+  --cuarto: #B3CFE5;    /* light */
+  --quinto: #F6FAFD;    /* snow */
 }
 
 * {
@@ -16,8 +18,8 @@ body {
   font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   height: 100vh;
   display: flex;
-  background-color: var(--navy);
-  color: var(--snow);
+  background-color: var(--primero);
+  color: var(--quinto);
 }
 
 .container {
@@ -26,10 +28,9 @@ body {
   height: 100vh;
 }
 
-
+/* Panel izquierdo */
 .left-panel {
   flex: 1;
-  
   background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop');
   background-size: cover;
   background-position: center;
@@ -39,7 +40,7 @@ body {
 .overlay {
   background: linear-gradient(180deg, rgba(10, 25, 49, 0.72), rgba(10, 25, 49, 0.72));
   backdrop-filter: saturate(120%) blur(0.5px);
-  color: var(--snow);
+  color: var(--quinto);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -55,19 +56,16 @@ body {
 }
 
 .overlay p {
-  
-  
-  color: #F6FAFD;
- font-size: 1.8em;
+  color: var(--quinto);
+  font-size: 1.8em;
   font-weight: 600;
   text-shadow: 0 1px 2px rgba(10, 25, 49, 0.4);
-
 }
 
 /* Panel derecho (formulario) */
 .right-panel {
   flex: 1;
-  background-color: var(--snow);
+  background-color: var(--quinto);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,7 +87,7 @@ body {
 }
 
 .login-box h2 {
-  color: var(--teal);
+  color: var(--segundo);
   margin-bottom: 24px;
   font-size: 1.8em;
   text-align: center;
@@ -99,7 +97,7 @@ body {
 label {
   display: block;
   margin-bottom: 8px;
-  color: var(--teal);
+  color: var(--segundo);
   font-weight: 600;
 }
 
@@ -107,21 +105,21 @@ input {
   width: 100%;
   padding: 12px 14px;
   margin-bottom: 18px;
-  border: 1px solid var(--light);
+  border: 1px solid var(--cuarto);
   border-radius: 10px;
-  background-color: var(--snow);
-  color: var(--navy);
+  background-color: var(--quinto);
+  color: var(--primero);
   font-size: 1em;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 input::placeholder {
-  color: var(--blue);
+  color: var(--tercero);
 }
-/* Efecto al enfocar el input */
+
 input:focus {
-  border-color: var(--blue);
+  border-color: var(--tercero);
   box-shadow: 0 0 0 3px rgba(74, 127, 167, 0.2);
 }
 
@@ -129,8 +127,8 @@ input:focus {
 button {
   width: 100%;
   padding: 14px;
-  background: var(--teal);
-  color: var(--snow);
+  background: var(--segundo);
+  color: var(--quinto);
   border: none;
   border-radius: 10px;
   font-size: 1em;
@@ -140,7 +138,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--blue);
+  background-color: var(--tercero);
 }
 
 button:active {
@@ -152,11 +150,11 @@ button:active {
   margin-top: 18px;
   text-align: center;
   font-size: 0.92em;
-  color: var(--teal);
+  color: var(--segundo);
 }
 
 .registro a {
-  color: var(--blue);
+  color: var(--tercero);
   text-decoration: none;
   font-weight: 600;
 }
@@ -165,7 +163,7 @@ button:active {
   text-decoration: underline;
 }
 
-/*  el responsive */
+/* Responsive */
 @media (max-width: 980px) {
   .container {
     flex-direction: column;
@@ -179,7 +177,8 @@ button:active {
     padding: 32px;
   }
 }
-/* Estilo  para el cuadro de iniciar sesion */
+
+/* Estilo para el cuadro de iniciar sesión */
 .login-box {
   width: 100%;
   max-width: 420px;
@@ -189,8 +188,7 @@ button:active {
   box-shadow:
     0 0 12px rgba(74, 127, 167, 0.4),   
     0 0 24px rgba(179, 207, 229, 0.3);  
-  border-top: 6px solid #4A7FA7;
-  border-left: 6px solid #1A3D63;
+  border-top: 6px solid var(--tercero);
+  border-left: 6px solid var(--segundo);
   animation: slideIn 600ms ease both;
 }
-
