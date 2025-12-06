@@ -256,20 +256,20 @@ header{
 .btn_contacto{
     font-size: 1rem;
     border: 1px solid rgb(172, 172, 172);
-       background-color: #0bffd6;
+    background-color: #0bffd6;
     border-radius: 9px;
     padding: 10px;
- box-shadow: 0 0 10px #fff;
- color: rgb(0, 0, 0);
+    box-shadow: 0 0 10px #fff;
+    color: rgb(0, 0, 0);
 
 }
 .btn_contacto:hover{
-        background-color: #19767c;
+    background-color: #19767c;
 box-shadow: 0 0 10px #505050;
 }
 footer{
     background-color: #000000;
     padding: 25px;
     font-size: 1.2rem;
-    
+
 }
