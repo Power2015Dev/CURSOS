@@ -2,13 +2,12 @@
     font-family: 'Montserrat', sans-serif;
 }
 :root {
-  --primero: #0A1931;   /* navy */
-  --segundo: #1A3D63;   /* teal */
-  --tercero: #4A7FA7;   /* blue */
-  --cuarto: #B3CFE5;    /* light */
-  --quinto: #F6FAFD;    /* snow */
+  --primero: #0A1931;   
+  --segundo: #1A3D63;   
+  --tercero: #4A7FA7;   
+  --cuarto: #B3CFE5;    
+  --quinto: #F6FAFD;    
 }
-
 * {
   box-sizing: border-box;
 }
