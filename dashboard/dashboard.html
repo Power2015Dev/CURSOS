@@ -26,8 +26,17 @@
 
                 <img src="../imagenes/dashboard_img/perfil.png" alt="perfil" class="vector_size"></img>
                 <img src="../imagenes/dashboard_img/bell.png" alt="campana" class="vector_size"></img>
-                <img src="../imagenes/placeholder2.jpg" alt="profile" id="profile_picture"></img>
+                <div id="profile_picture_container">
+                    <img src="../imagenes/placeholder2.jpg" alt="profile" id="profile_picture"></img>
+                    <div id="profile_status">
+                        <a href="#"><p>Editar perfil</p></a>
+                        <a href="#"><p>Configuración</p></a>
+                        <a href="#"><p>Ayuda</p></a>
+                        <a href="#"><p>Mis cursos</p></a>
+                        <a href="#"><p>Cerrar sesión</p></a>
 
+                    </div>
+                </div>
             </div>
         
         </nav>
@@ -61,6 +70,7 @@
 
             
         </div> <!-- dentro del div anidado aplico flexbox -->
+
 <div class="grid_item grid_2">
     <h2>Mis cursos</h2>
     
@@ -104,9 +114,56 @@
 </div>
 
 
-        <div class="grid_item grid_3">3</div>
+<div class="grid_item grid_3">
+    <h2>Tu Actividad</h2>
+    
+    <div class="stats_container">
+        
+        <div class="quick_stats">
+            <div class="stat_box">
+                <span class="stat_number">12.5h</span>
+                <span class="stat_label">Horas Totales</span>
+            </div>
+            <div class="stat_box fire"> <span class="stat_number">5</span>
+                <span class="stat_label">Racha de días</span>
+            </div>
+        </div>
+
+        <div class="chart_container">
+            <div class="chart_title">Horas por día</div>
+            <div class="bar_chart">
+                <div class="bar_group">
+                    <div class="bar" style="height: 40%;"></div>
+                    <span class="day">L</span>
+                </div>
+                <div class="bar_group">
+                    <div class="bar" style="height: 70%;"></div>
+                    <span class="day">M</span>
+                </div>
+                <div class="bar_group">
+                    <div class="bar" style="height: 30%;"></div>
+                    <span class="day">X</span>
+                </div>
+                <div class="bar_group">
+                    <div class="bar active" style="height: 85%;"></div> <span class="day">J</span>
+                </div>
+                <div class="bar_group">
+                    <div class="bar" style="height: 50%;"></div>
+                    <span class="day">V</span>
+                </div>
+                <div class="bar_group">
+                    <div class="bar" style="height: 20%;"></div>
+                    <span class="day">S</span>
+                </div>
+                <div class="bar_group">
+                    <div class="bar" style="height: 10%;"></div>
+                    <span class="day">D</span>
+                </div>
+            </div>
+        </div>
 
     </div>
+</div>
     
 </body>
 </html>
