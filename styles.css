@@ -1,6 +1,25 @@
 *{
     font-family: 'Montserrat', sans-serif;
 }
+/* 2. Para Tablets (pantallas menores a 768px) */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px; /* Bajamos la base */
+    }
+    body{
+        width: 100vh;
+    }
+}
+
+/* 3. Para Celulares (pantallas menores a 480px) */
+@media (max-width: 480px) {
+    html {
+        font-size: 12px; /* Bajamos más la base */
+    }
+    body{
+        width: 100vh;
+    }
+}
 
 body{
     margin: 0;
@@ -81,7 +100,7 @@ header{
     background-image: url('imagenes/fondo_titulo2.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
-
+    object-fit: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -287,4 +306,5 @@ footer{
     font-size: 1.2rem;
 
 }
+
 
