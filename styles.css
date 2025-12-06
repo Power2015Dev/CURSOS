@@ -132,8 +132,9 @@ header{
     margin-bottom: 0;
 }
 
-.section_beneficios p{
+.descripcion_beneficio{
     font-size: 1rem;
+    width: 70%;
 }
 
 .caja_items{
@@ -142,21 +143,24 @@ header{
     align-items: center;
     justify-content: space-evenly;
     gap:3.5rem;
+    flex-wrap: wrap;
 }
 
 .caja_item_beneficios{
-    background: #46a2da;
+    background: #00aeff;
     flex: 1;
+    flex-wrap: wrap;
+    border-radius: 10px;
     color: #000000;
-    border: 1px solid #f5f5f5;
-    box-shadow: 0 0 15px #0c90ce ;
+    border: 1px solid #fff;
+    box-shadow: 0 0 15px #ffffff;
     border-radius: 10px;
     padding: 30px;
 }
 
 .caja_item_beneficios:hover{
-    background-color: #014a81;
-    box-shadow: 0 0 15px white;
+    background-color: #2c75ad;
+    box-shadow: 0 0 15px rgb(5, 5, 5);
 }
 
 .caja_item_beneficios .descripcion_item_beneficio{
@@ -164,6 +168,7 @@ header{
     text-align: justify;
 }
 
+/*estilos a a la seccion de profesor */
 .section_profesor{
 
     padding:20px 60px ;
@@ -171,6 +176,11 @@ header{
     background-repeat: no-repeat;
     background-position: left;
     background-attachment: fixed;
+}
+
+.descripcion_profesor{
+    font-size: 1rem;
+    width: 50%;
 }
 
 .titulo_item_profesor{
@@ -185,6 +195,7 @@ header{
     padding: 25px;
     height: max-content;
     flex-wrap: wrap;
+    box-shadow: 0 0 7px #000000;
 }
 
 .caja_img{
@@ -196,3 +207,69 @@ header{
     max-height: 700px;
 }
 
+/* estilos a la seccion de ayuda */
+
+.section_ayuda{
+    padding: 30px;
+}
+
+.section_ayuda .section_titulo{
+    margin: 0;
+}
+
+.section_ayuda .decripcion_ayuda_titulo{
+    font-size: 1rem;
+    width: 50%;
+}
+
+.caja_ayuda{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content:center;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+
+.caja_items_preguntas{
+    max-width: 290px;
+    flex-wrap: wrap;
+    background-color: #00aeff;
+    border-radius: 10px;
+    color: #000000;
+    border: 1px solid #fff;
+    box-shadow: 0 0 15px #ffffff;
+    padding: 20px;
+}
+.titulo_items_preguntas{
+    font-size: 1.3rem;
+}
+
+.descripcion_ayuda{
+    font-size: 1rem;
+}
+.caja_items_preguntas:hover{
+    background-color: #2c75ad;
+    box-shadow: 0 0 15px rgb(5, 5, 5);
+}
+
+.btn_contacto{
+    font-size: 1rem;
+    border: 1px solid rgb(172, 172, 172);
+       background-color: #0bffd6;
+    border-radius: 9px;
+    padding: 10px;
+ box-shadow: 0 0 10px #fff;
+ color: rgb(0, 0, 0);
+
+}
+.btn_contacto:hover{
+        background-color: #19767c;
+box-shadow: 0 0 10px #505050;
+}
+footer{
+    background-color: #000000;
+    padding: 25px;
+    font-size: 1.2rem;
+    
+}
