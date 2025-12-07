@@ -29,9 +29,21 @@
                     <img src="../imagenes/dashboard_img/bell.png" alt="campana" class="vector_size"></img>
                     <div id="notifications">
                         <h2>Notificaciones</h2>
-                        <div>
-                            <p>🔵 Nuevo Comentario en "Fundamentos de Diseño UX/UI"</p>
-                            <p>Hace 2 horas</p>
+                        <div class="messages">
+                            <div class="row_message">
+                                <img src="../imagenes/dashboard_img/esfera.png" alt="esfera">
+                                <p>Nuevo Comentario en "Fundamentos de Diseño UX/UI"</p>
+                            </div>
+                            <span>Hace 2 horas</span>
+                            <hr>
+                        </div> 
+                        <div class="messages">
+                            <div class="row_message">
+                                <img src="../imagenes/dashboard_img/check.png" alt="check">
+                                <p>Tu compra ha sido validada en "Fundamentos de Diseño UX/UI"</p>
+                            </div>    
+                            <span>Ayer</span>
+                            <hr>
                         </div> 
                     </div>
                 </div>
@@ -59,17 +71,18 @@
 
         <div class="grid_item grid_1">
             <h2>Recomendados</h2>
+            <button id="agregar">Agregar</button>
             <div id="functions_container">
                 <span class="arrow left">➜</span> <!-- las flechas que a cada lado este es izquierda -->
                 <div class="cuatro_cajas"> <!-- aqui empieza esta estupidez -->
                 
                     <div class="slider-track">
-                        <div class="course_card"> <!-- esta es la tarjeta 1 (son 4 y luego se repiten) --> <div class="card_header"> <span class="badge">Gratis</span> <img src="../imagenes/dashboard_img/Programacion.png" alt="curso"> </div> <div class="card_body"> <h3>Dominando la Programación en C</h3> <p class="author">by Alan Turing Jr</p> <!-- todos los textos asi tienen que llegar desde la base de datos --> <div class="card_meta"> <span>62 Reseñas</span> <span class="rating">⭐ 7.5</span> </div> </div> <div class="card_footer"> Obtener curso </div> </div> <!-- termina la tarjeta 1 -->
-                        <div class="course_card"> <!-- esta es la tarjeta 2--> <div class="card_header"> <span class="badge">Gratis</span> <img src="../imagenes/dashboard_img/Desing.png" alt="curso"> </div> <div class="card_body"> <h3>Fundamentos de Diseño UX/UI</h3> <p class="author">by Sarah Chen</p> <div class="card_meta"> <span>48 Reseñas</span> <span class="rating">⭐ 9</span> </div> </div> <div class="card_footer"> Obtener curso </div> </div> <!-- termina la tarjeta 2 -->
-                        <div class="course_card"> <!-- esta es la tarjeta 3--> <div class="card_header"> <span class="badge">Gratis</span> <img src="../imagenes/dashboard_img/Marketing.png" alt="curso"> </div> <div class="card_body"> <h3>Estrategias de Marketing Digital</h3> <p class="author">by Mark Johnson</p> <div class="card_meta"> <span>89 Reseñas</span> <span class="rating">⭐ 4.5</span> </div> </div> <div class="card_footer"> Obtener curso </div> </div> <!-- termina la tarjeta 3 -->
+                        <div class="course_card"> <!-- esta es la tarjeta 1 (son 4 y luego se repiten) --> <div class="card_header"> <span class="badge">12$</span> <img src="../imagenes/dashboard_img/Programacion.png" alt="curso"> </div> <div class="card_body"> <h3>Dominando la Programación en C</h3> <p class="author">by Alan Turing Jr</p> <!-- todos los textos asi tienen que llegar desde la base de datos --> <div class="card_meta"> <span>62 Reseñas</span> <span class="rating">⭐ 7.5</span> </div> </div> <div class="card_footer"> Obtener curso </div> </div> <!-- termina la tarjeta 1 -->
+                        <div class="course_card"> <!-- esta es la tarjeta 2--> <div class="card_header"> <span class="badge">25$</span> <img src="../imagenes/dashboard_img/Desing.png" alt="curso"> </div> <div class="card_body"> <h3>Fundamentos de Diseño UX/UI</h3> <p class="author">by Sarah Chen</p> <div class="card_meta"> <span>48 Reseñas</span> <span class="rating">⭐ 9</span> </div> </div> <div class="card_footer"> Obtener curso </div> </div> <!-- termina la tarjeta 2 -->
+                        <div class="course_card"> <!-- esta es la tarjeta 3--> <div class="card_header"> <span class="badge">30$</span> <img src="../imagenes/dashboard_img/Marketing.png" alt="curso"> </div> <div class="card_body"> <h3>Estrategias de Marketing Digital</h3> <p class="author">by Mark Johnson</p> <div class="card_meta"> <span>89 Reseñas</span> <span class="rating">⭐ 4.5</span> </div> </div> <div class="card_footer"> Obtener curso </div> </div> <!-- termina la tarjeta 3 -->
                         <div class="course_card"> <!-- esta es la tarjeta 4--> <div class="card_header"> <span class="badge">Gratis</span> <img src="../imagenes/dashboard_img/Photografy.png" alt="curso"> </div> <div class="card_body"> <h3>El Arte de la Fotografía</h3> <p class="author">by Emily Davis</p> <div class="card_meta"> <span>129 Reseñas</span> <span class="rating">⭐ 6.5</span> </div> </div> <div class="card_footer"> Obtener curso </div> </div> <!-- termina la tarjeta 4 -->
-                        <div class="course_card"> <!-- esta es la tarjeta 5--> <div class="card_header"> <span class="badge">Gratis</span> <img src="../imagenes/dashboard_img/Programacion.png" alt="curso"> </div> <div class="card_body"> <h3>Dominando la Programación en C</h3> <p class="author">by Alan Turing Jr</p> <!-- todos los textos asi tienen que llegar desde la base de datos --> <div class="card_meta"> <span>62 Reseñas</span> <span class="rating">⭐ 7.5</span> </div> </div> <div class="card_footer"> Obtener curso </div> </div> <!-- termina la tarjeta 5 -->
-                        <div class="course_card"> <!-- esta es la tarjeta 6--> <div class="card_header"> <span class="badge">Gratis</span> <img src="../imagenes/dashboard_img/Desing.png" alt="curso"> </div> <div class="card_body"> <h3>Fundamentos de Diseño UX/UI</h3> <p class="author">by Sarah Chen</p> <div class="card_meta"> <span>48 Reseñas</span> <span class="rating">⭐ 9</span> </div> </div> <div class="card_footer"> Obtener curso </div> </div> <!-- termina la tarjeta 6 -->
+                        <div class="course_card"> <!-- esta es la tarjeta 5--> <div class="card_header"> <span class="badge">12$</span> <img src="../imagenes/dashboard_img/Programacion.png" alt="curso"> </div> <div class="card_body"> <h3>Dominando la Programación en C</h3> <p class="author">by Alan Turing Jr</p> <!-- todos los textos asi tienen que llegar desde la base de datos --> <div class="card_meta"> <span>62 Reseñas</span> <span class="rating">⭐ 7.5</span> </div> </div> <div class="card_footer"> Obtener curso </div> </div> <!-- termina la tarjeta 5 -->
+                        <div class="course_card"> <!-- esta es la tarjeta 6--> <div class="card_header"> <span class="badge">15$</span> <img src="../imagenes/dashboard_img/Desing.png" alt="curso"> </div> <div class="card_body"> <h3>Fundamentos de Diseño UX/UI</h3> <p class="author">by Sarah Chen</p> <div class="card_meta"> <span>48 Reseñas</span> <span class="rating">⭐ 9</span> </div> </div> <div class="card_footer"> Obtener curso </div> </div> <!-- termina la tarjeta 6 -->
                         <div class="course_card"> <!-- esta es la tarjeta 7--> <div class="card_header"> <span class="badge">Gratis</span> <img src="../imagenes/dashboard_img/Marketing.png" alt="curso"> </div> <div class="card_body"> <h3>Estrategias de Marketing Digital</h3> <p class="author">by Mark Johnson</p> <div class="card_meta"> <span>89 Reseñas</span> <span class="rating">⭐ 4.5</span> </div> </div> <div class="card_footer"> Obtener curso </div> </div> <!-- termina la tarjeta 7 -->
                         <div class="course_card"> <!-- esta es la tarjeta 8--> <div class="card_header"> <span class="badge">Gratis</span> <img src="../imagenes/dashboard_img/Photografy.png" alt="curso"> </div> <div class="card_body"> <h3>El Arte de la Fotografía</h3> <p class="author">by Emily Davis</p> <div class="card_meta"> <span>129 Reseñas</span> <span class="rating">⭐ 6.5</span> </div> </div> <div class="card_footer"> Obtener curso </div> </div> <!-- termina la tarjeta 8 -->
                 
@@ -177,7 +190,10 @@
 
     </div>
 </div>
-    <script src="dashboard.js"></script>
+    <script src="dashboard_navbar.js"></script>
+    <script src="dashboard_body.js"></script>
+    <script src="constructores/scroller_adder.js"></script>
+    <script type="module" src="Database_extractor.js"></script>
 </body>
 
 

@@ -5,6 +5,16 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+hr{
+    border: 0;
+    height: 1px;
+   /* background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(26, 25, 25, 0.75), rgba(255, 255, 255, 0)); para probar*/
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 80%;
+    margin: 2px 0px 2px 0px;
+
+}
+
 body {
     background-color: #B3Cfe5;
     color: #333;
@@ -267,11 +277,15 @@ body {
     -webkit-mask-image: linear-gradient( 90deg, transparent 0%, black 10%, black 90%, transparent 100% );
     mask-image: linear-gradient( 90deg, transparent 0%, black 10%, black 90%, transparent 100% );
     border-radius: 12%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
-
-
-
+.cuatro_cajas::-webkit-scrollbar {
+    display: none;
+}
 
 .course_card {
     background-color: white;
@@ -295,11 +309,17 @@ body {
     gap: 20px;
     width: max-content;
     padding-right: 20px;
-    animation: loop 10s linear infinite; 
+   /* animation: loop 10s linear infinite; ya no sera necesario por el scroll*/
     z-index: 1;
 }
 
-@keyframes loop { /* este keyframe es para cuatro cajas cuando pasa de la pantalla y se empieze a repetir*/
+.arrow{
+    user-select: none;
+    z-index: 10;
+}
+
+/* ----ELIMINADO-----
+@keyframes loop { este keyframe es para cuatro cajas cuando pasa de la pantalla y se empieze a repetir
     0% {
         transform: translateX(0);
     }
@@ -307,7 +327,7 @@ body {
         transform: translateX(calc(-100% / 4));
     }
 }
-
+*/
 .course_card:hover {
     transform: translateY(-10px); 
     z-index: 3;
@@ -562,14 +582,14 @@ body {
 
 .show{
     display: block !important;
-    -webkit-animation: scale-in-ver-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: scale-in-ver-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    -webkit-animation: scale-in-ver-top 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: scale-in-ver-top 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .hide{
     display: block !important;
-    -webkit-animation: scale-in-ver-top-reversed 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) reverse both;
-	        animation: scale-in-ver-top-reversed 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) reverse both;
+    -webkit-animation: scale-in-ver-top-reversed 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) reverse both;
+	        animation: scale-in-ver-top-reversed 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) reverse both;
 }
 
 #profile_status a{
@@ -582,9 +602,61 @@ body {
     color: #0A1931;
     font-size: 16px;
     margin-bottom: 25px;
-    
-    
 }
+
+#notifications{
+    display: none;
+    position: absolute;
+    overflow-y: auto;
+    height: 50%;
+    right: 120px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 0 20px rgba(74, 127, 167, 0.4);
+    z-index: 5;
+    max-width: 50%;
+
+
+}
+
+.messages{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+    margin: 20px 0px 20px 0px;
+    height: 30%;
+    padding-right: 5px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 0 20px rgba(74, 127, 167, 0.4);
+    z-index: 4;
+    cursor: pointer
+}
+
+.row_message{
+    display: flex; 
+    flex-wrap: wrap;
+    max-width: 100%;
+
+}
+
+#notifications h2{
+    font-size: 24px;
+    color: #0A1931;
+    margin-bottom: 15px;
+}
+
+#notifications::-webkit-scrollbar {
+    width: 6px;
+}
+#notifications::-webkit-scrollbar-thumb {
+    background-color: #B3CFE5;
+    border-radius: 10px;
+}
+
 /*-webkit-animation: scale-in-ver-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: scale-in-ver-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;*/ /*asi es como se llama en una clase */
 /* ----------------------------------------------  esta animacion es para cuando presionas el boton de perfil y aparece el menu desplegable 
