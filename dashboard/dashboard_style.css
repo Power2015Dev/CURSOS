@@ -218,6 +218,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
 }
 
 .curso_info h3 {
@@ -226,6 +227,7 @@ body {
     font-weight: 600;
     margin-bottom: 8px;
     line-height: 1.2;
+    
 }
 
 
@@ -242,6 +244,7 @@ body {
     height: 100%;
     background-color: #0A1931;
     border-radius: 10px;
+    transition: width 0.3s ease;
     /* La anchura se define en el HTML con style="width: 45%" */
 }
 
@@ -657,6 +660,27 @@ body {
     border-radius: 10px;
 }
 
+.message_style{
+    height: 200px;
+    font-size: 36px;
+    color: rgba(10, 25, 49, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px;
+}
+
+.course_style{
+    height: 400px;
+    font-size: 36px;
+    color: rgba(10, 25, 49, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+}
+
+
 /*-webkit-animation: scale-in-ver-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: scale-in-ver-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;*/ /*asi es como se llama en una clase */
 /* ----------------------------------------------  esta animacion es para cuando presionas el boton de perfil y aparece el menu desplegable 
@@ -750,3 +774,4 @@ body {
     opacity: 1;
   }
 }
+
