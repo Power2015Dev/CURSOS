@@ -25,15 +25,28 @@
             <div id="profile_bar">
 
                 <img src="../imagenes/dashboard_img/perfil.png" alt="perfil" class="vector_size"></img>
-                <img src="../imagenes/dashboard_img/bell.png" alt="campana" class="vector_size"></img>
+                <div id ="bell_container">
+                    <img src="../imagenes/dashboard_img/bell.png" alt="campana" class="vector_size"></img>
+                    <div id="notifications">
+                        <h2>Notificaciones</h2>
+                        <div>
+                            <p>🔵 Nuevo Comentario en "Fundamentos de Diseño UX/UI"</p>
+                            <p>Hace 2 horas</p>
+                        </div> 
+                    </div>
+                </div>
+
+                
                 <div id="profile_picture_container">
                     <img src="../imagenes/placeholder2.jpg" alt="profile" id="profile_picture"></img>
+                    <img src="../imagenes/dashboard_img/arrow.png" alt="arrow" class="arrow_size"></img>
                     <div id="profile_status">
-                        <a href="#"><p>Editar perfil</p></a>
-                        <a href="#"><p>Configuración</p></a>
-                        <a href="#"><p>Ayuda</p></a>
-                        <a href="#"><p>Mis cursos</p></a>
-                        <a href="#"><p>Cerrar sesión</p></a>
+                        
+                            <a href="#"><p>Editar perfil</p></a>
+                            <a href="#"><p>Configuración</p></a>
+                            <a href="#"><p>Ayuda</p></a>
+                            <a href="#"><p>Mis cursos</p></a>
+                            <a href="#"><p>Cerrar sesión</p></a>
 
                     </div>
                 </div>
@@ -164,6 +177,8 @@
 
     </div>
 </div>
-    
+    <script src="dashboard.js"></script>
 </body>
+
+
 </html>
