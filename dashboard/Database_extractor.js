@@ -1,7 +1,7 @@
 import { ScrollerAdder, MyCourses } from './constructores/scroller_adder.js';
 const Agregar = document.getElementById("agregar");
 const eliminar = document.getElementById("eliminar");
-
+//Agregando (temporal)
 Agregar.addEventListener("click", function(){
     const Grid_1 = new ScrollerAdder("Programación", "Tu aloing", "400", "../imagenes/placeholder2.jpg", "15$", "6.0");
     const message = document.getElementById("state_message");
@@ -12,7 +12,7 @@ Agregar.addEventListener("click", function(){
     Grid_1.add_recommendations();
 
 });
-// esto es usando DELETE_LAST_RECOMMENDATION
+// esto es usando DELETE_LAST_RECOMMENDATION (temporal)
 eliminar.addEventListener(`click`, function(){
     const Grid_1 = new ScrollerAdder("Programación", "Tu aloing", "400", "../imagenes/placeholder2.jpg", "15$", "6.0");
     let slider_child = document.querySelector(".slider-track");
@@ -30,7 +30,7 @@ eliminar.addEventListener(`click`, function(){
     }
 });
 
-
+// Agregando en mis cursos (temporal)
 const agregar_temp = document.getElementById("agregartemp");
 agregar_temp.addEventListener("click", function(){
     const test2 = new MyCourses("Programación orientada a objetos", 100);
@@ -40,7 +40,7 @@ agregar_temp.addEventListener("click", function(){
     }
     test2.add_courses();
 });
-
+// Eliminando en mis cursos (temporal)
 const eliminar_temp = document.getElementById("eliminartemp");
 eliminar_temp.addEventListener("click", function(){
     const test2 = new MyCourses("Programación orientada a objetos", 100);
