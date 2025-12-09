@@ -1,5 +1,6 @@
 *{
     font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
 }
 /* 2. Para Tablets (pantallas menores a 768px) */
 @media (max-width: 768px) {
