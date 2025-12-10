@@ -138,9 +138,10 @@ header{
     color: rgb(255, 255, 254);
 }
 
-.caja_titulo .nav_iniciar{
+.caja_titulo .nav_registrarse{
+    text-align: center;
     max-width: 7rem;
-    padding: 15px;
+    padding: 13px;
     border-radius: 8px;
     color: #ffffff;
     text-decoration: none;
@@ -149,7 +150,7 @@ header{
 
 }
 
-.caja_titulo .nav_iniciar:hover{
+.caja_titulo .nav_registrarse:hover{
     background-color: #044d85;
     box-shadow: 0 0 15px #000000;
 }
