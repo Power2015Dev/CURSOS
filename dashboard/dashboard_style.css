@@ -15,6 +15,8 @@ hr{
 
 }
 
+
+
 body {
     background-color: #B3Cfe5;
     color: #333;
@@ -101,6 +103,22 @@ body {
     margin: 10px;
     object-fit: cover;
 }
+
+#logo_container{
+    display: flex;
+    align-items: center;
+    color: #B3CFE5;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer
+}
+
+#logo_container p{
+    margin: 15px 0px 10px 0px;
+}
+
+
 
 #profile_picture_container .arrow_size {
     width: auto;
@@ -568,12 +586,13 @@ body {
 
 #profile_picture_container{
     transition: all 0.5s ease;
+    position: relative;
 }
 
 #profile_status{
     position: absolute;
     display: none;
-    width: 100%;
+    width: 200px;
     max-width: 200px;
     right: 20px;
     background-color: #F6FAFD;
@@ -607,18 +626,23 @@ body {
     margin-bottom: 25px;
 }
 
+#bell_container{
+    position: relative;
+}
+
 #notifications{
     display: none;
     position: absolute;
     overflow-y: auto;
-    height: 50%;
-    right: 120px;
+    height: 250px;
+    width: 450px;
+    right: 20px;
     background-color: white;
     border-radius: 12px;
     padding: 15px;
     box-shadow: 0 0 20px rgba(74, 127, 167, 0.4);
     z-index: 5;
-    max-width: 50%;
+   
 
 
 }
@@ -629,7 +653,8 @@ body {
     gap: 15px;
     overflow-y: auto;
     margin: 20px 0px 20px 0px;
-    height: 30%;
+    height: 100%;
+    width: 100%;
     padding-right: 5px;
     background-color: white;
     border-radius: 12px;
