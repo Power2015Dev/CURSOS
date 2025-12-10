@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="../modulos/navbar/navbar_style.css">
     <link rel="stylesheet" href="dashboard_style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +16,8 @@
         <nav id="navbar">
             <div id="logo_container">
                 <img src="../imagenes/kursa_logo_claro.png" alt="logo" class="vector_size" id="logo"></img>
-                <p>Modo Vendedor</p>
+                <a href="../modulos/configuracion/configuracion.html" class="no-decorations"><p id="seller">Modo Vendedor</p></a>
+              
             </div>
             <div id="search_bar">
            
@@ -56,10 +58,10 @@
                     <img src="../imagenes/dashboard_img/arrow.png" alt="arrow" class="arrow_size"></img>
                     <div id="profile_status">
                         
-                            <a href="#"><p>Editar perfil</p></a>
-                            <a href="#"><p>Configuración</p></a>
-                            <a href="#"><p>Ayuda</p></a>
-                            <a href="#"><p>Mis cursos</p></a>
+                            <a href="../modulos/configuracion/perfil.html"><p>Editar perfil</p></a>
+                            <a href="../modulos/configuracion/configuracion.html"><p>Configuración</p></a>
+                            <a href="../modulos/configuracion/ayuda.html"><p>Ayuda</p></a>
+                            <a href="../modulos/configuracion/courses.html"><p>Mis cursos</p></a>
                             <a href="#"><p>Cerrar sesión</p></a>
 
                     </div>
@@ -157,7 +159,7 @@
 
     </div>
 </div>
-    <script src="dashboard_navbar.js"></script>
+    <script src="../modulos/navbar/dashboard_navbar.js"></script>
     <script src="dashboard_Scroll.js"></script>
     <script type="module" src="Database_extractor.js"></script>
 </body>
