@@ -6,80 +6,122 @@
     <title>Mis cursos</title>
     <link rel="stylesheet" href="../../modulos/navbar/navbar_style.css">
     <link rel="stylesheet" href="css/courses.css">
+    
 </head>
 <body>
     
     <nav id="navbar">
-            <div id="logo_container">
-                <img src="../../imagenes/kursa_logo_claro.png" alt="logo" class="vector_size" id="logo"></img>
-                <a href="../../dashboard/dashboard.html" class="no-decorations"><p id="seller">Modo Vendedor</p></a>
-              
-            </div>
-            <div id="search_bar">
-           
-                <input type="text" name="search" placeholder="Buscar cursos o freelancers"></input>
-                <img src="../../imagenes/dashboard_img/lupa.png" alt="lupa" class="vector_size"></img>
-            
-            </div>
-
-            <div id="profile_bar">
-
-                <img src="../../imagenes/dashboard_img/perfil.png" alt="perfil" class="vector_size"></img>
-                <div id ="bell_container">
-                    <img src="../../imagenes/dashboard_img/bell.png" alt="campana" class="vector_size"></img>
-                    <div id="notifications">
-                        <h2>Notificaciones</h2>
-                        <div class="messages">
-                            <div class="row_message">
-                                <img src="../../imagenes/dashboard_img/esfera.png" alt="esfera">
-                                <p>Nuevo Comentario en "Fundamentos de Diseño UX/UI"</p>
-                            </div>
-                            <span>Hace 2 horas</span>
-                            <hr>
-                        </div> 
-                        <div class="messages">
-                            <div class="row_message">
-                                <img src="../../imagenes/dashboard_img/check.png" alt="check">
-                                <p>Tu compra ha sido validada en "Fundamentos de Diseño UX/UI"</p>
-                            </div>    
-                            <span>Ayer</span>
-                            <hr>
-                        </div> 
-                    </div>
-                </div>
-
-                
-                <div id="profile_picture_container">
-                    <img src="../../imagenes/placeholder2.jpg" alt="profile" id="profile_picture"></img>
-                    <img src="../../imagenes/dashboard_img/arrow.png" alt="arrow" class="arrow_size"></img>
-                    <div id="profile_status">
-                        
-                            <a href="perfil.html"><p>Editar perfil</p></a>
-                            <a href="configuracion.html"><p>Configuración</p></a>
-                            <a href="ayuda.html"><p>Ayuda</p></a>
-                            <a href="courses.html"><p>Mis cursos</p></a>
-                            <a href="#"><p>Cerrar sesión</p></a>
-
-                    </div>
-                </div>
-            </div>
-        
-        </nav>
-
-        <div id="grid_layout"> 
-            <div class="grid_item grid_1">
-                <h2>Mis cursos</h2>
-                <button id="agregartemp">Agregar</button>
-                <button id="eliminartemp">eliminar</button>
-                <div class="cursos_actuales">
-        
-                <!--esto lo controla el js-->
-
-            </div>
+        <div id="logo_container">
+            <img src="../../imagenes/kursa_logo_claro.png" alt="logo" class="vector_size" id="logo">
+            <a href="../../dashboard/dashboard.html" class="no-decorations"><p id="seller">Modo Vendedor</p></a>
+        </div>
+        <div id="search_bar">
+            <input type="text" name="search" placeholder="Buscar cursos o freelancers">
+            <img src="../../imagenes/dashboard_img/lupa.png" alt="lupa" class="vector_size">
         </div>
 
-        <script src="../navbar/dashboard_navbar.js"></script>
+        <div id="profile_bar">
+            <img src="../../imagenes/dashboard_img/perfil.png" alt="perfil" class="vector_size">
+            <div id ="bell_container">
+                <img src="../../imagenes/dashboard_img/bell.png" alt="campana" class="vector_size">
+                <div id="notifications">
+                    <h2>Notificaciones</h2>
+                    <div class="messages">
+                        <div class="row_message">
+                            <img src="../../imagenes/dashboard_img/esfera.png" alt="esfera">
+                            <p>Nuevo Comentario en "Fundamentos de Diseño UX/UI"</p>
+                        </div>
+                        <span>Hace 2 horas</span>
+                        <hr>
+                    </div> 
+                    <div class="messages">
+                        <div class="row_message">
+                            <img src="../../imagenes/dashboard_img/check.png" alt="check">
+                            <p>Tu compra ha sido validada en "Fundamentos de Diseño UX/UI"</p>
+                        </div>    
+                        <span>Ayer</span>
+                        <hr>
+                    </div> 
+                </div>
+            </div>
 
+            <div id="profile_picture_container">
+                <img src="../../imagenes/placeholder2.jpg" alt="profile" id="profile_picture">
+                <img src="../../imagenes/dashboard_img/arrow.png" alt="arrow" class="arrow_size">
+                <div id="profile_status">
+                        <a href="perfil.html"><p>Editar perfil</p></a>
+                        <a href="configuracion.html"><p>Configuración</p></a>
+                        <a href="ayuda.html"><p>Ayuda</p></a>
+                        <a href="courses.html"><p>Mis cursos</p></a>
+                        <a href="#"><p>Cerrar sesión</p></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="flex_layout"> 
+        
+        <div class="box_container main-content">
+            <div class="header-cursos">
+                <h2>Mis cursos</h2>
+                <button id="agregartemp">Agregar</button>
+                <button id="eliminartemp">Eliminar</button>
+            </div>
+            
+            <div class="cursos_actuales">
+                </div>
+        </div> <div class="box_container sidebar">
+            <h2>Tu Actividad</h2>
+
+            <div class="stats_container">
+                
+                <div class="quick_stats">
+                    <div class="stat_box">
+                        <span class="stat_number">12.5h</span>
+                        <span class="stat_label">Horas Totales</span>
+                    </div>
+                    <div class="stat_box fire"> 
+                        <span class="stat_number">5</span>
+                        <span class="stat_label">Racha de días</span>
+                    </div>
+                </div>
+
+                <div class="chart_container">
+                    <div class="chart_title">Horas por día</div>
+                    <div class="bar_chart">
+                        <div class="bar_group">
+                            <div class="bar" style="height: 40%;"></div>
+                            <span class="day">L</span>
+                        </div>
+                        <div class="bar_group">
+                            <div class="bar" style="height: 70%;"></div>
+                            <span class="day">M</span>
+                        </div>
+                        <div class="bar_group">
+                            <div class="bar" style="height: 30%;"></div>
+                            <span class="day">X</span>
+                        </div>
+                        <div class="bar_group">
+                            <div class="bar active" style="height: 85%;"></div> 
+                            <span class="day">J</span>
+                        </div>
+                        <div class="bar_group">
+                            <div class="bar" style="height: 50%;"></div>
+                            <span class="day">V</span>
+                        </div>
+                        <div class="bar_group">
+                            <div class="bar" style="height: 20%;"></div>
+                            <span class="day">S</span>
+                        </div>
+                        <div class="bar_group">
+                            <div class="bar" style="height: 10%;"></div>
+                            <span class="day">D</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> </div> <script src="../navbar/dashboard_navbar.js"></script>
+    <script type="module" src="../configuracion/js/courses.js"></script>
 
 </body>
 </html>
