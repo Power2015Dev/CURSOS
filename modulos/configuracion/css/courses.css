@@ -1,11 +1,30 @@
 #flex_layout {
     display: flex;
+    flex-direction: column;
     gap: 20px;
+    justify-content: center;
+    margin-top: 1.2rem;
 }
 
+#flex_layout h2, #flex_layout hr {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    color: #0A1931;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+body {
+    background-color: #e5f1fd;
+    color: #333;
+}
 
 .course_style{
-    height: 400px;
+    height: 300px;
     font-size: 36px;
     color: rgba(10, 25, 49, 0.3);
     display: flex;
@@ -14,6 +33,91 @@
  
 }
 
+.tabs{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    
+}
+
+.filter_button{
+    font-size: 1.2rem;
+    color: white;
+    background-color: #0A1931;
+    padding: 0.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0px 15px 25px rgba(10, 25, 49, 0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.cursos_actuales{
+    font-size: 16px;
+    color: #333;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 1.2rem;
+    overflow-y: auto;
+
+}
+
+.cursos_actuales h3{
+    white-space: normal;
+    overflow-wrap: break-word; /* Si hay una palabra gigante, la corta para bajarla */
+    word-wrap: break-word;
+}
+
+.progress_fill {
+    height: 0.5rem;
+    background-color: #0A1931;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+  
+    /* La anchura se define en el HTML con style="width: 45%" */
+}
+
+.cursos_actuales::-webkit-scrollbar {
+    width: 6px;
+}
+.cursos_actuales::-webkit-scrollbar-thumb {
+    background-color: #B3CFE5;
+    border-radius: 10px;
+}
+
+.curso_actual{
+    display: flex;
+    flex-direction: column;
+    background-color: #F6FAFD; 
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    box-shadow: 0px 25px 20px -15px rgba(0, 0, 0, 0.2);
+    max-width: 350px;
+    cursor: pointer;
+}
+
+.curso_img{
+    width: 100%;
+    height: 200px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+    
+}
+
+.curso_info{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: auto;
+}
 
 .stats_container {
     display: flex;
