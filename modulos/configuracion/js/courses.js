@@ -1,7 +1,4 @@
 import { MyCourses } from '../../../constructores/Courses_class.js';
-import { listaCursos } from './fakeDB.js';
-listaCursos.forEach(element => {agregar_tarjetas(element.Titulo, element.Completacion, element.Imagen);});
-
 
 // Agregando en mis cursos (temporal)
 // const agregar_temp = document.getElementById("agregartemp");
@@ -31,7 +28,7 @@ listaCursos.forEach(element => {agregar_tarjetas(element.Titulo, element.Complet
 //     }
 // });
 
-function agregar_tarjetas(Titulo, Completacion, Imagen){
+export function agregar_tarjetas(Titulo, Completacion, Imagen){
     const Course_Card = new MyCourses(Titulo, Completacion, Imagen);
     const message = document.getElementById("Courses_available");
     if(message){
