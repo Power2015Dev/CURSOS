@@ -43,11 +43,6 @@ export class ScrollerAdder {
 
     remove_recommendations(){
         let div = document.querySelector(".slider-track");
-        let ultimoElemento = div.lastElementChild;
-
-        if (ultimoElemento && ultimoElemento.id === "state_message") { // para que no borre el mensaje de no recomendaciones
-            return; 
-        }
 
         if(div.children.length == 0) return;
         div.removeChild(div.lastElementChild);

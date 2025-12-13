@@ -6,163 +6,119 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="../modulos/navbar/navbar_style.css">
     <link rel="stylesheet" href="dashboard_style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon:ital@0;1&family=Momo+Trust+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sarala:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../imagenes/icono2d.png"> 
 </head>
 <body>
     <header>
         <nav id="navbar">
             <div id="logo_container">
-                <img src="../imagenes/kursa_logo_claro.png" alt="logo" class="vector_size" id="logo"></img>
+                <img src="../imagenes/kursa_logo_claro.png" alt="logo" class="vector_size" id="logo">
                 <a href="../modulos/configuracion/configuracion.html" class="no-decorations"><p id="seller">Modo Vendedor</p></a>
-              
             </div>
             <div id="search_bar">
-           
-                <input type="text" name="search" placeholder="Buscar cursos o freelancers"></input>
-                <img src="../imagenes/dashboard_img/lupa.png" alt="lupa" class="vector_size"></img>
-            
+                <input type="text" name="search" placeholder="Buscar cursos o freelancers">
+                <img src="../imagenes/dashboard_img/lupa.png" alt="lupa" class="vector_size">
             </div>
 
             <div id="profile_bar">
-
-                <img src="../imagenes/dashboard_img/perfil.png" alt="perfil" class="vector_size"></img>
+                <img src="../imagenes/dashboard_img/perfil.png" alt="perfil" class="vector_size">
                 <div id ="bell_container">
-                    <img src="../imagenes/dashboard_img/bell.png" alt="campana" class="vector_size"></img>
+                    <img src="../imagenes/dashboard_img/bell.png" alt="campana" class="vector_size">
                     <div id="notifications">
                         <h2>Notificaciones</h2>
                         <div class="messages">
-                            <div class="row_message">
-                                <img src="../imagenes/dashboard_img/esfera.png" alt="esfera">
-                                <p>Nuevo Comentario en "Fundamentos de Diseño UX/UI"</p>
                             </div>
-                            <span>Hace 2 horas</span>
-                            <hr>
-                        </div> 
-                        <div class="messages">
-                            <div class="row_message">
-                                <img src="../imagenes/dashboard_img/check.png" alt="check">
-                                <p>Tu compra ha sido validada en "Fundamentos de Diseño UX/UI"</p>
-                            </div>    
-                            <span>Ayer</span>
-                            <hr>
-                        </div> 
                     </div>
-                </div>
+                    <!--skeleto start-->
+                    <template id="notifications_skeleton">
+                        <div class="notification_card"> 
+        
+                            <div class="row_message">
+                                <div class="skeleton_img"></div>
+                                <div class="skeleton_osc" style="width: 40%; margin-left: 10px;"></div>
+                            </div>
 
+                            <div class="skeleton_osc" style="width: 90%;"></div>
+                            <div class="skeleton_osc" style="width: 30%;"></div>
+                            
+                        </div>
+                    </template>
+                    <!--skeleto end-->
+                </div>
                 
                 <div id="profile_picture_container">
-                    <img src="../imagenes/placeholder2.jpg" alt="profile" id="profile_picture"></img>
-                    <img src="../imagenes/dashboard_img/arrow.png" alt="arrow" class="arrow_size"></img>
+                    <img src="../imagenes/placeholder2.jpg" alt="profile" id="profile_picture">
+                    <img src="../imagenes/dashboard_img/arrow.png" alt="arrow" class="arrow_size">
                     <div id="profile_status">
-                        
                             <a href="../modulos/configuracion/perfil.html"><p>Editar perfil</p></a>
                             <a href="../modulos/configuracion/configuracion.html"><p>Configuración</p></a>
                             <a href="../modulos/configuracion/ayuda.html"><p>Ayuda</p></a>
                             <a href="../modulos/configuracion/courses.html"><p>Mis cursos</p></a>
                             <a href="#"><p>Cerrar sesión</p></a>
-
                     </div>
                 </div>
             </div>
-        
         </nav>
     </header>
 
-    <div id="grid_layout"> <!-- este contenedor es donde aplico el grid lo de antes lo maneja flexbox -->
+    <div id="grid_layout"> 
 
         <div class="grid_item grid_1">
             <h2>Recomendados</h2>
-            <button id="agregar">Agregar</button>
-            <button id="eliminar">eliminar</button>
             <div id="functions_container">
-                <span class="arrow left">➜</span> <!-- las flechas que a cada lado este es izquierda -->
-                <div class="cuatro_cajas"> <!-- aqui empieza esta estupidez -->
-                
+                <span class="arrow left">➜</span>
+                <div class="cuatro_cajas"> 
                     <div class="slider-track">
-                        
-                        <!--esto lo controla el js ahora-->
-                      <!---- <div class="course_card"> <div class="card_header"> <span class="badge">12$</span> <img src="../imagenes/dashboard_img/Programacion.png" alt="curso"> </div> <div class="card_body"> <h3>Dominando la Programación en C</h3> <p class="author">by Alan Turing Jr</p><div class="card_meta"> <span>62 Reseñas</span> <span class="rating">⭐ 7.5</span> </div> </div> <div class="card_footer"> Obtener curso </div> </div> -->
-                        
-                </div>
-                
-
-                </div> <!-- aqui termina el cuatro_cajas -->
+                        </div>
+                </div> 
                 <span class="arrow right">➜</span>
             </div>
+        </div>
+
+        <div class="grid_item grid_2">
+            <h2>Populares</h2>
             
+        </div>
 
-            
-        </div> <!-- dentro del div anidado aplico flexbox -->
-
-<div class="grid_item grid_2">
-    <h2>Mis cursos</h2>
-    <button id="agregartemp">Agregar</button>
-    <button id="eliminartemp">eliminar</button>
-    <div class="cursos_actuales">
-        
-        <!--esto lo controla el js ahora-->
-
-    </div>
-</div>
-
-
-<div class="grid_item grid_3">
-    <h2>Tu Actividad</h2>
-    
-    <div class="stats_container">
-        
-        <div class="quick_stats">
-            <div class="stat_box">
-                <span class="stat_number">12.5h</span>
-                <span class="stat_label">Horas Totales</span>
-            </div>
-            <div class="stat_box fire"> <span class="stat_number">5</span>
-                <span class="stat_label">Racha de días</span>
+        <div class="grid_item grid_3">
+            <h2>Tu Actividad</h2>
+            <div id="new_content_placeholder" style="padding: 20px; text-align: center; color: #888;">
+                mas tarde lo pongo
             </div>
         </div>
 
-        <div class="chart_container">
-            <div class="chart_title">Horas por día</div>
-            <div class="bar_chart">
-                <div class="bar_group">
-                    <div class="bar" style="height: 40%;"></div>
-                    <span class="day">L</span>
-                </div>
-                <div class="bar_group">
-                    <div class="bar" style="height: 70%;"></div>
-                    <span class="day">M</span>
-                </div>
-                <div class="bar_group">
-                    <div class="bar" style="height: 30%;"></div>
-                    <span class="day">X</span>
-                </div>
-                <div class="bar_group">
-                    <div class="bar active" style="height: 85%;"></div> <span class="day">J</span>
-                </div>
-                <div class="bar_group">
-                    <div class="bar" style="height: 50%;"></div>
-                    <span class="day">V</span>
-                </div>
-                <div class="bar_group">
-                    <div class="bar" style="height: 20%;"></div>
-                    <span class="day">S</span>
-                </div>
-                <div class="bar_group">
-                    <div class="bar" style="height: 10%;"></div>
-                    <span class="day">D</span>
+    </div> <template id="skeleton_template">
+        <div class="curso_actual">
+            <div class="curso_img_skeleton">
+                <div class="skeleton skeleton-text_line1"></div>
+            </div>
+            <div class="curso_info">
+                <div class="skeleton_osc" style="width: 60%; height: 15px; margin-bottom: 10px;"></div>
+                <div class="skeleton_osc" style="width: 100%; height: 10px;"></div>
+            </div>
+        </div>
+    </template>
+
+    <template id="skeleton_card_template">
+        <div class="course_card">
+            <div class="card_header">
+                <div class="skeleton_osc" style="width: 100%; height: 100%;"></div>
+            </div>
+            <div class="card_body">
+                <div class="skeleton_osc" style="width: 80%; height: 15px; margin-bottom: 10px;"></div>
+                <div class="skeleton_osc" style="width: 40%; height: 10px; margin-bottom: 20px;"></div>
+                <div class="card_meta">
+                     <div class="skeleton_osc" style="width: 30%; height: 10px;"></div>
+                     <div class="skeleton_osc" style="width: 20%; height: 10px;"></div>
                 </div>
             </div>
         </div>
+    </template>
 
-    </div>
-</div>
     <script src="../modulos/navbar/dashboard_navbar.js"></script>
     <script src="dashboard_Scroll.js"></script>
-    <script type="module" src="dashboard_object.js"></script>
-</body>
-
-
+    <script type="module" src="dashboard_loader.js"></script>
+     <script type="module" src="../modulos/navbar/notifications_loading.js"></script>
+    </body>
 </html>

@@ -39,10 +39,10 @@ notificaciones.addEventListener("click", function(event){
 });
 
 document.addEventListener('click', function(event) {
-        iniciado_perfil = profile_canvas.classList.contains("show");
-        clickeado_perfil = !profile_canvas.contains(event.target) && !profile_picture_container.contains(event.target)
-        iniciado_notificaciones = notificaciones.classList.contains("show");
-        clickeado_notificaciones = !notificaciones.contains(event.target) && !caja_notificacion.contains(event.target)
+        let iniciado_perfil = profile_canvas.classList.contains("show");
+        let clickeado_perfil = !profile_canvas.contains(event.target) && !profile_picture_container.contains(event.target)
+        let iniciado_notificaciones = notificaciones.classList.contains("show");
+        let clickeado_notificaciones = !notificaciones.contains(event.target) && !caja_notificacion.contains(event.target)
         //el evento target solo regresa donde el usuario hizo click
         if (iniciado_notificaciones && clickeado_notificaciones) {
             notificaciones.classList.remove("show");

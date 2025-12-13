@@ -21,3 +21,73 @@ export const listaCursos = [
         Estado: "Finalizado"
     }
 ];
+
+export const listaNotificaciones = [
+    {
+        id: 1, 
+        Titulo: "Pago realizado con éxito",
+        Tiempo: 5,
+        Tipo: "check",
+        Tiempo_medida: "minutos",
+        prefijo: "hace"
+    },
+    {
+        id: 2,
+        Titulo: "Servidor en mantenimiento",
+        Tiempo: 2,
+        Tipo: "esfera",
+        Tiempo_medida: "horas",
+        prefijo: "en"
+    },
+    {
+        id: 3,
+        Titulo: "Nuevo comentario en tu post",
+        Tiempo: 30,
+        Tipo: "esfera",
+        Tiempo_medida: "segundos",
+        prefijo: "hace"
+    },
+    {
+        id: 4,
+        Titulo: "Perfil actualizado correctamente",
+        Tiempo: 1,
+        Tipo: "check",
+        Tiempo_medida: "día",
+        prefijo: "hace"
+    },
+    {
+        id: 5,
+        Titulo: "Intento de inicio de sesión",
+        Tiempo: 10,
+        Tipo: "esfera",
+        Tiempo_medida: "minutos",
+        prefijo: "hace"
+    },
+    {
+        id: 6,
+        Titulo: "Descarga completada",
+        Tiempo: 15,
+        Tipo: "check",
+        Tiempo_medida: "minutos",
+        prefijo: "hace"
+    }
+];
+
+export const listaRecomendados = [
+    {
+        Titulo: "React desde cero", Autor: "Facebook", Reseña: "120", Imagen: "../imagenes/placeholder2.jpg", Precio: "20$", Rating: "4.9"
+    },
+    {
+        Titulo: "Python para Data Science", Autor: "Guido", Reseña: "500", Imagen: "../imagenes/placeholder2.jpg", Precio: "Free", Rating: "5.0"
+    },
+    {
+        Titulo: "Diseño Gráfico", Autor: "Adobe", Reseña: "80", Imagen: "../imagenes/placeholder2.jpg", Precio: "15$", Rating: "4.5"
+    },
+    {
+        Titulo: "Marketing Digital", Autor: "Google", Reseña: "200", Imagen: "../imagenes/placeholder2.jpg", Precio: "10$", Rating: "4.7"
+    },
+    {
+        Titulo: "Marketing Digital", Autor: "Google", Reseña: "200", Imagen: "../imagenes/placeholder2.jpg", Precio: "10$", Rating: "4.7"
+    }
+    
+];

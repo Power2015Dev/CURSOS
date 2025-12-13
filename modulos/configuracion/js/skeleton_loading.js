@@ -5,9 +5,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     setTimeout(() => {
-        load_content();
+
+    if(listaCursos.length === 0){
+        let content = document.querySelector(".cursos_actuales");
+        content.innerHTML = "";
+        const message = document.createElement("p");
+        message.textContent = "No hay cursos guardados";
+        message.id = "Courses_available";
+        message.classList.add("course_style");
+        document.querySelector(".cursos_actuales").appendChild(message);
+        
+    }
+    else {
+    load_content();
+    }
+
+        
     }, 1000);
 });
+
+
+
 
 function show_skeleton(Number_of_skeletons) {
     let content = document.querySelector(".cursos_actuales");
@@ -21,6 +39,7 @@ function show_skeleton(Number_of_skeletons) {
 
 function load_content(){
     let content = document.querySelector(".cursos_actuales");
+
     content.innerHTML = "";
      listaCursos.forEach(element => {agregar_tarjetas(element.Titulo, element.Completacion, element.Imagen);});
 }

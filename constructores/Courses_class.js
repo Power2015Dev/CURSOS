@@ -35,11 +35,9 @@ export class MyCourses {
 
     remove_courses(){
         let div = document.querySelector(".cursos_actuales");
-        let ultimoElemento = div.lastElementChild;
+        
 
-        if (ultimoElemento && ultimoElemento.id === "Courses_available") { // para que no borre el mensaje de no cursos
-            return; 
-        }
+        
         if(div.children.length == 0) return;
         div.removeChild(div.lastElementChild);
     }

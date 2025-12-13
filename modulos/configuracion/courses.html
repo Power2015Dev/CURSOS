@@ -27,24 +27,30 @@
                 <div id="notifications">
                     <h2>Notificaciones</h2>
                     <div class="messages">
-                        <div class="row_message">
-                            <img src="../../imagenes/dashboard_img/esfera.png" alt="esfera">
-                            <p>Nuevo Comentario en "Fundamentos de Diseño UX/UI"</p>
-                        </div>
-                        <span>Hace 2 horas</span>
-                        <hr>
+                        
+                            
+                            <!--controlado por js-->
+                    
                     </div> 
-                    <div class="messages">
-                        <div class="row_message">
-                            <img src="../../imagenes/dashboard_img/check.png" alt="check">
-                            <p>Tu compra ha sido validada en "Fundamentos de Diseño UX/UI"</p>
-                        </div>    
-                        <span>Ayer</span>
-                        <hr>
-                    </div> 
-                </div>
-            </div>
+                    <!--skeleto start-->
+                    <template id="notifications_skeleton">
+                        <div class="notification_card"> 
+        
+                            <div class="row_message">
+                                <div class="skeleton_img"></div>
+                                <div class="skeleton_osc" style="width: 40%; margin-left: 10px;"></div>
+                            </div>
 
+                            <div class="skeleton_osc" style="width: 90%;"></div>
+                            <div class="skeleton_osc" style="width: 30%;"></div>
+                            
+                        </div>
+                    </template>
+                    <!--skeleto end-->
+            </div>
+        </div>
+                    
+            
             <div id="profile_picture_container">
                 <img src="../../imagenes/placeholder2.jpg" alt="profile" id="profile_picture">
                 <img src="../../imagenes/dashboard_img/arrow.png" alt="arrow" class="arrow_size">
@@ -168,7 +174,9 @@
             </div>
         </div> </div> <script src="../navbar/dashboard_navbar.js"></script>
         <script type="module" src="js/skeleton_loading.js"></script>
-    <script type="module" src="../configuracion/js/courses.js"></script>
+        <script type="module" src="../configuracion/js/courses.js"></script>
+        <script type="module" src="../navbar/notifications_loading.js"></script>
+    
 
 </body>
 </html>

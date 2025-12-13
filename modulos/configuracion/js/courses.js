@@ -28,6 +28,8 @@ import { MyCourses } from '../../../constructores/Courses_class.js';
 //     }
 // });
 
+
+
 export function agregar_tarjetas(Titulo, Completacion, Imagen){
     const Course_Card = new MyCourses(Titulo, Completacion, Imagen);
     const message = document.getElementById("Courses_available");
@@ -36,4 +38,8 @@ export function agregar_tarjetas(Titulo, Completacion, Imagen){
     }
     Course_Card.add_courses();
 }
+
+
+
+
 
