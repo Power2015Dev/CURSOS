@@ -17,7 +17,7 @@
         </div>
         <div id="search_bar">
             <input type="text" name="search" placeholder="Buscar cursos o freelancers">
-            <img src="../../imagenes/dashboard_img/lupa.png" alt="lupa" class="vector_size">
+            <img src="../../imagenes/dashboard_img/lupa.png" alt="lupa" class="vector_size"style="cursor: pointer;">
         </div>
 
         <div id="profile_bar">
@@ -121,61 +121,39 @@
 
             </div>
         
-        </div> <div class="box_container sidebar">
+        </div> 
+    <div class="box_container sidebar">  
+        <div class="center_text">       
             <h2>Tu Actividad</h2>
             <hr>
+        </div>
+        <div id="activity_content">
 
-            <div class="stats_container">
-                
-                <div class="quick_stats">
-                    <div class="stat_box">
-                        <span class="stat_number">12.5h</span>
-                        <span class="stat_label">Horas Totales</span>
-                    </div>
-                    <div class="stat_box fire"> 
-                        <span class="stat_number">5</span>
-                        <span class="stat_label">Racha de días</span>
-                    </div>
-                </div>
+            <!--controlado por js-->
 
-                <div class="chart_container">
-                    <div class="chart_title">Horas por día</div>
-                    <div class="bar_chart">
-                        <div class="bar_group">
-                            <div class="bar" style="height: 40%;"></div>
-                            <span class="day">L</span>
-                        </div>
-                        <div class="bar_group">
-                            <div class="bar" style="height: 70%;"></div>
-                            <span class="day">M</span>
-                        </div>
-                        <div class="bar_group">
-                            <div class="bar" style="height: 30%;"></div>
-                            <span class="day">X</span>
-                        </div>
-                        <div class="bar_group">
-                            <div class="bar active" style="height: 85%;"></div> 
-                            <span class="day">J</span>
-                        </div>
-                        <div class="bar_group">
-                            <div class="bar" style="height: 50%;"></div>
-                            <span class="day">V</span>
-                        </div>
-                        <div class="bar_group">
-                            <div class="bar" style="height: 20%;"></div>
-                            <span class="day">S</span>
-                        </div>
-                        <div class="bar_group">
-                            <div class="bar" style="height: 10%;"></div>
-                            <span class="day">D</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> </div> <script src="../navbar/dashboard_navbar.js"></script>
+        </div> 
+    </div>
+
+<template id="activity_skeleton">
+    <div class="activity-card">
+        <div class="stats-row" style="opacity: 0.6;">
+            <div class="stat-item skeleton_osc" style="height: 80px; background: #eee;"></div>
+            <div class="stat-item skeleton_osc" style="height: 80px; background: #eee;"></div>
+        </div>
+        
+        <div class="chart-wrapper" style="margin-top: 20px; opacity: 0.6;">
+             <div class="skeleton_osc" style="width: 40%; height: 15px; margin-bottom: 15px;"></div>
+             <div class="skeleton_osc" style="width: 100%; height: 200px; border-radius: 15px;"></div>
+        </div>
+    </div>
+</template>
+
+    </div> 
+        <script src="../navbar/dashboard_navbar.js"></script>
         <script type="module" src="js/skeleton_loading.js"></script>
         <script type="module" src="../configuracion/js/courses.js"></script>
         <script type="module" src="../navbar/notifications_loading.js"></script>
+        <script type="module" src="js/activity_loader.js"></script>
     
 
 </body>

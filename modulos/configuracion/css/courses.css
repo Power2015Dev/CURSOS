@@ -119,97 +119,105 @@ body {
     height: auto;
 }
 
-.stats_container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-between;
-}
-
-
-.quick_stats {
+.stats-row {
     display: flex;
     gap: 15px;
-    margin-bottom: 20px;
+    width: 100%;
 }
 
-.stat_box {
-    flex: 1;
+.stat-item {
+    flex: 1; /* Que ocupen 50% cada uno aunque no soy fan de usar esto */
     background-color: #F6FAFD;
-    padding: 15px;
     border-radius: 15px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    justify-content: center;
+    text-align: center;
 }
 
-.stat_number {
-    font-size: 24px;
-    font-weight: 700;
-    color: #0A1931;
-}
-
-.stat_label {
-    font-size: 12px;
-    color: #666;
-    margin-top: 5px;
-}
-
-.stat_box.fire .stat_number {
-    color: #e67e22; 
-}
+.stat-val { font-size: 24px; font-weight: 800; color: #0A1931; }
+.stat-lbl { font-size: 12px; color: #888; margin-top: 5px; font-weight: 500;}
+.stat-item.fire .stat-val { color: #e67e22; }
 
 
-.chart_container {
-    flex: 1; 
-    background-color: #fff; 
+.chart-wrapper {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
-.chart_title {
+.chart-header {
     font-size: 14px;
-    font-weight: 600;
     color: #888;
     margin-bottom: 15px;
+    font-weight: 600;
 }
 
-.bar_chart {
+
+.chart-area {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    height: 100%; 
-    padding-bottom: 10px;
-    border-bottom: 2px solid #F0F0F0;
+    align-items: flex-end; 
+    height: 200px; 
+    width: 100%;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
 }
 
-.bar_group {
+
+.bar-column {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    height: 100%;
-    justify-content: flex-end;
+    justify-content: flex-end; 
+    height: 100%; 
+    width: 30px; 
     gap: 8px;
 }
 
-.bar {
+
+.bar-visual {
     width: 12px;
-    background-color: #B3CFE5;
+    background-color: #dcebf7;
     border-radius: 20px;
-    transition: height 1s ease-out; 
+    min-height: 4px; 
 }
 
-
-.bar.active {
+.bar-visual.active {
     background-color: #0A1931;
-    box-shadow: 0 0 10px rgba(10, 25, 49, 0.3);
+    box-shadow: 0 4px 10px rgba(10, 25, 49, 0.2);
 }
 
-.day {
+.day-label {
     font-size: 12px;
     color: #888;
     font-weight: 600;
 }
 
+.box_container{
+    padding: 100px;
+    margin: 0px 50px 0px 50px;
+   
+}
+
+.box_container h2{
+    font-weight: 600;
+    color: #0A1931;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.center_text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center
+}
+
+.center_text hr{
+    margin-bottom: 50px;
+
+}

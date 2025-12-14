@@ -91,3 +91,17 @@ export const listaRecomendados = [
     }
     
 ];
+
+export const actividadData = {
+    horas: "4h",
+    racha: 9,
+    dias: [
+        { dia: "L", altura: 40, active: true },
+        { dia: "M", altura: 70, active: false },
+        { dia: "X", altura: 30, active: false },
+        { dia: "J", altura: 85, active: true },
+        { dia: "V", altura: 50, active: false },
+        { dia: "S", altura: 20, active: false },
+        { dia: "D", altura: 10, active: false }
+    ]
+};

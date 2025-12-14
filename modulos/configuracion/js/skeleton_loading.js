@@ -1,7 +1,7 @@
 import { listaCursos } from './fakeDB.js';
 import { agregar_tarjetas } from './courses.js';
 document.addEventListener("DOMContentLoaded", () => {
-    show_skeleton(3);
+    show_skeleton(4);
 
 
     setTimeout(() => {
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
         
-    }, 1000);
+    }, 3000);
 });
 
 
