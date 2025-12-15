@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title onclick="get_title()"></title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <title></title>
     <link rel="stylesheet" href="../navbar/navbar_style.css">
+    <link rel="icon" type="image/png" href="/imagenes/icono2d.png">
 </head>
 <body>
 
@@ -68,6 +70,7 @@
             const cursoParaMostrar = listaRecomendados.find(curso => curso.id === course_id);
 
             console.log(cursoParaMostrar);
+            document.title = cursoParaMostrar.Titulo;
 
         </script>
 
