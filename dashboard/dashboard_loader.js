@@ -25,7 +25,7 @@ function load_content() {
         listaRecomendados.forEach(data => {
             const card = new ScrollerAdder(
                 data.Titulo, data.Autor, data.Reseña, 
-                data.Imagen, data.Precio, data.Rating
+                data.Imagen, data.Precio, data.Rating, data.id
             );
             card.add_recommendations();
         });

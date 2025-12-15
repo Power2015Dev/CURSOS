@@ -1,11 +1,12 @@
 export class ScrollerAdder {
-    constructor(Titulo, Autor, Reseña, Imagen, Precio, Rating) {
+    constructor(Titulo, Autor, Reseña, Imagen, Precio, Rating, id) {
         this.Titulo = Titulo;
         this.Autor = Autor;
         this.Reseña = Reseña;
         this.Imagen = Imagen;
         this.Precio = Precio;
         this.Rating = Rating;
+        this.id = id;
     }
 
 
@@ -28,7 +29,7 @@ export class ScrollerAdder {
                     <span class="rating">⭐ ${this.Rating}</span> 
                 </div> 
             </div> 
-            <div class="card_footer"> Obtener curso </div> 
+            <div class="card_footer"><a href="/modulos/course_page/page.html?id=${this.id}" style="text-decoration: none;"> Obtener curso </a></div> 
             `;
 
         div.appendChild(card);

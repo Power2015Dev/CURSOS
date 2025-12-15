@@ -75,19 +75,19 @@ export const listaNotificaciones = [
 
 export const listaRecomendados = [
     {
-        Titulo: "React desde cero", Autor: "Facebook", Reseña: "120", Imagen: "../imagenes/placeholder2.jpg", Precio: "20$", Rating: "4.9"
+       id: 1, Titulo: "React desde cero", Autor: "Facebook", Reseña: "120", Imagen: "../imagenes/placeholder2.jpg", Precio: "20$", Rating: "4.9"
     },
     {
-        Titulo: "Python para Data Science", Autor: "Guido", Reseña: "500", Imagen: "../imagenes/placeholder2.jpg", Precio: "Free", Rating: "5.0"
+       id: 2, Titulo: "Python para Data Science", Autor: "Guido", Reseña: "500", Imagen: "../imagenes/placeholder2.jpg", Precio: "Free", Rating: "5.0"
     },
     {
-        Titulo: "Diseño Gráfico", Autor: "Adobe", Reseña: "80", Imagen: "../imagenes/placeholder2.jpg", Precio: "15$", Rating: "4.5"
+       id: 3, Titulo: "Diseño Gráfico", Autor: "Adobe", Reseña: "80", Imagen: "../imagenes/placeholder2.jpg", Precio: "15$", Rating: "4.5"
     },
     {
-        Titulo: "Marketing Digital", Autor: "Google", Reseña: "200", Imagen: "../imagenes/placeholder2.jpg", Precio: "10$", Rating: "4.7"
+       id: 4, Titulo: "Marketing Digital", Autor: "Google", Reseña: "200", Imagen: "../imagenes/placeholder2.jpg", Precio: "10$", Rating: "4.7"
     },
     {
-        Titulo: "Marketing Digital", Autor: "Google", Reseña: "200", Imagen: "../imagenes/placeholder2.jpg", Precio: "10$", Rating: "4.7"
+       id: 5, Titulo: "Marketing Digital", Autor: "Google", Reseña: "200", Imagen: "../imagenes/placeholder2.jpg", Precio: "10$", Rating: "4.7"
     }
     
 ];
@@ -105,3 +105,27 @@ export const actividadData = {
         { dia: "D", altura: 10, active: false }
     ]
 };
+
+export const cursosData = [
+    {
+        id: 1,
+        titulo: "Curso de Python desde Cero",
+        precio: "$19.99",
+        descripcion: "Aprende Python con este curso completo para principiantes...",
+        imagen: "python.jpg"
+    },
+    {
+        id: 2,
+        titulo: "Diseño UX/UI Avanzado",
+        precio: "$29.99",
+        descripcion: "Domina las interfaces de usuario con Figma...",
+        imagen: "uiux.jpg"
+    },
+    {
+        id: 3,
+        titulo: "Master en Marketing Digital",
+        precio: "$15.00",
+        descripcion: "Estrategias de SEO y SEM para 2024...",
+        imagen: "marketing.jpg"
+    }
+];
