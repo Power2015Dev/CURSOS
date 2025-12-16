@@ -29,7 +29,7 @@ export class ScrollerAdder {
                     <span class="rating">⭐ ${this.Rating}</span> 
                 </div> 
             </div> 
-            <div class="card_footer"><a href="/modulos/course_page/page.html?id=${this.id}" style="text-decoration: none;"> Obtener curso </a></div> 
+            <div class="card_footer"><a href="/modulos/course_page/page.html?id=${this.id}" style="text-decoration: none;" class="never_visited"> Obtener curso </a></div> 
             `;
 
         div.appendChild(card);
