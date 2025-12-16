@@ -60,20 +60,88 @@
             </div>
         </nav>
 
-        <script type="module">
+        <h1>placeholder</h1>
+        <div id="author_container">
+            <img src="#" alt="profile" id="author_picture"> <!-- todo esto se asignara con js no cambies nada dentro de las etiqutas-->
+            <div id="author_status">                        <!--concentrate en hacer un buen css-->
+                <p id="author_name">nombre</p>              <!--puedes hacer clases y ids cuantos quieras-->
+                <p id="author_description">descripcion</p>
+                <div>
+                    
+                    
+                </div>
+                
+            </div>
+        </div>
+
+        <div id="media_container">
+            <video controls id="video">
+                <source src="/videos/xdd.mp4">
+            </video>
+            <img src="#" alt="1# video/imagen">
+            <img src="#" alt="2# video/imagen">
+            <!--etc-->
+        </div>
+
+        <!--esto es reseñas-->
+            <div id="review_user">
+                <span class="arrow left">➜</span>
+                <span class="arrow right">➜</span>
+                <div id="user_box">
+                    <p>user</p>
+                    <img src="#" alt="user">
+                    <p>descripcion</p>
+                    <div>
+                        <p>5</p>
+                        <img src="/imagenes/star.png" alt="star">
+                    </div>
+                    
+                </div>
+                <span class="arrow right">➜</span>
+            </div>
+
+            <!--este es el lado derecho-->
+            <div id="buy_box">
+                <p>titulo</p>
+                <p>descripcion</p>
+                <p>precio</p>
+                <input type="button" value="comprar">
+            </div>
+
+            <!--esto son cajas de recomendaciones como los que hay en el dashboard -->
             
+            <h2>Recomendados</h2>
+            <div id="functions_container">
+                <span class="arrow left">➜</span>
+                <div class="cuatro_cajas"> 
+                    <div class="slider-track">
+                        </div>
+                </div> 
+                <span class="arrow right">➜</span>
+            </div>
+
+            <!--faq-->
+
+            <p>FAQ</p>
+            <p>descripcion</p>
+
+            <footer></footer> <!--aqui pones lo que quieras-->
+
+
+        <script type="module">
+            //este import va a ser temporar porque es la bd falsa usala para probar
             import { listaRecomendados } from '../configuracion/js/fakeDB.js';
 
-            const param = new URLSearchParams(window.location.search);
-            const course_id = parseInt(param.get('id'));
+            const param = new URLSearchParams(window.location.search); // esto es para obtener el id pero del tipo ?id=
+            const course_id = parseInt(param.get('id')); // como es un string lo pasamos a int
 
-            const cursoParaMostrar = listaRecomendados.find(curso => curso.id === course_id);
+            const cursoParaMostrar = listaRecomendados.find(curso => curso.id === course_id); // esto es muy parecido a un get de java
+            //basicamente es una funcion con el parametro curso y devuelve el curso que cumpla con la condicion
 
             console.log(cursoParaMostrar);
             document.title = cursoParaMostrar.Titulo;
 
         </script>
-
     <script src="../navbar/dashboard_navbar.js"></script>
     <script src="page.js"></script>
     <script type="module" src="../navbar/notifications_loading.js"></script>
