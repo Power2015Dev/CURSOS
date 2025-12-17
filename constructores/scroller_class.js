@@ -38,10 +38,10 @@ export class ScrollerAdder {
     add_small_recomendation(){
         document.querySelectorAll(`.slider-small`).forEach(element => {
             const card = document.createElement("div");
-
+            card.classList.add("small_card");
             card.innerHTML = `
             
-            <div class="small_card">
+            
                 <a href="/modulos/course_page/page.html?id=${this.id}">
                     <img src="${this.Imagen}" alt="placeholder" class="card_bg">
                     
@@ -55,7 +55,7 @@ export class ScrollerAdder {
                         </div>
                     </div>
                     </a>
-                </div>
+                
 
             `;
 

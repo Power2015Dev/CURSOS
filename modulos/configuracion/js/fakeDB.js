@@ -75,13 +75,13 @@ export const listaNotificaciones = [
 
 export const listaRecomendados = [
     {
-       id: 1, Titulo: "React desde cero", Autor: "Facebook", Reseña: "120", Imagen: "../imagenes/placeholder2.jpg", Precio: "20$", Rating: "4.9"
+       id: 1, Titulo: "React desde cero", Autor: "Facebook", Reseña: "120", Imagen: "https://media.tenor.com/MkI7jDQ5yboAAAAe/youtube-thumbnail.png", Precio: "20$", Rating: "4.9"
     },
     {
-       id: 2, Titulo: "Python para Data Science", Autor: "Guido", Reseña: "500", Imagen: "../imagenes/placeholder2.jpg", Precio: "Free", Rating: "5.0"
+       id: 2, Titulo: "Python para Data Science", Autor: "Guido", Reseña: "500", Imagen: "https://i.ytimg.com/vi/8Wow0tjOvxg/maxresdefault.jpg", Precio: "Free", Rating: "5.0"
     },
     {
-       id: 3, Titulo: "Diseño Gráfico", Autor: "Adobe", Reseña: "80", Imagen: "../imagenes/placeholder2.jpg", Precio: "15$", Rating: "4.5"
+       id: 3, Titulo: "Diseño Gráfico", Autor: "Adobe", Reseña: "80", Imagen: "https://i.redd.it/origin-of-the-dawko-i-had-sex-video-v0-53jt18zhi4we1.jpg?width=640&format=pjpg&auto=webp&s=601f03377f42f4e2014fa045bcc9ec602b517c28", Precio: "15$", Rating: "4.5"
     },
     {
        id: 4, Titulo: "Marketing Digital", Autor: "Google", Reseña: "200", Imagen: "../imagenes/placeholder2.jpg", Precio: "10$", Rating: "4.7"
