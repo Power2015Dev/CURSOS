@@ -3,7 +3,7 @@ import { ScrollerAdder } from '../constructores/scroller_class.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     show_skeletons(5);
-    show_small_skeletons(5);
+    show_small_skeletons(1);
     setTimeout(() => {
         load_content();
     }, 3000); 

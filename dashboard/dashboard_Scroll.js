@@ -35,3 +35,14 @@ small_left[1].addEventListener('click', () => {
     const width = small[1].clientWidth; 
     small[1].scrollBy({ left: -width, behavior: 'smooth' });
 });
+
+small_right[2].addEventListener('click', () => {
+
+    const width = small[2].clientWidth; 
+    small[2].scrollBy({ left: width, behavior: 'smooth' });
+});
+
+small_left[2].addEventListener('click', () => {
+    const width = small[2].clientWidth; 
+    small[2].scrollBy({ left: -width, behavior: 'smooth' });
+});
