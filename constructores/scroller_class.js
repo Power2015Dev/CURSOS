@@ -35,6 +35,35 @@ export class ScrollerAdder {
         div.appendChild(card);
     }
 
+    add_small_recomendation(){
+        document.querySelectorAll(`.slider-small`).forEach(element => {
+            const card = document.createElement("div");
+
+            card.innerHTML = `
+            
+            <div class="small_card">
+                <a href="/modulos/course_page/page.html?id=${this.id}">
+                    <img src="${this.Imagen}" alt="placeholder" class="card_bg">
+                    
+                    <div class="card_content">
+                        <span class="small_badge">${this.Precio}</span>
+                        
+                        <div class="text_info">
+                            <h3 class="small_title">${this.Titulo}</h3>
+                            <p class="small_author">by ${this.Autor}</p>
+                           
+                        </div>
+                    </div>
+                    </a>
+                </div>
+
+            `;
+
+            element.appendChild(card);
+        });
+
+    }
+
     remove_all_recommendations(){
         let div = document.querySelector(".slider-track");
         for(let i = div.children.length - 1; i >= 0; i--){

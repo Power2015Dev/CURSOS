@@ -86,20 +86,8 @@
         <div class="nuevas_cajas"> 
             <div class="slider-small">
                 
-                <div class="small_card">
-                    <img src="../imagenes/placeholder2.jpg" alt="placeholder" class="card_bg">
-                    
-                    <div class="card_content">
-                        <span class="small_badge">Free</span>
-                        
-                        <div class="text_info">
-                            <h3 class="small_title">Curso de programación para principiantes</h3>
-                            <p class="small_author">by Juanito</p>
-                           
-                        </div>
-                    </div>
-                </div>
-
+                <!--controlado por js-->
+                
             </div>
         </div> 
         
@@ -107,8 +95,23 @@
     </div>
 </div>
 
+<template id="small_card_skeleton_template">
+    <div class="small_card">
+        <div class="skeleton" style="width: 100%; height: 100%; position: absolute; top:0; left:0;"></div>
+        
+        <div class="card_content">
+            <div class="skeleton_osc" style="width: 50px; height: 25px; border-radius: 20px; align-self: flex-start;"></div>
+            
+            <div class="text_info" style="width: 100%;">
+                <div class="skeleton_osc" style="width: 80%; height: 18px; margin-bottom: 8px;"></div>
+                <div class="skeleton_osc" style="width: 40%; height: 12px;"></div>
+            </div>
+        </div>
+    </div>
+</template>
+
         <div class="grid_item grid_3">
-            <h2 style="color: #77b8e9;">Porque viste " Programacion en Python "</h2>
+            <h2 style="color: #77b8e9;">Mas vistos de hoy</h2>
             <div id="small_functions_container">
         <span class="small_arrow small_left material-symbols-outlined">navigate_next</span>
         

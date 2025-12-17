@@ -387,14 +387,14 @@ hr{
 
 @media (max-width: 770px) {
     #notifications {
-        position: fixed;  /* Ya no depende de la campana, sino de la pantalla entera */
-        top: 150px;        /* Lo bajamos para que no tape el navbar */
-        left: 10%;        /* Lo mandamos al medio */
-        transform: translateX(-50%); /* Técnica para centrar perfectamente */
+        position: fixed;  
+        top: 150px;       
+        left: 10%;      
+        transform: translateX(-50%);
         
-        width: 90%;       /* Que ocupe casi todo el ancho del celular */
-        right: auto;      /* Anulamos el right anterior */
-        max-height: 60vh; /* Que no sea más alto que el 60% de la pantalla */
+        width: 90%;       
+        right: auto;   
+        max-height: 60vh; 
     }
 }
 

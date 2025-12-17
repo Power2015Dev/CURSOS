@@ -8,13 +8,13 @@ export class Activity {
     add_activity() {
         let div = document.getElementById("activity_content");
         
-        // Creamos el HTML de las barras primero
+    
         let barras_html = "";
         
         this.dias.forEach(elemento => {
             let activeClass = elemento.active ? "active" : "";
             
-            // Fíjate en el cambio de clases HTML aquí
+      
             barras_html += `
                 <div class="bar-column">
                     <div class="bar-visual ${activeClass}" style="height: ${elemento.altura}%;"></div>
@@ -24,7 +24,7 @@ export class Activity {
         });
 
         // Inyectamos la estructura nueva completa
-        // Nota como usamos 'activity-card' en lugar de 'stats_container'
+
         const nuevoHTML = `
             <div class="activity-card">
                 <div class="stats-row">
