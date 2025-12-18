@@ -1,0 +1,830 @@
+/* aqui define los colores para no estar buscando el color exacto a cada rato*/
+:root {
+  --primero: #0A1931; 
+  --segundo: #1A3D63; 
+  --tercero: #4A7FA7; 
+  --cuarto: #B3CFE5;  
+  --quinto: #F6FAFD;  
+  --blanco: #ffffff;
+
+  --radio: 12px;
+  --radio-sm: 8px;
+ 
+  --sombra: 0 4px 15px rgba(10, 25, 49, 0.06);
+  --sombra-hover: 0 8px 20px rgba(10, 25, 49, 0.12);
+}
+
+
+body {
+  background-color: var(--quinto);
+  color: var(--primero);
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  /* pila, Padding top para que el contenido no quede pegado al techo */
+  padding-top: 100px;
+}
+
+/* Usé Montserrat para todos los títulos para que resalten sobre el texto normal */
+h1, h2, h3, h4,
+.titulo-principal,
+.titulo-seccion,
+.titulo-plan,
+.titulo-faq,
+.titulo-resenas {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+/* Aquí usé  grid para dividir la pantalla de izquiera y , 
+   barra de compra fija a la derecha */
+.pagina-principal {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 40px;
+  align-items: start;
+}
+
+.columna-izquierda {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+
+
+.titulo-principal {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: var(--primero);
+}
+
+.tarjeta-simple {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+#foto-autor {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+  /* Le puse un borde doble  para que destaque más */
+  border: 3px solid var(--tercero);
+  padding: 2px;
+  background: var(--blanco);
+}
+
+#estado-autor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+#nombre-autor {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primero);
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+
+/*coloque after para no colocarlo en el html*/
+#nombre-autor::after {
+  content: " | Nivel 1 ✦ 2 pedidos en cola";
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: var(--tercero);
+  margin-left: 8px;
+}
+
+#desc-autor {
+  margin: 0;
+  font-size: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* aqui coloque before para colocar las estrellas y no en el html */
+#desc-autor::before {
+  content: "★★★★★";
+  color: var(--tercero);
+  font-size: 1.1rem;
+  margin-right: 6px;
+  letter-spacing: 1px;
+}
+
+#desc-autor::after {
+  content: "5.0 (11 reviews)";
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--segundo);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* la parte para las imagenes o el video, dependiendo*/
+.grid-media {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.item-media {
+  border-radius: var(--radio);
+  border: 1px solid var(--cuarto);
+}
+
+#video {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  box-shadow: var(--sombra);
+}
+
+/* efecto para que el icono se vea que se puede dar clik */
+.miniatura {
+  width: 220px;
+  height: 115px;
+  object-fit: cover;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.miniatura:hover {
+  opacity: 1;
+  border-color: var(--segundo);
+}
+
+/* esta parte para las resenas*/
+.seccion-resenas {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.encabezado-resenas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.titulo-resenas {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primero);
+  margin: 0;
+}
+
+.acciones-derecha {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.enlace-ver-todas {
+  color: var(--segundo);
+  text-decoration: underline;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.contenedor-flechas {
+  display: flex;
+  gap: 10px;
+}
+
+/*aqui serian los botones */
+.boton-flecha {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--blanco);
+  border: 1px solid var(--cuarto);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--segundo);
+  font-size: 12px;
+  transition: 0.2s;
+}
+
+.boton-flecha:hover {
+  background-color: var(--primero);
+  color: var(--blanco);
+  border-color: var(--primero);
+}
+
+.tarjeta-resena {
+  background: var(--blanco);
+  border: 1px solid var(--cuarto);
+  border-radius: var(--radio);
+  padding: 24px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+}
+
+.encabezado-usuario {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.avatar-usuario {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.meta-usuario {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.nombre-usuario {
+  font-weight: 700;
+  color: var(--primero);
+  font-size: 15px;
+}
+
+.separador {
+  color: var(--cuarto);
+}
+
+.rating-estrellas {
+  color: var(--tercero);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.numero-rating {
+  font-weight: 700;
+  color: var(--primero);
+}
+
+.texto-comentario {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--primero);
+  margin: 0 0 16px 0;
+}
+
+.fecha-resena {
+  font-size: 13px;
+  color: var(--tercero);
+  font-weight: 500;
+}
+
+/* para mostrar mas cursos*/
+.titulo-seccion {
+  font-size: 22px;
+  color: var(--segundo);
+  margin-top: 40px;
+  border-bottom: 2px solid var(--cuarto);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.contenedor-carrusel {
+  width: 100%;
+  overflow-x: auto; /* Esto permite hacer scroll horizontal si hay muchos productos */
+  padding-bottom: 15px;
+}
+
+.pista-carrusel {
+  display: flex;
+  gap: 20px;
+}
+
+.tarjeta-producto {
+  flex: 0 0 auto;
+  width: 240px;
+  background: var(--blanco);
+  border: 1px solid var(--cuarto);
+  border-radius: var(--radio-sm);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+/* aqu seria un efecto de elevacion minimo*/
+.tarjeta-producto:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-hover);
+  border-color: var(--tercero);
+}
+
+.media-producto {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  border-bottom: 1px solid var(--cuarto);
+}
+
+.imagen-producto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.icono-corazon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tercero);
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.icono-corazon:hover {
+  background: var(--blanco);
+  color: var(--segundo);
+  transform: scale(1.1);
+}
+
+.detalles-producto {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+}
+
+.fila-autor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.autor-izq {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.avatar-autor {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nombre-autor-prod {
+  font-weight: 700;
+  color: var(--primero);
+}
+
+.nivel-autor {
+  color: #888;
+  font-size: 12px;
+}
+
+/* Limito el texto a 2 líneas y pongo puntos suspensivos si es muy largo */
+.enlace-producto {
+  text-decoration: none;
+  color: var(--primero);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  display: -webkit-box;
+
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.enlace-producto:hover {
+  color: var(--tercero);
+}
+
+.fila-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  margin-top: auto;
+}
+
+.estrella {
+  color: var(--tercero);
+}
+
+.puntaje {
+  font-weight: 700;
+  color: var(--primero);
+}
+
+.conteo {
+  color: #999;
+}
+
+.fila-precio {
+  font-size: 14px;
+  color: var(--primero);
+  text-align: right;
+  margin-top: 5px;
+}
+
+/* la preguntas o el faq*/
+.contenedor-faq {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.titulo-faq {
+  font-size: 22px;
+  color: var(--segundo);
+  border-bottom: 2px solid var(--cuarto);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.item-faq {
+  background: var(--blanco);
+  border: 1px solid var(--cuarto);
+  border-radius: var(--radio);
+  overflow: hidden;
+}
+
+details {
+  padding: 0;
+}
+
+summary {
+  padding: 20px;
+  font-weight: 600;
+  color: var(--primero);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--blanco);
+  transition: background 0.3s;
+}
+
+summary:hover {
+  background-color: var(--quinto);
+}
+
+/* Aquí se contrala el icono de abrir/cerrar preguntas (+) */
+summary::after {
+  content: '+';
+  font-size: 20px;
+  color: var(--segundo);
+  font-weight: bold;
+}
+
+/* Y aquí lo cambio a (-) cuando el usuario abre la pregunta */
+details[open] summary::after {
+  content: '-';
+}
+
+.respuesta-faq {
+  padding: 0 20px 20px 20px;
+  color: #666;
+  line-height: 1.6;
+  font-size: 15px;
+  border-top: 1px solid var(--quinto);
+}
+
+
+/* Esta es la tarjeta de compra que persigue  al bajar */
+.tarjeta-compra {
+  position: sticky;
+  top: 120px;
+  z-index: 50;
+  background: var(--blanco);
+  border: 1px solid var(--cuarto);
+  border-radius: var(--radio);
+  padding: 0;
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.contenedor-pestanas {
+  display: flex;
+  background-color: var(--quinto);
+  border-bottom: 1px solid var(--cuarto);
+}
+
+.pestana {
+  flex: 1;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #888;
+  cursor: pointer;
+  border-right: 1px solid var(--cuarto);
+  transition: 0.2s;
+}
+
+.pestana:last-child {
+  border-right: none;
+}
+
+/* Estilo para cuando la pestaña está seleccionada */
+.pestana.active {
+  background-color: var(--blanco);
+  color: var(--primero);
+  border-bottom: 3px solid var(--tercero);
+  margin-bottom: -1px;
+}
+
+.contenido-compra {
+  padding: 24px;
+}
+
+.cabecera-compra {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.titulo-plan {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primero);
+  margin: 0;
+  line-height: 1.4;
+  max-width: 70%;
+}
+
+.precio-plan {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--primero);
+}
+
+.descripcion-plan {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+  margin: 0 0 15px 0;
+}
+
+.meta-plan {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--primero);
+}
+
+.item-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lista-beneficios {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.lista-beneficios li {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lista-beneficios .check {
+  color: var(--primero);
+  font-weight: bold;
+}
+
+.btn-primario {
+  background-color: var(--segundo);
+  color: var(--blanco);
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radio-sm);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  transition: opacity 0.2s;
+}
+
+.btn-primario:hover {
+  background-color: var(--tercero);
+}
+
+.btn-secundario {
+  background-color: transparent;
+  color: var(--segundo);
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid var(--segundo);
+  border-radius: var(--radio-sm);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-secundario:hover {
+  background-color: var(--quinto);
+}
+
+/*  aqui serian los enlaces que van antes del footer */
+.enlaces-extra {
+  background-color: (--cuarto);
+  padding: 50px 20px;
+  border-top: 1px solid var(--cuarto);
+  margin-top: 40px;
+}
+
+.contenido-enlaces {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+}
+
+.columna-enlaces h4 {
+  color: var(--segundo);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.columna-enlaces ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.columna-enlaces li {
+  margin-bottom: 12px;
+}
+
+.columna-enlaces a {
+  text-decoration: none;
+  color: var(--primero);
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.columna-enlaces a:hover {
+  color: var(--blue);
+  font-weight: bold;
+}
+
+/* aqui es para lo del footer*/
+.pie-pagina {
+  background-color: var(--cuarto);
+  padding: 60px 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contenido-pie {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.columna-pie {
+  flex: 1;
+  min-width: 200px;
+}
+
+.logo-pie {
+  width: 140px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.caja-copyright p {
+  font-size: 0.9rem;
+  color: var(--primero);
+  margin: 4px 0;
+  font-weight: 500;
+}
+
+.pie-pagina h3 {
+  color: var(--cyan-titulo);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.pie-pagina a {
+  display: block;
+  color: var(--primero);
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  transition: 0.2s;
+}
+
+.pie-pagina a:hover {
+  color: var(--segundo);
+  font-weight: 600;
+}
+
+.iconos-sociales {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.iconos-sociales img {
+  width: 22px;
+  height: auto;
+  opacity: 0.8;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.iconos-sociales img:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/*  responsiva*/
+
+@media (max-width: 900px) {
+  .pagina-principal {
+    grid-template-columns: 1fr;
+  }
+
+  
+  aside.tarjeta-compra {
+    position: static;
+    order: 10;
+    margin-top: 30px;
+  }
+
+  .contenido-pie {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .encabezado-resenas {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .acciones-derecha {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+}
