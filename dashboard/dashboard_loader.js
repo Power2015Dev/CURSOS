@@ -20,6 +20,8 @@ function load_content() {
         message.textContent = "No hay recomendaciones disponibles";
         message.id = "slider_msg";
         message.classList.add("course_style");
+        message.style.flex = "0 0 100%";
+        message.style.textAlign = "center";
         track.style.width = "100%"; // para que se muestre el mensaje porque es infinito
         track.appendChild(message);
 

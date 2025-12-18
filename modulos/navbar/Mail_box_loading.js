@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         message.textContent = "No hay Mensajes";
         message.id = "Messages_available";
         message.classList.add("course_style");
+        message.style.flex = "0 0 100%";
         document.querySelector(".mail_box").appendChild(message);
         
     }
