@@ -20,11 +20,6 @@ hr{
     text-decoration: none;
 }
 
-#seller{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    font-size: 1.3rem;
-}
 
 
 #navbar{
@@ -107,6 +102,15 @@ hr{
     height: auto;
     margin: 10px;
     object-fit: cover;
+}
+
+.icon_radius{
+    border-radius: 50%;
+    width: 50px !important;
+    height: 50px !important;
+
+    object-fit: cover;
+    
 }
 
 #logo_container{
@@ -251,7 +255,9 @@ hr{
 .row_message{
     display: flex; 
     flex-wrap: nowrap;
-    margin: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
 }
 
 #notifications h2{
@@ -288,6 +294,67 @@ hr{
     align-items: center;
 
 }
+
+
+
+#message_box{
+    display: none;
+    position: absolute;
+    overflow-y: auto;
+    height: 300px;
+    width: 600px;
+    max-width: 180vw;
+    right: 20px;
+    top: 40px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 0 20px rgba(74, 127, 167, 0.4);
+    z-index: 5;
+}
+
+.mail_box{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0px 20px 0px;
+    height: 100%;
+    width: 100%;
+    padding-right: 5px;
+    padding: 20px;
+    z-index: 4;
+    cursor: pointer;
+    padding: 10px;     
+    background-color: transparent; 
+    box-shadow: none;   
+    border-radius: 0;
+    
+    
+}
+
+.message_card{
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px;
+    
+  
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    border: 1px solid rgba(0,0,0, 0.05); 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease; 
+}
+
+#message_container{
+    position: relative;
+    display: flex;          
+    align-items: center;    
+    justify-content: center;
+}
+
 
 
 
@@ -396,6 +463,18 @@ hr{
         right: auto;   
         max-height: 60vh; 
     }
+
+    #message_box {
+        position: fixed;  
+        top: 150px;       
+        left: 10%;      
+        transform: translateX(-50%);
+        
+        width: 90%;       
+        right: auto;   
+        max-height: 60vh; 
+    }
+
 }
 
 /*animacion de esqueleto*/

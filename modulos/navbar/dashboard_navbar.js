@@ -3,6 +3,8 @@ let profile_canvas = document.getElementById("profile_status");//perfil
 let profile_picture_container = document.getElementById("profile_picture_container");
 let caja_notificacion = document.getElementById("bell_container"); // notifaciones
 let notificaciones = document.getElementById("notifications");
+let caja_mensajes = document.getElementById("message_container"); //mensajes
+let mensajes = document.getElementById("message_box");
 profile_picture_container.addEventListener("click", function(){  //si van a hacer algo similar como el menu desplegable copien este codigo 
     if(profile_canvas.classList.contains("show")){
         profile_canvas.classList.remove("show");
@@ -30,6 +32,17 @@ caja_notificacion.addEventListener("click", function(){
     }
 });
 
+caja_mensajes.addEventListener("click", function(){
+    if(mensajes.classList.contains("show")){
+        mensajes.classList.remove("show");
+        mensajes.classList.add("hide");
+        
+    }else{
+        mensajes.classList.remove("hide");
+        mensajes.classList.add("show");
+    }
+});
+
 profile_canvas.addEventListener("click", function(event){
     event.stopPropagation();
 });
@@ -38,11 +51,17 @@ notificaciones.addEventListener("click", function(event){
     event.stopPropagation();
 });
 
+mensajes.addEventListener("click", function(event){
+    event.stopPropagation();
+});
+
 document.addEventListener('click', function(event) {
         let iniciado_perfil = profile_canvas.classList.contains("show");
         let clickeado_perfil = !profile_canvas.contains(event.target) && !profile_picture_container.contains(event.target)
         let iniciado_notificaciones = notificaciones.classList.contains("show");
         let clickeado_notificaciones = !notificaciones.contains(event.target) && !caja_notificacion.contains(event.target)
+        let iniciado_mensajes = mensajes.classList.contains("show");
+        let clickeado_mensajes = !mensajes.contains(event.target) && !caja_mensajes.contains(event.target)
         //el evento target solo regresa donde el usuario hizo click
         if (iniciado_notificaciones && clickeado_notificaciones) {
             notificaciones.classList.remove("show");
@@ -52,5 +71,12 @@ document.addEventListener('click', function(event) {
             profile_canvas.classList.remove("show");
             profile_canvas.classList.add("hide");
         }
+
+        if (iniciado_mensajes && clickeado_mensajes) {
+            mensajes.classList.remove("show");
+            mensajes.classList.add("hide");
+        }
+       
+        
 
     });

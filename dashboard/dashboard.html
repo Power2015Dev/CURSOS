@@ -14,8 +14,9 @@
     <header>
         <nav id="navbar">
             <div id="logo_container">
+                <a href="dashboard.html">
                 <img src="../imagenes/kursa_logo_claro.png" alt="logo" class="vector_size" id="logo">
-                <a href="../modulos/configuracion/configuracion.html" class="no-decorations"><p id="seller">Modo Vendedor</p></a>
+                </a>
             </div>
             <div id="search_bar">
                 <input type="text" name="search" placeholder="Buscar cursos o freelancers">
@@ -23,7 +24,38 @@
             </div>
 
             <div id="profile_bar">
-                <img src="../imagenes/dashboard_img/perfil.png" alt="perfil" class="vector_size">
+
+
+                <a href="../modulos/configuracion/configuracion.html" class="no-decorations">
+                <img src="../imagenes/dashboard_img/seller.png" alt="perfil" class="vector_size">
+                </a>
+
+                <div id="message_container">
+                    <img src="../imagenes/dashboard_img/mail_box.png" alt="perfil" class="vector_size">
+                    <div id="message_box">
+                        <h2>Mensajes</h2>
+                        <div class="mail_box">
+                            </div>
+                    </div>
+                    <!--skeleto start-->
+                    <template id="messages_skeleton">
+                        <div class="message_card"> 
+        
+                            <div class="row_message">
+                                <div class="skeleton_img"></div>
+                                <div class="skeleton_osc" style="width: 40%; margin-left: 10px;"></div>
+                            </div>
+
+                            <div class="skeleton_osc" style="width: 90%;"></div>
+                            <div class="skeleton_osc" style="width: 30%;"></div>
+                            
+                        </div>
+                    </template>
+                    <!--skeleto end-->
+                </div>
+                
+
+                
                 <div id ="bell_container">
                     <img src="../imagenes/dashboard_img/bell.png" alt="campana" class="vector_size">
                     <div id="notifications">
@@ -146,6 +178,44 @@
         </div>
     </div>
 
+    <div class="grid_item grid_5">
+            <h2 style="color: #77b8e9;">Nuevos Lanzamientos</h2>
+            <div id="small_functions_container">
+                <span class="small_arrow small_left material-symbols-outlined">navigate_next</span>
+                <div class="nuevas_cajas"> 
+                    <div class="slider-small">
+                        </div>
+                </div> 
+                <span class="small_arrow small_right material-symbols-outlined">navigate_next</span>
+            </div>
+        </div>
+
+        <div class="grid_item grid_6">
+            <h2 style="color: #77b8e9;">Mejor Valuados</h2>
+            <div id="small_functions_container">
+                <span class="small_arrow small_left material-symbols-outlined">navigate_next</span>
+                <div class="nuevas_cajas"> 
+                    <div class="slider-small">
+                        </div>
+                </div> 
+                <span class="small_arrow small_right material-symbols-outlined">navigate_next</span>
+            </div>
+        </div>
+
+        <div class="grid_item grid_7">
+            <h2 style="color: #77b8e9;">Ofertas Flash</h2>
+            <div id="small_functions_container">
+                <span class="small_arrow small_left material-symbols-outlined">navigate_next</span>
+                <div class="nuevas_cajas"> 
+                    <div class="slider-small">
+                        </div>
+                </div> 
+                <span class="small_arrow small_right material-symbols-outlined">navigate_next</span>
+            </div>
+        </div>
+
+
+
     </div> 
     <template id="skeleton_template">
         <div class="curso_actual">
@@ -174,6 +244,8 @@
             </div>
         </div>
     </template>
+
+    
 
     <footer class="site-footer">
     <div class="footer-content">
@@ -223,5 +295,6 @@
     <script src="dashboard_Scroll.js"></script>
     <script type="module" src="dashboard_loader.js"></script>
      <script type="module" src="../modulos/navbar/notifications_loading.js"></script>
+     <script type="module" src="../modulos/navbar/Mail_box_loading.js"></script>
     </body>
 </html>

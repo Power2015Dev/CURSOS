@@ -40,10 +40,10 @@ function show_skeleton(Number_of_skeletons) {
 function load_content(){
     let content = document.querySelector(".messages");
     content.innerHTML = "";
-     listaNotificaciones.forEach(element => {agregar_notificaciones(element.Titulo, element.Tiempo, element.Tipo, element.Tiempo_medida, element.prefijo);});
+     listaNotificaciones.forEach(element => {agregar_notificaciones(element.Titulo, element.Tiempo, element.Tipo, element.Tiempo_medida, element.prefijo, element.id);});
 }
 
-function agregar_notificaciones(Titulo, Tiempo, Tipo, Tiempo_medida, prefijo){
-    const Notification = new Notifications(Titulo, Tiempo, Tipo, Tiempo_medida, prefijo);
+function agregar_notificaciones(Titulo, Tiempo, Tipo, Tiempo_medida, prefijo, id){
+    const Notification = new Notifications(Titulo, Tiempo, Tipo, Tiempo_medida, prefijo, id);
     Notification.add_notification();
 }

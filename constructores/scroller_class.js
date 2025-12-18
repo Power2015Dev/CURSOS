@@ -17,19 +17,25 @@ export class ScrollerAdder {
 
         card.innerHTML = 
             `
+            
             <div class="card_header"> 
                 <span class="badge">${this.Precio}</span> 
+                <a href="/modulos/course_page/page.html?id=${this.id}" style="text-decoration: none;" class="never_visited">
                 <img src="${this.Imagen}" alt="curso"> 
+                </a>
             </div> 
             <div class="card_body"> 
+            <a href="/modulos/course_page/page.html?id=${this.id}" style="text-decoration: none;" class="never_visited">
                 <h3>${this.Titulo}</h3> 
                 <p class="author">by ${this.Autor}</p>
+            </a>
                 <div class="card_meta"> 
                     <span>${this.Reseña} Reseñas</span> 
                     <span class="rating">⭐ ${this.Rating}</span> 
                 </div> 
             </div> 
             <div class="card_footer"><a href="/modulos/course_page/page.html?id=${this.id}" style="text-decoration: none;" class="never_visited"> Obtener curso </a></div> 
+            
             `;
 
         div.appendChild(card);

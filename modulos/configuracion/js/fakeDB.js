@@ -129,3 +129,51 @@ export const cursosData = [
         imagen: "marketing.jpg"
     }
 ];
+
+export const listaMensajes = [
+    {
+        id: 1,
+        Nombre: "Sofía Ramírez",
+        Mensaje: "Hola, estoy interesada en el curso de Python, ¿incluye certificado?",
+        Perfil: "https://i.pravatar.cc/150?img=5", 
+        Tiempo: 5,
+        Tiempo_medida: "min",
+        prefijo: "hace"
+    },
+    {
+        id: 2,
+        Nombre: "Carlos M.",
+        Mensaje: "Ya realicé el pago del servicio de diseño. Quedo a la espera.",
+        Perfil: "https://i.pravatar.cc/150?img=11",
+        Tiempo: 45,
+        Tiempo_medida: "min",
+        prefijo: "hace"
+    },
+    {
+        id: 3,
+        Nombre: "Luisa Fernández",
+        Mensaje: "¿Haces descuentos por comprar 3 cursos juntos?",
+        Perfil: "https://i.pravatar.cc/150?img=9",
+        Tiempo: 2,
+        Tiempo_medida: "horas",
+        prefijo: "hace"
+    },
+    {
+        id: 4,
+        Nombre: "DevTeam Support",
+        Mensaje: "Bienvenido a la plataforma. Recuerda completar tu perfil de vendedor.",
+        Perfil: "https://i.pravatar.cc/150?img=60", 
+        Tiempo: 1,
+        Tiempo_medida: "día",
+        prefijo: "hace"
+    },
+    {
+        id: 5,
+        Nombre: "Javier T.",
+        Mensaje: "Excelente contenido, me ha servido mucho para mi trabajo.",
+        Perfil: "https://i.pravatar.cc/150?img=33",
+        Tiempo: 3,
+        Tiempo_medida: "días",
+        prefijo: "hace"
+    }
+];
