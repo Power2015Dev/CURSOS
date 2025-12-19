@@ -1,20 +1,32 @@
-import { listaRecomendados } from '../modulos/configuracion/js/fakeDB.js';
 import { ScrollerAdder } from '../constructores/scroller_class.js'; 
 
 document.addEventListener("DOMContentLoaded", () => {
     show_skeletons(5);
-    show_small_skeletons(1);
-    setTimeout(() => {
-        load_content();
-    }, 3000); 
+    show_small_skeletons(3);
+    
+    get_data();
+        
+
 });
 
-function load_content() {
+async function get_data() {
+    try {
+        const response = await fetch("Query_dashboard/course_query.php");
+        const data = await response.json();
+        load_content(data);
+    } catch (error) {
+        console.log(error);
+    }
+    
+
+}
+
+function load_content(table) {
     const track = document.querySelector(".slider-track");
     track.innerHTML = "";
     document.querySelectorAll(".slider-small").forEach(element => element.innerHTML = "");
 
-    if (listaRecomendados.length === 0) {
+    if (table.length === 0) {
 
         const message = document.createElement("div");
         message.textContent = "No hay recomendaciones disponibles";
@@ -35,10 +47,10 @@ function load_content() {
         track.style.width = "";
         document.querySelectorAll(".slider-small").forEach(element => element.style.width = "");
 
-        listaRecomendados.forEach(data => {
+        table.forEach(data => {
             const card = new ScrollerAdder(
-                data.Titulo, data.Autor, data.Reseña, 
-                data.Imagen, data.Precio, data.Rating, data.id
+                data.titulo, data.autor, data.resenas_count, 
+                data.imagen_url, data.precio, data.rating, data.id
             );
 
             card.add_recommendations();
