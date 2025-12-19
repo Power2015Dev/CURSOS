@@ -1,7 +1,7 @@
 import { ScrollerAdder } from '../constructores/scroller_class.js'; 
 
 document.addEventListener("DOMContentLoaded", () => {
-    show_skeletons(5);
+    //show_skeletons(5);
     show_small_skeletons(3);
     
     get_data();
@@ -48,6 +48,7 @@ function load_content(table) {
         document.querySelectorAll(".slider-small").forEach(element => element.style.width = "");
 
         table.forEach(data => {
+            if(data.precio < 1 || data.precio === null) data.precio = "Free";
             const card = new ScrollerAdder(
                 data.titulo, data.autor, data.resenas_count, 
                 data.imagen_url, data.precio, data.rating, data.id
@@ -60,16 +61,16 @@ function load_content(table) {
     }
 }
 
-function show_skeletons(Number_of_skeletons) {
-    const sliderTrack = document.querySelector(".slider-track");
-    const cardTemplate = document.getElementById("skeleton_card_template");
+// function show_skeletons(Number_of_skeletons) {
+//     const sliderTrack = document.querySelector(".slider-track");
+//     const cardTemplate = document.getElementById("skeleton_card_template");
     
  
-    for (let i = 0; i < Number_of_skeletons; i++) {
-        const clone = cardTemplate.content.cloneNode(true);
-        sliderTrack.appendChild(clone);
-    }
-}
+//     for (let i = 0; i < Number_of_skeletons; i++) {
+//         const clone = cardTemplate.content.cloneNode(true);
+//         sliderTrack.appendChild(clone);
+//     }
+// }
 
 function show_small_skeletons(Number_of_skeletons) {
     const sliderSmall = document.querySelectorAll(".slider-small");
