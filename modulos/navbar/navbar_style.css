@@ -355,6 +355,52 @@ hr{
     justify-content: center;
 }
 
+#login_button:link{
+    text-decoration: none;
+    color: #B3CFE5;
+    border: 2px solid #B3CFE5;
+    padding: 8px 16px;
+
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+
+}
+
+#login_button:visited{
+    text-decoration: none;
+    color: #B3CFE5;
+    border-color: #B3CFE5;
+
+}
+
+#login_button:hover{
+    background-color: #B3CFE5;
+    color: white;
+}
+
+#signup_button:link{
+    text-decoration: none;
+    color: #B3CFE5;
+    border: 2px solid #B3CFE5;
+    padding: 8px 16px;
+
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+
+}
+
+#signup_button:visited{
+    text-decoration: none;
+    color: #B3CFE5;
+    border-color: #B3CFE5;
+
+}
+
+#signup_button:hover{
+    background-color: #B3CFE5;
+    color: white;
+}
+
 
 
 

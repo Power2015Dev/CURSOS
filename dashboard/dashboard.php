@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+$is_logged_in = isset($_SESSION['usuario_id']);
+
+    if(isset($_SESSION['usuario_nombre'])){
+        $nombre_usuario = $_SESSION['usuario_nombre'];
+    } else {
+        $nombre_usuario = "Invitado";
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +28,7 @@
     <header>
         <nav id="navbar">
             <div id="logo_container">
-                <a href="dashboard.html">
+                <a href="dashboard.php">
                 <img src="../imagenes/kursa_logo_claro.png" alt="logo" class="vector_size" id="logo">
                 </a>
             </div>
@@ -23,8 +37,11 @@
                 <img src="../imagenes/dashboard_img/lupa.png" alt="lupa" class="vector_size" style="cursor: pointer;">
             </div>
 
+            
             <div id="profile_bar">
-
+            
+            
+            <?php if ($is_logged_in): ?>
 
                 <a href="../modulos/configuracion/configuracion.html" class="no-decorations">
                 <img src="../imagenes/dashboard_img/seller.png" alt="perfil" class="vector_size">
@@ -85,13 +102,19 @@
                     <img src="../imagenes/dashboard_img/arrow.png" alt="arrow" class="arrow_size">
                     <div id="profile_status">
                             <a href="../modulos/configuracion/perfil.html"><p>Editar perfil</p></a>
-                            <a href="../modulos/configuracion/configuracion.html"><p>Configuración</p></a>
                             <a href="../modulos/configuracion/ayuda.html"><p>Ayuda</p></a>
                             <a href="../modulos/configuracion/courses.html"><p>Mis cursos</p></a>
-                            <a href="#"><p>Cerrar sesión</p></a>
+                            <a href="../modulos/PHP/cerrar_sesion.php"><p>Cerrar sesión</p></a>
+                      
                     </div>
                 </div>
             </div>
+
+            <?php else: ?>
+                <a href="../inicio_registro/inicio_sesion.html" id="login_button">Iniciar sesión</a>
+                <a href="../inicio_registro/registro.html" id="signup_button">Registrarse</a>
+            <?php endif ?>
+
         </nav>
     </header>
 

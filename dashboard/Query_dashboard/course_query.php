@@ -1,6 +1,6 @@
 <?php
 
-    require_once dirname(__DIR__,2).'/conexion.php';
+    require_once dirname(__DIR__, 2).'/conexion.php';
 
     $query = "SELECT id, titulo, autor, resenas_count, imagen_url, precio, rating FROM cursos";
     $result = $conexion->query($query);

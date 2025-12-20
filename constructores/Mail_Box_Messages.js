@@ -1,12 +1,10 @@
 
 export class Mail_Box_Messages{
-    constructor(Nombre, last_requested_message, Perfil, Tiempo, Tiempo_medida, prefijo, id){
+    constructor(Nombre, last_requested_message, Perfil, fecha, id){
         this.Nombre = Nombre;
         this.Mensaje = last_requested_message;
         this.Perfil = Perfil;
-        this.Tiempo = Tiempo;
-        this.Tiempo_medida = Tiempo_medida;
-        this.prefijo = prefijo;
+        this.fecha = fecha;
         this.id = id;
     }
     
@@ -29,7 +27,7 @@ export class Mail_Box_Messages{
                     </div>
 
                     <span style="font-size: 12px; color: #888; white-space: nowrap; margin-left: 10px; font-weight: bold;">
-                        ${this.prefijo} ${this.Tiempo} ${this.Tiempo_medida}
+                        ${this.fecha}
                     </span>
                 </a>
             </div>
