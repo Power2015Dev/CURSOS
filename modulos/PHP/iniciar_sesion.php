@@ -9,7 +9,7 @@ $email = $data['email'];
 $pass_ingresada = $data['pass'];
 
 
-$query = "SELECT id, nombre, password FROM usuarios WHERE email = ?";
+$query = "SELECT id, nombre, avatar_url, password FROM usuarios WHERE email = ?";
 $stmt = $conexion->prepare($query);
 $stmt->bind_param("s", $email); // para prevenir una injeccion SQL
 $stmt->execute();
@@ -22,7 +22,7 @@ if ($fila = $resultado->fetch_assoc()) {
        
         $_SESSION['usuario_id'] = $fila['id'];
         $_SESSION['usuario_nombre'] = $fila['nombre'];
-        
+        $_SESSION['usuario_img'] = $fila['avatar_url'];
         
         http_response_code(200);
         echo json_encode(["mensaje" => "Bienvenido"]);

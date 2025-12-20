@@ -98,7 +98,10 @@ $is_logged_in = isset($_SESSION['usuario_id']);
                 </div>
                 
                 <div id="profile_picture_container">
-                    <img src="../imagenes/dashboard_img/perfil.png" alt="profile" id="profile_picture">
+                    <?php 
+                        $ruta_avatar = !empty($_SESSION['usuario_img']) ? $_SESSION['usuario_img'] : '../imagenes/dashboard_img/perfil.png';
+                    ?>
+                    <img src="<?php echo $ruta_avatar; ?>" alt="profile" id="profile_picture">
                     <img src="../imagenes/dashboard_img/arrow.png" alt="arrow" class="arrow_size">
                     <div id="profile_status">
                             <a href="../modulos/configuracion/perfil.html"><p>Editar perfil</p></a>
