@@ -1,32 +1,19 @@
-import { listaNotificaciones } from '../configuracion/js/fakeDB.js';
 import { Notifications } from '../../constructores/Notification_class.js';
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
     show_skeleton(3);
-
-
-    setTimeout(() => {
-        if(listaNotificaciones.length === 0){
-        let content = document.querySelector(".messages");
-        content.innerHTML = "";
-        const message = document.createElement("p");
-        message.textContent = "No hay notificaciones";
-        message.id = "Notifications_available";
-        message.classList.add("course_style");
-        message.style.flex = "0 0 100%";
-        document.querySelector(".messages").appendChild(message);
-        
-    }
-    else {
-        load_content();
-    }
-        
-    }, 3000);
+    get_data();
 });
 
-
+async function get_data() {
+    try {
+        const response = await fetch("/modulos/navbar/notifications_query/notifications_query.php");
+        const data = await response.json();
+        load_content(data);
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 function show_skeleton(Number_of_skeletons) {
     let content = document.querySelector(".messages");
@@ -38,13 +25,26 @@ function show_skeleton(Number_of_skeletons) {
     }
 }
 
-function load_content(){
+function load_content(listaNotificaciones){
     let content = document.querySelector(".messages");
     content.innerHTML = "";
-     listaNotificaciones.forEach(element => {agregar_notificaciones(element.Titulo, element.Tiempo, element.Tipo, element.Tiempo_medida, element.prefijo, element.id);});
+
+    if(listaNotificaciones.length === 0){
+        const message = document.createElement("p");
+        message.textContent = "No hay notificaciones";
+        message.id = "Notifications_available";
+        message.classList.add("course_style");
+        message.style.flex = "0 0 100%";
+        document.querySelector(".messages").appendChild(message);
+    }
+    else {
+        listaNotificaciones.forEach(element => {
+            agregar_notificaciones(element.Titulo, element.Tipo, element.fecha_formateada, element.id);
+        });
+    }
 }
 
-function agregar_notificaciones(Titulo, Tiempo, Tipo, Tiempo_medida, prefijo, id){
-    const Notification = new Notifications(Titulo, Tiempo, Tipo, Tiempo_medida, prefijo, id);
+function agregar_notificaciones(Titulo, Tipo, Fecha, id){
+    const Notification = new Notifications(Titulo, Tipo, Fecha, id);
     Notification.add_notification();
 }

@@ -16,7 +16,6 @@ async function get_data() {
     try {
         const response = await fetch("/modulos/navbar/messages_query/message_query.php");
         const data = await response.json();
-        console.log(data);
         load_content(data);
     } catch (error) {
         console.log(error);
