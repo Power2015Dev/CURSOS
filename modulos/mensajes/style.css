@@ -1,0 +1,295 @@
+/* Heredamos tipografía general */
+body {
+    background-color: #f0f2f5; /* Fondo gris claro tipo WhatsApp Web */
+    overflow: hidden; /* Evita doble scroll */
+}
+
+/* Layout Principal */
+.chat-layout {
+    display: flex;
+    height: calc(100vh - 80px); /* Restamos la altura aproximada del navbar */
+    width: 100%;
+    margin-top: 10px; /* Separación del navbar */
+    background-color: white;
+    overflow: hidden;
+}
+
+/* ===========================
+   SIDEBAR (IZQUIERDA)
+   =========================== */
+.chat-sidebar {
+    width: 350px;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.sidebar-header {
+    padding: 15px;
+    background-color: #f6f6f6;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar-header h2 {
+    color: #0A1931;
+    margin-bottom: 10px;
+}
+
+.sidebar-search {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+}
+
+.sidebar-search input {
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    width: 100%;
+}
+
+.contacts-scroll {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Tarjeta de Contacto */
+.contact-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+}
+
+.contact-item:hover {
+    background-color: #f5f5f5;
+}
+
+.contact-item.active {
+    background-color: #EBF4FB; /* Azul muy clarito para el activo */
+    border-left: 4px solid #77b8e9;
+}
+
+.contact-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 0; /* Para que el texto truncado funcione */
+}
+
+.contact-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.contact-top h4 {
+    font-size: 16px;
+    color: #0A1931;
+    margin: 0;
+}
+
+.contact-top .time {
+    font-size: 12px;
+    color: #888;
+}
+
+.last-message {
+    font-size: 14px;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+/* ===========================
+   CHAT WINDOW (DERECHA)
+   =========================== */
+.chat-window {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #efeae2; /* Color clásico de fondo de chat */
+    /* Opcional: Imagen de fondo sutil si quieres */
+    
+}
+
+
+
+.chat-header {
+    padding: 10px 20px;
+    background-color: #f6f6f6;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-user-info {
+    display: flex;
+    align-items: center;
+}
+
+.chat-user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    background-color: #333;
+}
+
+.user-details h3 {
+    font-size: 16px;
+    margin: 0;
+    color: #0A1931;
+}
+
+.user-details .status {
+    font-size: 12px;
+    color: #77b8e9;
+}
+
+/* Área de Burbujas */
+.messages-feed {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bubble {
+    max-width: 60%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.4;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Mensajes Recibidos (Blanco) */
+.bubble.received {
+    align-self: flex-start;
+    background-color: white;
+    color: #333;
+    border-top-left-radius: 0;
+}
+
+/* Mensajes Enviados (Tu color de marca) */
+.bubble.sent {
+    align-self: flex-end;
+    background-color: #DCF8C6; /* El verde de whatsapp */
+    /* O SI PREFIERES TU AZUL DE MARCA: */
+    background-color: #D1E4F3; /* Un azul muy suave derivado del 77b8e9 */
+    color: #0A1931;
+    border-top-right-radius: 0;
+}
+
+.msg-time {
+    display: block;
+    font-size: 10px;
+    color: #999;
+    text-align: right;
+    margin-top: 4px;
+}
+
+/* .check-read {
+    font-size: 14px !important;
+    color: #53bdeb; 
+    vertical-align: middle;
+    margin-left: 3px;
+}
+ya no se va a usar el doble check    
+*/
+
+/* Input Area */
+.chat-input-area {
+    padding: 15px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#message-input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.send-btn, .attach-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #0A1931;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.send-btn span {
+    font-size: 28px;
+    color: #77b8e9; /* El avión de papel en tu azul claro */
+}
+
+.send-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Estado Vacío */
+.no-chat-selected {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #888;
+    background-color: #f8f9fa;
+    border-bottom: 6px solid #77b8e9; /* Detalle de color */
+}
+
+/* Responsive para celular */
+@media (max-width: 768px) {
+    .chat-layout {
+        flex-direction: column;
+    }
+    
+    .chat-sidebar {
+        width: 100%;
+        height: 100%;
+        display: flex; /* Si hay ID, ocultamos sidebar con JS */
+    }
+
+    .chat-window {
+        display: none; /* Por defecto oculto en móvil hasta elegir chat */
+    }
+    
+    /* Clase auxiliar para mostrar chat en móvil */
+    .chat-window.mobile-active {
+        display: flex;
+        position: fixed;
+        top: 60px; /* Ajustar segun navbar */
+        left: 0;
+        width: 100%;
+        height: calc(100% - 60px);
+        z-index: 10;
+    }
+}

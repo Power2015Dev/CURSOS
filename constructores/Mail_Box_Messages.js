@@ -17,7 +17,7 @@ export class Mail_Box_Messages{
         card.innerHTML = 
             `
             <div class="row_message">
-                <a href="/modulos/mensajes/message.html?id=${this.id}" style="display: flex; align-items: center; width: 100%; text-decoration: none; color: inherit;">
+                <a href="/modulos/mensajes/message.php?id=${this.id}" style="display: flex; align-items: center; width: 100%; text-decoration: none; color: inherit;">
                     
                     <img src="${this.Perfil}" alt="foto" class="icon_radius">
                     
