@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panel de Vendedor - Kursa</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  
+  <link rel="icon" type="image/png" href="/imagenes/icono2d.png" />
+  
+  <link rel="stylesheet" href="../navbar/navbar_style.css" />
+  <link rel="stylesheet" href="style.css" /> 
+</head>
+<body>
+
+  <nav id="navbar">
+    <div id="logo_container">
+      <img src="../../imagenes/kursa_logo_claro.png" alt="logo" class="vector_size" id="logo">
+      <a href="index.html" class="no-decorations"><p id="seller">Modo Estudiante</p></a>
+    </div>
+    <div id="search_bar">
+      <input type="text" name="search" placeholder="Buscar en tu panel...">
+      <img src="../../imagenes/dashboard_img/lupa.png" alt="lupa" class="vector_size" style="cursor: pointer;">
+    </div>
+    <div id="profile_bar">
+      <img src="../../imagenes/dashboard_img/perfil.png" alt="perfil" class="vector_size">
+      <div id ="bell_container">
+        <img src="../../imagenes/dashboard_img/bell.png" alt="campana" class="vector_size">
+        <div id="notifications">
+          <h2>Notificaciones</h2>
+          <div class="messages"></div>
+        </div>
+      </div>
+      <div id="profile_picture_container">
+        <img src="../../imagenes/placeholder2.jpg" alt="profile" id="profile_picture">
+        <img src="../../imagenes/dashboard_img/arrow.png" alt="arrow" class="arrow_size">
+        <div id="profile_status">
+          <a href="#">Cerrar sesión</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="contenedor-dashboard">
+    
+    <aside class="barra-lateral">
+        <div class="perfil-mini">
+            <img src="https://img.freepik.com/fotos-premium/retrato-elon-musk_895118-25032.jpg" alt="Foto">
+            <div>
+                <p class="nombre-user">Musk11</p>
+                <p class="rol-user">Instructor</p>
+            </div>
+        </div>
+
+        <ul class="menu-lateral">
+            <li class="item-menu">Resumen</li>
+            <li class="item-menu">Gestionar Cursos</li>
+            <li class="item-menu">Ingresos</li>
+            <li class="item-menu">Configuración</li>
+        </ul>
+
+        <div class="boton-crear-contenedor">
+            <button class="btn-crear-curso">+ Nuevo Curso</button>
+        </div>
+    </aside>
+
+    <main class="area-trabajo">
+        
+        <header class="cabecera-panel">
+            <h1>Panel de Control</h1>
+            <p>Bienvenido de nuevo, aquí está el resumen de tu rendimiento hoy.</p>
+        </header>
+
+        <section class="grid-stats">
+            <div class="tarjeta-stat">
+                <div class="icono-stat azul">💰</div>
+                <div class="info-stat">
+                    <h3>Ingresos Totales</h3>
+                    <p class="numero-grande">US$ 1,250</p>
+                    <span class="crecimiento positivo">▲ 12% este mes</span>
+                </div>
+            </div>
+
+            <div class="tarjeta-stat">
+                <div class="icono-stat verde">👥</div>
+                <div class="info-stat">
+                    <h3>Estudiantes</h3>
+                    <p class="numero-grande">450</p>
+                    <span class="crecimiento positivo">▲ 5 nuevos hoy</span>
+                </div>
+            </div>
+
+            <div class="tarjeta-stat">
+                <div class="icono-stat naranja">⭐</div>
+                <div class="info-stat">
+                    <h3>Calificación</h3>
+                    <p class="numero-grande">4.8</p>
+                    <span class="crecimiento neutro">Based on 120 reviews</span>
+                </div>
+            </div>
+
+            <div class="tarjeta-stat">
+                <div class="icono-stat morado">🎓</div>
+                <div class="info-stat">
+                    <h3>Cursos Activos</h3>
+                    <p class="numero-grande">3</p>
+                    <span class="enlace-stat">Ver todos</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid-doble">
+            
+            <div class="panel-grafica">
+                <div class="cabecera-seccion">
+                    <h3>Rendimiento de Ventas</h3>
+                    <select class="filtro-tiempo">
+                        <option>Últimos 7 días</option>
+                        <option>Este mes</option>
+                        <option>Este año</option>
+                    </select>
+                </div>
+                <div class="grafica-placeholder">
+                    <div class="barras">
+                        <div class="barra" style="height: 40%"></div>
+                        <div class="barra" style="height: 60%"></div>
+                        <div class="barra" style="height: 30%"></div>
+                        <div class="barra" style="height: 80%"></div>
+                        <div class="barra" style="height: 50%"></div>
+                        <div class="barra" style="height: 90%"></div>
+                        <div class="barra" style="height: 70%"></div>
+                    </div>
+                    <div class="eje-x">
+                        <span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-actividad">
+                <h3>Actividad Reciente</h3>
+                <ul class="lista-notificaciones">
+                    <li class="item-notificacion">
+                        <img src="https://img.freepik.com/foto-gratis/hombre-joven-confiado-traje-gafas_329181-11883.jpg" alt="User">
+                        <div class="texto-notif">
+                            <p><strong>Carlos M.</strong> compró "Curso Java"</p>
+                            <small>Hace 2 horas</small>
+                        </div>
+                        <span class="monto">+ $20</span>
+                    </li>
+                    <li class="item-notificacion">
+                        <img src="https://img.freepik.com/foto-gratis/mujer-joven-feliz-gafas_23-2148113460.jpg" alt="User">
+                        <div class="texto-notif">
+                            <p><strong>Ana G.</strong> dejó una reseña de 5★</p>
+                            <small>Hace 5 horas</small>
+                        </div>
+                    </li>
+                    <li class="item-notificacion">
+                        <div class="icono-sistema">🎉</div>
+                        <div class="texto-notif">
+                            <p>Logro desbloqueado: 100 Ventas</p>
+                            <small>Ayer</small>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+
+    </main>
+  </div>
+
+</body>
+</html>
