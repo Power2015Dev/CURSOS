@@ -1,76 +1,139 @@
+<?php
+
+session_start();
+
+$is_logged_in = isset($_SESSION['usuario_id']);
+
+    if(isset($_SESSION['usuario_nombre'])){
+        $nombre_usuario = $_SESSION['usuario_nombre'];
+    } else {
+        $nombre_usuario = "Invitado";
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
-  <title>Curso</title>
+  <title>Cursos | Kursa</title>
   <link rel="stylesheet" href="../navbar/navbar_style.css" />
-  <link rel="icon" type="image/png" href="/CURSOS/imagenes/imagen_sin_fondo.png" />
+  <link rel="icon" type="image/png" href="/imagenes/imagen_sin_fondo.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <nav id="navbar">
-    <div id="logo_container">
-      <img src="../../imagenes/kursa_logo_claro.png" alt="logo" class="vector_size" id="logo">
-      <a href="../../modulos/configuracion/configuracion.html" class="no-decorations"><p id="seller">Modo Vendedor</p></a>
-    </div>
-    <div id="search_bar">
-      <input type="text" name="search" placeholder="Buscar cursos o freelancers">
-      <img src="../../imagenes/dashboard_img/lupa.png" alt="lupa" class="vector_size" style="cursor: pointer;">
-    </div>
-
-    <div id="profile_bar">
-      <img src="../../imagenes/dashboard_img/perfil.png" alt="perfil" class="vector_size">
-      <div id ="bell_container">
-        <img src="../../imagenes/dashboard_img/bell.png" alt="campana" class="vector_size">
-        <div id="notifications">
-          <h2>Notificaciones</h2>
-          <div class="messages"></div>
-        </div>
-        <template id="notifications_skeleton">
-          <div class="notification_card"> 
-            <div class="row_message">
-              <div class="skeleton_img"></div>
-              <div class="skeleton_osc" style="width: 40%; margin-left: 10px;"></div>
+            <div id="logo_container">
+                <a href="../../dashboard/dashboard.php">
+                <img src="../../imagenes/kursa_logo_claro.png" alt="logo" class="vector_size" id="logo">
+                <a href="#" class="no-decorations"><p style="font-weight: 700;color:white;">Modo Vendedor</p></a>
+                </a>
             </div>
-            <div class="skeleton_osc" style="width: 90%;"></div>
-            <div class="skeleton_osc" style="width: 30%;"></div>
-          </div>
-        </template>
-      </div>
-      
-      <div id="profile_picture_container">
-        <img src="../../imagenes/placeholder2.jpg" alt="profile" id="profile_picture">
-        <img src="../../imagenes/dashboard_img/arrow.png" alt="arrow" class="arrow_size">
-        <div id="profile_status">
-          <a href="../modulos/configuracion/perfil.html"><p>Editar perfil</p></a>
-          <a href="../modulos/configuracion/configuracion.html"><p>Configuración</p></a>
-          <a href="../modulos/configuracion/ayuda.html"><p>Ayuda</p></a>
-          <a href="../modulos/configuracion/courses.html"><p>Mis cursos</p></a>
-          <a href="#"><p>Cerrar sesión</p></a>
-        </div>
-      </div>
-    </div>
-  </nav>
+            <div id="search_bar">
+                <input type="text" name="search" placeholder="Buscar cursos o freelancers">
+                <img src="../../imagenes/dashboard_img/lupa.png" alt="lupa" class="vector_size" style="cursor: pointer;">
+            </div>
+
+            
+            <div id="profile_bar">
+            
+            
+            <?php if ($is_logged_in): ?>
+
+                
+
+                <div id="message_container">
+                    <img src="../../imagenes/dashboard_img/mail_box.png" alt="perfil" class="vector_size">
+                    <div id="message_box">
+                        <h2>Mensajes</h2>
+                        <div class="mail_box">
+                            </div>
+                    </div>
+                    <!--skeleto start-->
+                    <template id="messages_skeleton">
+                        <div class="message_card"> 
+        
+                            <div class="row_message">
+                                <div class="skeleton_img"></div>
+                                <div class="skeleton_osc" style="width: 40%; margin-left: 10px;"></div>
+                            </div>
+
+                            <div class="skeleton_osc" style="width: 90%;"></div>
+                            <div class="skeleton_osc" style="width: 30%;"></div>
+                            
+                        </div>
+                    </template>
+                    <!--skeleto end-->
+                </div>
+                
+
+                
+                <div id ="bell_container">
+                    <img src="../../imagenes/dashboard_img/bell.png" alt="campana" class="vector_size">
+                    <div id="notifications">
+                        <h2>Notificaciones</h2>
+                        <div class="messages">
+                            </div>
+                    </div>
+                    <!--skeleto start-->
+                    <template id="notifications_skeleton">
+                        <div class="notification_card"> 
+        
+                            <div class="row_message">
+                                <div class="skeleton_img"></div>
+                                <div class="skeleton_osc" style="width: 40%; margin-left: 10px;"></div>
+                            </div>
+
+                            <div class="skeleton_osc" style="width: 90%;"></div>
+                            <div class="skeleton_osc" style="width: 30%;"></div>
+                            
+                        </div>
+                    </template>
+                    <!--skeleto end-->
+                </div>
+                
+                <div id="profile_picture_container">
+                    <?php 
+                        $ruta_avatar = !empty($_SESSION['usuario_img']) ? $_SESSION['usuario_img'] : '../imagenes/dashboard_img/perfil.png';
+                    ?>
+                    <img src="<?php echo $ruta_avatar; ?>" alt="profile" id="profile_picture">
+                    <img src="../../imagenes/dashboard_img/arrow.png" alt="arrow" class="arrow_size">
+                    <div id="profile_status">
+                            <a href="../../modulos/configuracion/perfil.html"><p>Editar perfil</p></a>
+                            <a href="../../modulos/configuracion/ayuda.html"><p>Ayuda</p></a>
+                            <a href="../../modulos/configuracion/courses.html"><p>Mis cursos</p></a>
+                            <a href="../../modulos/PHP/cerrar_sesion.php"><p>Cerrar sesión</p></a>
+                      
+                    </div>
+                </div>
+            </div>
+
+            <?php else: ?>
+                <a href="../../inicio_registro/inicio_sesion.html" id="login_button">Iniciar sesión</a>
+                <a href="../../inicio_registro/registro.html" id="signup_button">Registrarse</a>
+            <?php endif ?>
+
+        </nav>
 
   <main class="pagina-principal">
     
     <section class="columna-izquierda">
-      <h1 class="titulo-principal">Haré corrección de errores en Java, optimización de código y scripts personalizados</h1>
-
+      
+            <h1 class="titulo-principal"></h1>
       <div id="contenedor-autor" class="tarjeta-simple">
         <img src="https://i.pinimg.com/originals/03/9e/9c/039e9c3da01e0f3213fd984995aa59ca.jpg" alt="profile" id="foto-autor">
         <div id="estado-autor">
-          <p id="nombre-autor">Musk11</p>
+          <p id="nombre-autor"></p>
           <p id="desc-autor">descripcion</p>
         </div>
       </div>
 
       <div id="contenedor-media" class="grid-media">
         <video controls id="video" class="item-media">
-          <source src="/videos/xdd.mp4">
+          <source src="" id="video_promotion">
           Tu navegador no soporta el video.
         </video>
         <img src="https://i.ytimg.com/vi/oz9wPzx6-ew/maxresdefault.jpg" alt="Miniatura 1" class="item-media miniatura">
@@ -258,11 +321,9 @@
       <div class="contenido-compra">
           <div class="cabecera-compra">
               <h3 class="titulo-plan">Script o Solución de Errores en Java</h3>
-              <span class="precio-plan">US$20</span>
+              <span class="precio-plan"></span>
           </div>
-          <p class="descripcion-plan">
-              Solución rápida de bugs, creación de scripts básicos o algoritmos en Java. Código limpio y comentado.
-          </p>
+          <p class="descripcion-plan"></p>
           
           <ul class="lista-beneficios">
               <li><span class="check">✔</span> Código Fuente</li>
@@ -327,7 +388,7 @@
   <footer class="pie-pagina">
     <div class="contenido-pie">
         <div class="columna-pie logo-col">
-            <img src="/CURSOS/imagenes/kursa_logo.png" alt="Kursa Logo" class="logo-pie">
+            <img src="/imagenes/kursa_logo.png" alt="Kursa Logo" class="logo-pie">
             <div class="caja-copyright">
                 <p>&copy; 2025 Kursa Inc.</p>
                 <p>Todos los derechos reservados.</p>
@@ -369,23 +430,9 @@
     </div>
   </footer>
 
-  <script type="module">
-            //este import va a ser temporar porque es la bd falsa usala para probar
-            import { listaRecomendados } from '../configuracion/js/fakeDB.js';
-
-            const param = new URLSearchParams(window.location.search); // esto es para obtener el id pero del tipo ?id=
-            const course_id = parseInt(param.get('id')); // como es un string lo pasamos a int
-
-            const cursoParaMostrar = listaRecomendados.find(curso => curso.id === course_id); // esto es muy parecido a un get de java
-            //basicamente es una funcion con el parametro curso y devuelve el curso que cumpla con la condicion
-
-            console.log(cursoParaMostrar);
-            document.title = cursoParaMostrar.Titulo;
-
-        </script>
     <script src="../navbar/dashboard_navbar.js"></script>
     <script src="page.js"></script>
     <script type="module" src="../navbar/notifications_loading.js"></script>
-
+    <script type="module" src="../navbar/Mail_box_loading.js"></script>
 </body>
 </html>

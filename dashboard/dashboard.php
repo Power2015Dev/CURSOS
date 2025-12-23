@@ -30,6 +30,7 @@ $is_logged_in = isset($_SESSION['usuario_id']);
             <div id="logo_container">
                 <a href="dashboard.php">
                 <img src="../imagenes/kursa_logo_claro.png" alt="logo" class="vector_size" id="logo">
+                <a href="#" class="no-decorations"><p style="font-weight: 700;color:white;">Modo Vendedor</p></a>
                 </a>
             </div>
             <div id="search_bar">
@@ -43,9 +44,7 @@ $is_logged_in = isset($_SESSION['usuario_id']);
             
             <?php if ($is_logged_in): ?>
 
-                <a href="../modulos/configuracion/configuracion.html" class="no-decorations">
-                <img src="../imagenes/dashboard_img/seller.png" alt="perfil" class="vector_size">
-                </a>
+                
 
                 <div id="message_container">
                     <img src="../imagenes/dashboard_img/mail_box.png" alt="perfil" class="vector_size">

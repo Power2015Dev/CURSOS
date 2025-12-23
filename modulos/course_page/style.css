@@ -111,11 +111,13 @@ h1, h2, h3, h4,
   font-size: 0;
   display: flex;
   align-items: center;
+  text-decoration: underline;
 }
 
 /* aqui coloque before para colocar las estrellas y no en el html */
 #desc-autor::before {
-  content: "★★★★★";
+  /*content: "★★★★★";*/
+  content: var(--before, "☆☆☆☆☆");
   color: var(--tercero);
   font-size: 1.1rem;
   margin-right: 6px;
@@ -123,7 +125,7 @@ h1, h2, h3, h4,
 }
 
 #desc-autor::after {
-  content: "5.0 (11 reviews)";
+  content: var(--after, "Cargando...");
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--segundo);
@@ -568,7 +570,7 @@ details[open] summary::after {
 .tarjeta-compra {
   position: sticky;
   top: 120px;
-  z-index: 50;
+  z-index: 2;
   background: var(--blanco);
   border: 1px solid var(--cuarto);
   border-radius: var(--radio);

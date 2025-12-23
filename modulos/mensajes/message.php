@@ -120,11 +120,13 @@ $chat_id = isset($_GET['id']) ? $_GET['id'] : null;
             <?php if($chat_id): ?>
                 <div class="chat-header">
                     <div class="chat-user-info">
+                        <span class="material-symbols-outlined back-btn" id="back-to-contacts">arrow_back</span>
                         <img src="../../imagenes/dashboard_img/perfil.png" alt="Current User" id="current-chat-img">
                         <div class="user-details">
                             <h3 id="current-chat-name">Cargando...</h3>
                             
                         </div>
+                        
                     </div>
                     <div class="chat-actions">
                         <span class="material-symbols-outlined">more_vert</span>

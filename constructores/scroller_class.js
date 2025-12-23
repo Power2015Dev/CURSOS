@@ -20,7 +20,7 @@ export class ScrollerAdder {
             
             <div class="card_header"> 
                 <span class="badge">${this.Precio}</span> 
-                <a href="/modulos/course_page/page.html?id=${this.id}" style="text-decoration: none;" class="never_visited">
+                <a href="/modulos/course_page/page.php?id=${this.id}" style="text-decoration: none;" class="never_visited">
                 <img src="${this.Imagen}" alt="curso"> 
                 </a>
             </div> 

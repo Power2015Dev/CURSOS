@@ -4,9 +4,8 @@ export class ChatManager {
         this.messagesContainer = document.getElementById('messages-feed');
         this.inputField = document.getElementById('message-input');
         this.sendBtn = document.getElementById('send-btn');
-        
-        // Rutas a tus archivos PHP (Asegúrate que sean correctas desde donde cargas el JS)
-        this.apiPath = '../modulos/mensajes/'; 
+        this.backBtn = document.getElementById('back-to-contacts');
+        this.layout = document.querySelector('.chat-layout');
         
         this.init();
     }
@@ -21,9 +20,11 @@ export class ChatManager {
         if (this.currentChatId) {
             this.loadMessages(this.currentChatId);
             this.setupEventListeners();
-            
+            this.layout.classList.add('mobile-chat-active');
             // Opcional: Polling para actualizar mensajes nuevos cada 3 segundos
-            // setInterval(() => this.loadMessages(this.currentChatId, false), 3000);
+            setInterval(() => this.loadMessages(this.currentChatId, false), 3000);
+        }else{
+            this.layout.classList.remove('mobile-chat-active');
         }
     }
 
@@ -99,6 +100,13 @@ export class ChatManager {
         this.inputField.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') this.sendMessage();
         });
+
+        if(this.backBtn) {
+            this.backBtn.addEventListener('click', () => {
+                // Quitamos el ID de la URL para volver a la lista
+                window.location.href = window.location.pathname;
+            });
+        }
     }
 
     async sendMessage() {
