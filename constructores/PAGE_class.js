@@ -68,13 +68,13 @@ export class page {
                   <div class="detalles-producto">
                       <div class="fila-autor">
                           <div class="autor-izq">
-                              <img src="${element.avatar_url || this.autor_avatar}" alt="user" class="avatar-autor">
-                              <span class="nombre-autor-prod">${element.autor || element.autor_nombre}</span>
+                              <img src="${element.author_url}" alt="user" class="avatar-autor">
+                              <span class="nombre-autor-prod">${element.author_name}</span>
                           </div>
                       </div>
                       <a href="/modulos/course_page/page.html?id=${element.id}" class="enlace-producto">${element.titulo}</a>
                       <div class="fila-rating">
-                          <span class="estrella">★</span> <span class="puntaje">${element.rating}</span> <span class="conteo">(${element.rating_count || 0})</span>
+                          <span class="estrella">★</span> <span class="puntaje">${element.rating}</span> <span class="conteo">(${element.resenas_count || 0})</span>
                       </div>
                       <div class="fila-precio">De <strong>${element.precio}$</strong></div>
                   </div>

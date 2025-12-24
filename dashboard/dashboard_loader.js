@@ -50,7 +50,7 @@ function load_content(table) {
         table.forEach(data => {
             if(data.precio < 1 || data.precio === null) data.precio = "Free";
             const card = new ScrollerAdder(
-                data.titulo, data.autor, data.resenas_count, 
+                data.titulo, data.author_name, data.resenas_count, 
                 data.imagen_url, data.precio, data.rating, data.id
             );
 

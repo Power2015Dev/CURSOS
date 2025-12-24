@@ -71,6 +71,15 @@ while($faq = $res_faq->fetch_assoc()){
 
 $datos_curso['other_courses'] = []; // esto es para el carrusel
 
+$query_other = "SELECT c.id, c.titulo, c.resenas_count, c.imagen_url, c.precio, c.rating, u.nombre AS author_name, u.avatar_url AS author_url FROM cursos c INNER JOIN usuarios u ON c.usuario_id = u.id";
+$stmt_other = $conexion->prepare($query_other);
+$stmt_other->execute();
+$res_other = $stmt_other->get_result();
+
+while($other = $res_other->fetch_assoc()){
+    $datos_curso['other_courses'][] = $other;
+}
+
 // Enviamos el array completo 
 echo json_encode($datos_curso);
 ?>

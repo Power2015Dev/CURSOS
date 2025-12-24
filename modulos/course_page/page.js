@@ -19,6 +19,7 @@ async function get_data() {
         }
         const response = await fetch(`/modulos/course_page/Query_page/query_page.php?id=${id_curso}`);
         const data = await response.json();
+        console.log(data);
         load_content(data);
     } catch (error) {
         console.log("No se pudo cargar la informacion por: " +error);
