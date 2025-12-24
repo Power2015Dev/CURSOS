@@ -124,7 +124,7 @@ $is_logged_in = isset($_SESSION['usuario_id']);
       
             <h1 class="titulo-principal"></h1>
       <div id="contenedor-autor" class="tarjeta-simple">
-        <img src="https://i.pinimg.com/originals/03/9e/9c/039e9c3da01e0f3213fd984995aa59ca.jpg" alt="profile" id="foto-autor">
+        <img src="" alt="profile" id="foto-autor">
         <div id="estado-autor">
           <p id="nombre-autor"></p>
           <p id="desc-autor">descripcion</p>
@@ -132,12 +132,8 @@ $is_logged_in = isset($_SESSION['usuario_id']);
       </div>
 
       <div id="contenedor-media" class="grid-media">
-        <video controls id="video" class="item-media">
-          <source src="" id="video_promotion">
-          Tu navegador no soporta el video.
-        </video>
-        <img src="https://i.ytimg.com/vi/oz9wPzx6-ew/maxresdefault.jpg" alt="Miniatura 1" class="item-media miniatura">
-        <img src="https://videocursos.co/wp-content/uploads/2022/05/curso-java.webp" alt="Miniatura 2" class="item-media miniatura">
+        <!-- media items van a ser controlado dinamicamente por aqui con js -->
+        
       </div>
 
       <section class="seccion-resenas">
@@ -154,15 +150,14 @@ $is_logged_in = isset($_SESSION['usuario_id']);
 
         <div class="tarjeta-resena">
             <div class="encabezado-usuario">
-                <img src="https://tse1.mm.bing.net/th/id/OIP.J_KBe60Yzw22OZx53IeqmQHaFj?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="User Avatar" class="avatar-usuario">
+                <img src="" alt="User Avatar" class="avatar-usuario" id="avatar_user">
                 <div class="meta-usuario">
-                    <span class="nombre-usuario">bangash11</span>
+                    <span class="nombre-usuario" id="rating_user"></span>
                     <span class="bloque-pais">
-                        <span style="font-size: 16px;">🇵🇰</span> Pakistan
-                    </span>
+                        <span style="font-size: 16px;" id="disminutivo_pais"></span id="pais"></span>
                     <span class="separador">|</span>
                     <div class="rating-estrellas">
-                        ★★★★★ <span class="numero-rating">5</span>
+                        ★★★★★ <span class="numero-rating" id="rating_number_int"></span>
                     </div>
                 </div>
             </div>
@@ -176,143 +171,22 @@ $is_logged_in = isset($_SESSION['usuario_id']);
       <h2 class="titulo-seccion">Las personas que vieron este servicio también vieron</h2>
       
       <div class="contenedor-carrusel">
-          <div class="pista-carrusel">
+          <div class="pista-carrusel" id="contenedor-carrusel-id">
 
-              <div class="tarjeta-producto">
-                  <div class="media-producto">
-                      <img src="https://img.freepik.com/psd-gratis/plantilla-pagina-aterrizaje-diseno-ui-ux_23-2149065666.jpg" alt="Service" class="imagen-producto">
-                      <div class="icono-corazon">♥</div>
-                  </div>
-                  <div class="detalles-producto">
-                      <div class="fila-autor">
-                          <div class="autor-izq">
-                              <img src="https://img.freepik.com/foto-gratis/mujer-joven-feliz-gafas_23-2148113460.jpg" alt="Shela" class="avatar-autor">
-                              <span class="nombre-autor-prod">Shela K</span>
-                          </div>
-                          <span class="nivel-autor">Nivel 2</span>
-                      </div>
-                      <a href="#" class="enlace-producto">Haré diseño web de Figma, diseño UI UX de sitios web responsive...</a>
-                      <div class="fila-rating">
-                          <span class="estrella">★</span> <span class="puntaje">4.9</span> <span class="conteo">(179)</span>
-                      </div>
-                      <div class="fila-precio">De <strong>55 dólares</strong></div>
-                  </div>
-              </div>
-
-              <div class="tarjeta-producto">
-                  <div class="media-producto">
-                      <img src="https://miro.medium.com/v2/resize:fit:1400/1*bMgQ8MhbnQexpqHgIgBJPA.png" alt="Service" class="imagen-producto">
-                      <div class="icono-corazon">♥</div>
-                  </div>
-                  <div class="detalles-producto">
-                      <div class="fila-autor">
-                          <div class="autor-izq">
-                              <img src="https://img.freepik.com/foto-gratis/hombre-joven-confiado-traje-gafas_329181-11883.jpg" alt="Mohsin" class="avatar-autor">
-                              <span class="nombre-autor-prod">Mohsin S.</span>
-                          </div>
-                          <span class="nivel-autor">Nivel 1</span>
-                      </div>
-                      <a href="#" class="enlace-producto">Haré diseño de Figma, diseño web de Figma, UX de UI de...</a>
-                      <div class="fila-rating">
-                          <span class="estrella">★</span> <span class="puntaje">5.0</span> <span class="conteo">(26)</span>
-                      </div>
-                      <div class="fila-precio">De <strong>5 dólares</strong></div>
-                  </div>
-              </div>
-
-              <div class="tarjeta-producto">
-                  <div class="media-producto">
-                      <img src="https://tse3.mm.bing.net/th/id/OIP.fIL_wlD5zjW0PfDs8tkKegHaHa?cb=ucfimg2&ucfimg=1&w=736&h=736&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Service" class="imagen-producto">
-                      <div class="icono-corazon">♥</div>
-                  </div>
-                  <div class="detalles-producto">
-                      <div class="fila-autor">
-                          <div class="autor-izq">
-                              <img src="https://img.freepik.com/foto-gratis/retrato-hombre-sonriente_23-2148184666.jpg" alt="Homayon" class="avatar-autor">
-                              <span class="nombre-autor-prod">Homayon</span>
-                          </div>
-                          <span class="nivel-autor">Nivel 2</span>
-                      </div>
-                      <a href="#" class="enlace-producto">Haré diseño de Figma, web SaaS y diseño UX UI en la web...</a>
-                      <div class="fila-rating">
-                          <span class="estrella">★</span> <span class="puntaje">5.0</span> <span class="conteo">(45)</span>
-                      </div>
-                      <div class="fila-precio">De <strong>45 dólares</strong></div>
-                  </div>
-              </div>
               
-              <div class="tarjeta-producto">
-                  <div class="media-producto">
-                      <img src="https://assets.materialup.com/uploads/4b333634-b903-455e-9962-d486d63426e2/preview.png" alt="Service" class="imagen-producto">
-                      <div class="icono-corazon">♥</div>
-                  </div>
-                  <div class="detalles-producto">
-                      <div class="fila-autor">
-                          <div class="autor-izq">
-                              <img src="https://img.freepik.com/foto-gratis/mujer-joven-hermosa-sueter-calido-moda_285396-9806.jpg" alt="Fatima" class="avatar-autor">
-                              <span class="nombre-autor-prod">Fatima</span>
-                          </div>
-                          <span class="nivel-autor">Nivel 2</span>
-                      </div>
-                      <a href="#" class="enlace-producto">Haré diseño de figma, web de figma, web de diseño de figma...</a>
-                      <div class="fila-rating">
-                          <span class="estrella">★</span> <span class="puntaje">5.0</span> <span class="conteo">(96)</span>
-                      </div>
-                      <div class="fila-precio">De <strong>45 dólares</strong></div>
-                  </div>
-              </div>
+                <!-- Los elementos del carrusel se cargaran dinámicamente aqui con js -->
+              
 
           </div>
       </div>
 
-      <section class="contenedor-faq">
+      <section class="contenedor-faq" id="contenedor_faq_id">
         <h2 class="titulo-faq">Preguntas Frecuentes (FAQ)</h2>
         
-        <div class="item-faq">
-            <details>
-                <summary>
-                    <img src="https://otakotaku.com/asset/img/character/2020/12/miku-nakano-5fd2ea3ea989fp.jpg" alt="Foto" class="foto-faq">
-                    <div class="datos-faq">
-                        <span class="nombre-usuario-faq">Carlos M.</span>
-                        <span class="texto-pregunta">¿Incluyes el código fuente del proyecto?</span>
-                    </div>
-                </summary>
-                <div class="respuesta-faq">
-                    <p>Sí, absolutamente. En todos mis paquetes entrego el código fuente completo.</p>
-                </div>
-            </details>
-        </div>
-
-        <div class="item-faq">
-            <details>
-                <summary>
-                    <img src="https://img.freepik.com/foto-gratis/mujer-joven-feliz-gafas_23-2148113460.jpg" alt="Foto" class="foto-faq">
-                    <div class="datos-faq">
-                        <span class="nombre-usuario-faq">Ana G.</span>
-                        <span class="texto-pregunta">¿Conectas con bases de datos?</span>
-                    </div>
-                </summary>
-                <div class="respuesta-faq">
-                    <p>Sí, tengo experiencia trabajando con MySQL, PostgreSQL y MongoDB.</p>
-                </div>
-            </details>
-        </div>
-
-        <div class="item-faq">
-            <details>
-                <summary>
-                    <img src="https://th.bing.com/th/id/R.8a7baf62ced103a8be8dfbc3f7e82d61?rik=ItdZs0BdZr0B%2fw&pid=ImgRaw&r=0" alt="Foto" class="foto-faq">
-                    <div class="datos-faq">
-                        <span class="nombre-usuario-faq">Roberto L.</span>
-                        <span class="texto-pregunta">¿Qué hago si necesito correcciones?</span>
-                    </div>
-                </summary>
-                <div class="respuesta-faq">
-                    <p>Ofrezco revisiones ilimitadas en los paquetes Estándar y Premium.</p>
-                </div>
-            </details>
-        </div>
+        
       </section>
+
+
     </section>
 
     <aside id="caja-compra" class="tarjeta-compra">
@@ -320,7 +194,7 @@ $is_logged_in = isset($_SESSION['usuario_id']);
 
       <div class="contenido-compra">
           <div class="cabecera-compra">
-              <h3 class="titulo-plan">Script o Solución de Errores en Java</h3>
+             <!-- <h3 class="titulo-plan">Script o Solución de Errores en Java</h3> -->
               <span class="precio-plan"></span>
           </div>
           <p class="descripcion-plan"></p>
@@ -431,8 +305,8 @@ $is_logged_in = isset($_SESSION['usuario_id']);
   </footer>
 
     <script src="../navbar/dashboard_navbar.js"></script>
-    <script src="page.js"></script>
     <script type="module" src="../navbar/notifications_loading.js"></script>
     <script type="module" src="../navbar/Mail_box_loading.js"></script>
+    <script type="module" src="page.js"></script>
 </body>
 </html>
