@@ -99,7 +99,7 @@ h1, h2, h3, h4,
 
 /*coloque after para no colocarlo en el html*/
 #nombre-autor::after {
-  content: " | Nivel 1 ✦ 2 pedidos en cola";
+  content: var(--after_date);
   font-weight: 400;
   font-size: 0.9rem;
   color: var(--tercero);

@@ -1,6 +1,6 @@
 export class page {
 
-    constructor(id, titulo, descripcion, autor_nombre, precio, rating, rating_count, img_url_arr, video_url_arr, autor_pais, user_rating, autor_avatar, FAQs, other_courses) {
+    constructor(id, titulo, descripcion, autor_nombre, precio, rating, rating_count, img_url_arr, video_url_arr, autor_pais, user_rating, autor_avatar, FAQs, other_courses, fecha_creacion, rating_info) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -8,15 +8,21 @@ export class page {
         this.precio = precio;
         this.rating = rating;
         this.rating_count = rating_count;
-        this.img_url_arr = img_url_arr;
-        this.video_url_arr = video_url_arr;
+        this.img_url_arr = img_url_arr || [];     
+        this.video_url_arr = video_url_arr || []; 
         this.autor_pais = autor_pais;
         this.user_rating = user_rating;
         this.autor_avatar = autor_avatar;
-        this.FAQs = FAQs;
-        this.other_courses = other_courses;
+        this.FAQs = FAQs || [];
+        this.other_courses = other_courses || [];
+        this.fecha_creacion = fecha_creacion;
+        this.rating_info = rating_info || []; 
+
+        
+        this.currentReviewIndex = 0; 
     }
 
+ 
     load_page_content() {
         const titulo_principal = document.querySelector(".titulo-principal");
         const autor_nombre_html = document.getElementById("nombre-autor");
@@ -26,39 +32,43 @@ export class page {
         const media_adder = document.getElementById("contenedor-media");
         const foto_autor = document.getElementById("foto-autor");
 
-        // Asignar la imagen del autor
+  
         if (foto_autor) {
             foto_autor.src = this.autor_avatar;
         }
-      
-        if (this.rating >= 5) {
-            rating_desc.style.setProperty('--before', `"★★★★★"`);
-        } else if (this.rating >= 4) {
-            rating_desc.style.setProperty('--before', `"★★★★☆"`);
-        } else if (this.rating >= 3) {
-            rating_desc.style.setProperty('--before', `"★★★☆☆"`);
-        } else if (this.rating >= 2) {
-            rating_desc.style.setProperty('--before', `"★★☆☆☆"`);
-        } else if (this.rating >= 1) {
-            rating_desc.style.setProperty('--before', `"★☆☆☆☆"`);
-        } else {
-            rating_desc.style.setProperty('--before', `"☆☆☆☆☆"`);
-        }
+
+       
+        let stars = "☆☆☆☆☆";
+        if (this.rating >= 5) stars = "★★★★★";
+        else if (this.rating >= 4) stars = "★★★★☆";
+        else if (this.rating >= 3) stars = "★★★☆☆";
+        else if (this.rating >= 2) stars = "★★☆☆☆";
+        else if (this.rating >= 1) stars = "★☆☆☆☆";
+        
+        rating_desc.style.setProperty('--before', `"${stars}"`);
         rating_desc.style.setProperty('--after', `"${this.rating} (${this.rating_count} reviews)"`);
 
      
         titulo_principal.textContent = this.titulo;
         autor_nombre_html.textContent = this.autor_nombre;
-        precio_plan.textContent = `US$ ${this.precio}`;
+      
+        precio_plan.textContent = parseFloat(this.precio) > 0  ? "US$ " + parseFloat(this.precio) : "Free";
         descripcion_principal.textContent = this.descripcion;
 
    
+        const fechaObj = new Date(this.fecha_creacion.replace(" ", "T")); 
+        const opciones = { day: 'numeric', month: 'short', year: 'numeric' };
+        const textoFecha = "Creado el " + fechaObj.toLocaleDateString('es-ES', opciones); 
+        autor_nombre_html.style.setProperty('--after_date', `"${textoFecha}"`);
+    
+    
         const contenedor_carrusel = document.getElementById("contenedor-carrusel-id");
-   
         contenedor_carrusel.innerHTML = ""; 
         
         this.other_courses.forEach(element => {
-        
+      
+            const precioDisplay = parseFloat(element.precio) > 0 ? element.precio + "$" : "Free";
+            
             contenedor_carrusel.innerHTML += `
             <div class="tarjeta-producto">
                   <div class="media-producto">
@@ -74,100 +84,172 @@ export class page {
                       </div>
                       <a href="/modulos/course_page/page.html?id=${element.id}" class="enlace-producto">${element.titulo}</a>
                       <div class="fila-rating">
-                          <span class="estrella">★</span> <span class="puntaje">${element.rating}</span> <span class="conteo">(${element.resenas_count || 0})</span>
+                          <span class="estrella">★</span> <span class="puntaje">${element.rating}</span> 
+                          <span class="conteo">(${element.resenas_count || 0})</span>
                       </div>
-                      <div class="fila-precio">De <strong>${element.precio}$</strong></div>
+                      <div class="fila-precio">De <strong>${precioDisplay}</strong></div>
                   </div>
-              </div>
-            `;
+              </div>`;
         });
 
-  
-        const contenedor_faq = document.getElementById("contenedor_faq_id");
-
- 
-
-        this.FAQs.forEach(element => {
-     
-            contenedor_faq.innerHTML += `
-            <div class="item-faq">
-            <details>
-                <summary>
-                    <img src="${this.autor_avatar}" alt="Foto" class="foto-faq">
-                    <div class="datos-faq">
-                        <span class="nombre-usuario-faq">${this.autor_nombre}</span>
-                        <span class="texto-pregunta">${element.pregunta}</span>
+       
+        const contenedor_faq = document.getElementById("contenedor_faq_id"); 
+        if(contenedor_faq) {
+            contenedor_faq.innerHTML = ""; 
+            this.FAQs.forEach(element => {
+                contenedor_faq.innerHTML += `
+                <div class="item-faq">
+                <details>
+                    <summary>
+                        <img src="${element.FAQ_img}" alt="Foto" class="foto-faq">
+                        <div class="datos-faq">
+                            <span class="nombre-usuario-faq">${element.FAQ_name}</span>
+                            <span class="texto-pregunta">${element.pregunta}</span>
+                        </div>
+                    </summary>
+                    <div class="respuesta-faq">
+                        <p>${element.respuesta}</p>
                     </div>
-                </summary>
-                <div class="respuesta-faq">
-                    <p>${element.respuesta}</p>
-                </div>
-            </details>
-        </div>`;
-        });
-
-   
-        
-
-        media_adder.innerHTML = "";
+                </details>
+            </div>`;
+            });
+        }
 
       
-        let videosHTML = "";
+        media_adder.innerHTML = "";
+        let mediaHTML = "";
+        
+    
         this.video_url_arr.forEach(element => {
-            videosHTML += `
-            <video controls class="item-media" width="800px" height="600px">
-                <source src="${element}" type="video/mp4">
-                Tu navegador no soporta el video.
-            </video>`;
+      
+            if (element.includes("youtube.com") || element.includes("youtu.be")) {
+                const videoId = element.split('v=')[1] || element.split('/').pop();
+                mediaHTML += `
+                <div class="item-media" style="aspect-ratio: 16/9;">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+                </div>`;
+            } else {
+                mediaHTML += `
+                <video controls class="item-media" width="100%" style="aspect-ratio: 16/9;">
+                    <source src="${element}" type="video/mp4">
+                    Tu navegador no soporta el video.
+                </video>`;
+            }
         });
         
-   
-        media_adder.innerHTML = videosHTML;
+     
+        this.img_url_arr.forEach((img, i) => {
+             mediaHTML += `<img src="${img}" alt="Miniatura ${i}" class="item-media miniatura">`;
+        });
+        
+        media_adder.innerHTML = mediaHTML;
 
-   
-        for (let i = 0; i < this.img_url_arr.length; i++) {
-            const miniatura = document.createElement("img");
-            miniatura.src = this.img_url_arr[i];
-            miniatura.alt = `Miniatura ${i + 1}`;
-            miniatura.className = "item-media miniatura";
-            media_adder.appendChild(miniatura);
-        }
-
-
-        // Ejecutamos la funcion auxiliar para cargar banderas y avatares secundarios
-        this.load_page_content_by_query(this.autor_pais, this.user_rating, this.autor_avatar);
+    
+        this.setup_review_carousel();
     }
 
-    load_page_content_by_query(autor_pais, user_rating, autor_avatar) {
-        const rating_user = document.getElementById("rating_user");
-        const avatar_user = document.getElementById("avatar_user");
-        const disminutivo_pais = document.getElementById("disminutivo_pais");
-        const id_pais = document.getElementById("pais");
-        const rating_number_int = document.getElementById("rating_number_int");
 
+ 
+    setup_review_carousel() {
+        const texto_comentario = document.querySelector(".texto-comentario");
 
-        const pais = autor_pais ? autor_pais.toLowerCase() : "??";
-
-        if (pais == "mx") {
-            disminutivo_pais.textContent = "MX";
-        } else if (pais == "us") {
-            disminutivo_pais.textContent = "US";
-        } else if (pais == "es") {
-            disminutivo_pais.textContent = "ES";
-        } else if (pais == "ar") {
-            disminutivo_pais.textContent = "AR";
-        } else if (pais == "venezuela" || pais == "ve") {
-            disminutivo_pais.textContent = "VE";
-        } else {
-            disminutivo_pais.textContent = "??";
+     
+        if (!this.rating_info || this.rating_info.length === 0) {
+            if(texto_comentario) texto_comentario.textContent = "No hay reseñas todavía.";
+            return;
         }
 
-        if (rating_number_int) rating_number_int.textContent = user_rating;
-        if (id_pais) id_pais.textContent = autor_pais;
-        
-        // Aquí asignamos el avatar que recibimos
-        if (avatar_user) avatar_user.src = autor_avatar; // temporal porque esto solo me da el avatar del que subio el video no del que raiteo el video
    
-        if (rating_user) rating_user.textContent = this.autor_nombre; 
+        this.update_review_ui(0);
+
+
+        const btnPrev = document.querySelector(".boton-flecha.prev");
+        const btnNext = document.querySelector(".boton-flecha.next");
+
+        if (btnNext) {
+            btnNext.addEventListener('click', (e) => {
+                e.preventDefault(); 
+                this.currentReviewIndex++;
+                
+          
+                if (this.currentReviewIndex >= this.rating_info.length) {
+                    this.currentReviewIndex = 0;
+                }
+                this.update_review_ui(this.currentReviewIndex);
+            });
+        }
+
+        if (btnPrev) {
+            btnPrev.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.currentReviewIndex--;
+
+             
+                if (this.currentReviewIndex < 0) {
+                    this.currentReviewIndex = this.rating_info.length - 1;
+                }
+                this.update_review_ui(this.currentReviewIndex);
+            });
+        }
+    }
+
+    update_review_ui(index) {
+   
+        const review = this.rating_info[index];
+
+   
+        const rating_user = document.querySelector(".nombre-usuario");
+        const avatar_user = document.querySelector(".avatar-usuario");
+        const disminutivo_pais = document.getElementById("disminutivo_pais");
+        const rating_number_int = document.querySelector(".numero-rating");
+        const fechaElement = document.querySelector(".fecha-resena");
+        const texto_comentario = document.querySelector(".texto-comentario");
+        const id_pais = document.getElementById("pais"); 
+
+  
+        texto_comentario.style.transition = "opacity 0.2s";
+        texto_comentario.style.opacity = 0;
+        
+        setTimeout(() => {
+
+            rating_user.textContent = review.rater_name;
+            avatar_user.src = review.rater_img;
+            rating_number_int.textContent = `(${review.calificacion})`;
+            texto_comentario.textContent = review.comentario;
+
+
+            const pais = review.pais ? review.pais.toLowerCase() : "??";
+            const mapPais = {
+                "mx": "MX", "mexico": "MX",
+                "us": "US", "usa": "US",
+                "es": "ES", "espana": "ES",
+                "ar": "AR", "argentina": "AR",
+                "ve": "VE", "venezuela": "VE",
+                "co": "CO", "colombia": "CO"
+            };
+            disminutivo_pais.textContent = (mapPais[pais] || "??");
+            
+          
+            if(id_pais) id_pais.textContent = " " + review.pais;
+
+         
+            const fechaObj = new Date(review.fecha.replace(" ", "T"));
+            const ahora = new Date();
+            const diferenciaSegundos = Math.floor((ahora - fechaObj) / 1000);
+            let textoFecha = "";
+
+            if (diferenciaSegundos < 60) textoFecha = "Justo ahora";
+            else if (diferenciaSegundos < 3600) textoFecha = `Hace ${Math.floor(diferenciaSegundos / 60)} min`;
+            else if (diferenciaSegundos < 86400) textoFecha = `Hace ${Math.floor(diferenciaSegundos / 3600)} h`;
+            else if (diferenciaSegundos < 604800) textoFecha = `Hace ${Math.floor(diferenciaSegundos / 86400)} días`;
+            else {
+                const opciones = { day: 'numeric', month: 'short', year: 'numeric' };
+                textoFecha = fechaObj.toLocaleDateString('es-ES', opciones);
+            }
+            fechaElement.textContent = textoFecha;
+
+          
+            texto_comentario.style.opacity = 1;
+        }, 200);
     }
 }

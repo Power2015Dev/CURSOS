@@ -150,14 +150,14 @@ $is_logged_in = isset($_SESSION['usuario_id']);
 
         <div class="tarjeta-resena">
             <div class="encabezado-usuario">
-                <img src="" alt="User Avatar" class="avatar-usuario" id="avatar_user">
+                <img src="" alt="User Avatar" class="avatar-usuario">
                 <div class="meta-usuario">
-                    <span class="nombre-usuario" id="rating_user"></span>
+                    <span class="nombre-usuario"></span>
                     <span class="bloque-pais">
-                        <span style="font-size: 16px;" id="disminutivo_pais"></span id="pais"></span>
+                        <span style="font-size: 16px;" id="disminutivo_pais"></span><span id="pais"></span>
                     <span class="separador">|</span>
                     <div class="rating-estrellas">
-                        ★★★★★ <span class="numero-rating" id="rating_number_int"></span>
+                        ★★★★★ <span class="numero-rating"></span>
                     </div>
                 </div>
             </div>

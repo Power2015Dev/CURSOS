@@ -48,7 +48,7 @@ function load_content(table) {
         document.querySelectorAll(".slider-small").forEach(element => element.style.width = "");
 
         table.forEach(data => {
-            if(data.precio < 1 || data.precio === null) data.precio = "Free";
+            if(parseFloat(data.precio) < 1 || !data.precio) data.precio = 'free';
             const card = new ScrollerAdder(
                 data.titulo, data.author_name, data.resenas_count, 
                 data.imagen_url, data.precio, data.rating, data.id

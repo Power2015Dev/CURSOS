@@ -56,19 +56,6 @@ while($media = $res_galeria->fetch_assoc()){
 }
 
 
-$datos_curso['FAQs'] = []; // Inicializamos array vacio
-
-$query_faq = "SELECT pregunta, respuesta FROM curso_faqs WHERE curso_id = ? ORDER BY orden ASC";
-$stmt_faq = $conexion->prepare($query_faq);
-$stmt_faq->bind_param("i", $id);
-$stmt_faq->execute();
-$res_faq = $stmt_faq->get_result();
-
-while($faq = $res_faq->fetch_assoc()){
-    $datos_curso['FAQs'][] = $faq;
-}
-
-
 $datos_curso['other_courses'] = []; // esto es para el carrusel
 
 $query_other = "SELECT c.id, c.titulo, c.resenas_count, c.imagen_url, c.precio, c.rating, u.nombre AS author_name, u.avatar_url AS author_url FROM cursos c INNER JOIN usuarios u ON c.usuario_id = u.id";
@@ -79,6 +66,32 @@ $res_other = $stmt_other->get_result();
 while($other = $res_other->fetch_assoc()){
     $datos_curso['other_courses'][] = $other;
 }
+
+$datos_curso['FAQs'] = []; // Inicializamos array vacio
+
+$query_faq_rate = 'SELECT c.pregunta, c.respuesta, u.nombre AS FAQ_name, u.avatar_url AS FAQ_img  from curso_faqs c INNER JOIN usuarios u ON c.usuario_id = u.id where c.curso_id = ? ORDER BY c.orden ASC';
+
+$stmt_faq_rate = $conexion->prepare($query_faq_rate);
+$stmt_faq_rate->bind_param("i", $id);
+$stmt_faq_rate->execute();
+$res_faq_rate = $stmt_faq_rate->get_result();
+
+while($fila = $res_faq_rate->fetch_assoc()){
+    $datos_curso['FAQs'][] = $fila;
+}
+
+$datos_curso['rating_info'] = []; // Valor por defecto
+
+$query_rating = 'SELECT r.calificacion, r.comentario, r.fecha, u.nombre AS rater_name, u.avatar_url AS rater_img, u.pais FROM rating r INNER JOIN usuarios u ON r.usuario_id = u.id where r.curso_id = ? ORDER BY r.fecha DESC';
+$stmt_rating = $conexion->prepare($query_rating);
+$stmt_rating->bind_param("i", $id);
+$stmt_rating->execute();
+$res_rating = $stmt_rating->get_result();
+
+while($fila = $res_rating->fetch_assoc()){
+    $datos_curso['rating_info'][] = $fila;
+}
+
 
 // Enviamos el array completo 
 echo json_encode($datos_curso);

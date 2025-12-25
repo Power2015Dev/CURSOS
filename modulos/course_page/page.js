@@ -42,9 +42,11 @@ function load_content(data) {
         data.user_rating || 0,
         data.autor_avatar,
         data.FAQs || [],        
-        data.other_courses || []
+        data.other_courses || [],
+        data.fecha_creacion,
+        data.rating_info || []
     )
-    page_instance.load_page_content(data.titulo, data.descripcion, data.autor_nombre, data.precio, data.rating, data.rating_count, data.img_url_arr, data.video_url_arr, data.FAQs, data.other_courses);
+    page_instance.load_page_content(data.titulo, data.descripcion, data.autor_nombre, data.precio, data.rating, data.rating_count, data.img_url_arr, data.video_url_arr, data.FAQs, data.other_courses, data.autor_avatar, data.fecha_creacion, data.rating_info);
 }
 
 

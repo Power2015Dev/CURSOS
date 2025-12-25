@@ -14,12 +14,12 @@ export class ScrollerAdder {
         let div = document.querySelector(".slider-track");
         const card = document.createElement("div");
         card.classList.add("course_card");
-
+        const precio = this.Precio === 'free' ? 'Free' : '$' + parseFloat(this.Precio);
         card.innerHTML = 
             `
             
             <div class="card_header"> 
-                <span class="badge">${this.Precio}</span> 
+                <span class="badge">${precio}</span> 
                 <a href="/modulos/course_page/page.php?id=${this.id}" style="text-decoration: none;" class="never_visited">
                 <img src="${this.Imagen}" alt="curso"> 
                 </a>
@@ -45,6 +45,7 @@ export class ScrollerAdder {
         document.querySelectorAll(`.slider-small`).forEach(element => {
             const card = document.createElement("div");
             card.classList.add("small_card");
+            const precio = this.Precio === 'free' ? 'Free' : '$' + parseFloat(this.Precio);
             card.innerHTML = `
             
             
@@ -52,7 +53,7 @@ export class ScrollerAdder {
                     <img src="${this.Imagen}" alt="placeholder" class="card_bg">
                     
                     <div class="card_content">
-                        <span class="small_badge">${this.Precio}</span>
+                        <span class="small_badge">${precio}</span>
                         
                         <div class="text_info">
                             <h3 class="small_title">${this.Titulo}</h3>
