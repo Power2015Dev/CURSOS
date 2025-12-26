@@ -15,7 +15,7 @@ document.getElementById("formulario").addEventListener("submit", async function(
         });
 
         if (peticion.status === 200) {
-   
+            
             window.location.href = "../dashboard/dashboard.php"; 
         } else {
  

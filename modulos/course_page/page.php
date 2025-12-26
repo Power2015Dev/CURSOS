@@ -1,15 +1,13 @@
 <?php
-
 session_start();
 
 $is_logged_in = isset($_SESSION['usuario_id']);
 
-    if(isset($_SESSION['usuario_nombre'])){
-        $nombre_usuario = $_SESSION['usuario_nombre'];
-    } else {
-        $nombre_usuario = "Invitado";
-    }
-
+if(isset($_SESSION['usuario_nombre'])){
+    $nombre_usuario = $_SESSION['usuario_nombre'];
+} else {
+    $nombre_usuario = "Invitado";
+}
 ?>
 
 <!DOCTYPE html>
@@ -26,114 +24,101 @@ $is_logged_in = isset($_SESSION['usuario_id']);
 <body>
 
   <nav id="navbar">
-            <div id="logo_container">
-                <a href="../../dashboard/dashboard.php">
-                <img src="../../imagenes/kursa_logo_claro.png" alt="logo" class="vector_size" id="logo">
-                <a href="#" class="no-decorations"><p style="font-weight: 700;color:white;">Modo Vendedor</p></a>
-                </a>
-            </div>
-            <div id="search_bar">
-                <input type="text" name="search" placeholder="Buscar cursos o freelancers">
-                <img src="../../imagenes/dashboard_img/lupa.png" alt="lupa" class="vector_size" style="cursor: pointer;">
-            </div>
+      <div id="logo_container">
+        <a href="../../dashboard/dashboard.php">
+        <img src="../../imagenes/kursa_logo_claro.png" alt="logo" class="vector_size" id="logo">
+        <a href="#" class="no-decorations"><p style="font-weight: 700;color:white;">Modo Vendedor</p></a>
+        </a>
+      </div>
+      <div id="search_bar">
+        <input type="text" name="search" placeholder="Buscar cursos o freelancers">
+        <img src="../../imagenes/dashboard_img/lupa.png" alt="lupa" class="vector_size" style="cursor: pointer;">
+      </div>
 
+      <div id="profile_bar">
+        <?php if ($is_logged_in): ?>
             
-            <div id="profile_bar">
-            
-            
-            <?php if ($is_logged_in): ?>
-
-                
-
-                <div id="message_container">
-                    <img src="../../imagenes/dashboard_img/mail_box.png" alt="perfil" class="vector_size">
-                    <div id="message_box">
-                        <h2>Mensajes</h2>
-                        <div class="mail_box">
-                            </div>
-                    </div>
-                    <!--skeleto start-->
-                    <template id="messages_skeleton">
-                        <div class="message_card"> 
-        
-                            <div class="row_message">
-                                <div class="skeleton_img"></div>
-                                <div class="skeleton_osc" style="width: 40%; margin-left: 10px;"></div>
-                            </div>
-
-                            <div class="skeleton_osc" style="width: 90%;"></div>
-                            <div class="skeleton_osc" style="width: 30%;"></div>
-                            
+            <div id="message_container">
+                <img src="../../imagenes/dashboard_img/mail_box.png" alt="perfil" class="vector_size">
+                <div id="message_box">
+                    <h2>Mensajes</h2>
+                    <div class="mail_box"></div>
+                </div>
+                <template id="messages_skeleton">
+                    <div class="message_card"> 
+                        <div class="row_message">
+                            <div class="skeleton_img"></div>
+                            <div class="skeleton_osc" style="width: 40%; margin-left: 10px;"></div>
                         </div>
-                    </template>
-                    <!--skeleto end-->
-                </div>
-                
-
-                
-                <div id ="bell_container">
-                    <img src="../../imagenes/dashboard_img/bell.png" alt="campana" class="vector_size">
-                    <div id="notifications">
-                        <h2>Notificaciones</h2>
-                        <div class="messages">
-                            </div>
+                        <div class="skeleton_osc" style="width: 90%;"></div>
+                        <div class="skeleton_osc" style="width: 30%;"></div>
                     </div>
-                    <!--skeleto start-->
-                    <template id="notifications_skeleton">
-                        <div class="notification_card"> 
-        
-                            <div class="row_message">
-                                <div class="skeleton_img"></div>
-                                <div class="skeleton_osc" style="width: 40%; margin-left: 10px;"></div>
-                            </div>
-
-                            <div class="skeleton_osc" style="width: 90%;"></div>
-                            <div class="skeleton_osc" style="width: 30%;"></div>
-                            
+                </template>
+            </div>
+            
+            <div id ="bell_container">
+                <img src="../../imagenes/dashboard_img/bell.png" alt="campana" class="vector_size">
+                <div id="notifications">
+                    <h2>Notificaciones</h2>
+                    <div class="messages"></div>
+                </div>
+                <template id="notifications_skeleton">
+                    <div class="notification_card"> 
+                        <div class="row_message">
+                            <div class="skeleton_img"></div>
+                            <div class="skeleton_osc" style="width: 40%; margin-left: 10px;"></div>
                         </div>
-                    </template>
-                    <!--skeleto end-->
-                </div>
-                
-                <div id="profile_picture_container">
-                    <?php 
-                        $ruta_avatar = !empty($_SESSION['usuario_img']) ? $_SESSION['usuario_img'] : '../imagenes/dashboard_img/perfil.png';
-                    ?>
-                    <img src="<?php echo $ruta_avatar; ?>" alt="profile" id="profile_picture">
-                    <img src="../../imagenes/dashboard_img/arrow.png" alt="arrow" class="arrow_size">
-                    <div id="profile_status">
-                            <a href="../../modulos/configuracion/perfil.html"><p>Editar perfil</p></a>
-                            <a href="../../modulos/configuracion/ayuda.html"><p>Ayuda</p></a>
-                            <a href="../../modulos/configuracion/courses.html"><p>Mis cursos</p></a>
-                            <a href="../../modulos/PHP/cerrar_sesion.php"><p>Cerrar sesión</p></a>
-                      
+                        <div class="skeleton_osc" style="width: 90%;"></div>
+                        <div class="skeleton_osc" style="width: 30%;"></div>
                     </div>
+                </template>
+            </div>
+            
+            <div id="profile_picture_container">
+                <?php 
+                    $ruta_avatar = !empty($_SESSION['usuario_img']) ? $_SESSION['usuario_img'] : '../imagenes/dashboard_img/perfil.png';
+                ?>
+                <img src="<?php echo $ruta_avatar; ?>" alt="profile" id="profile_picture">
+                <img src="../../imagenes/dashboard_img/arrow.png" alt="arrow" class="arrow_size">
+                <div id="profile_status">
+                        <a href="../../modulos/configuracion/perfil.html"><p>Editar perfil</p></a>
+                        <a href="../../modulos/configuracion/ayuda.html"><p>Ayuda</p></a>
+                        <a href="../../modulos/configuracion/courses.html"><p>Mis cursos</p></a>
+                        <a href="../../modulos/PHP/cerrar_sesion.php"><p>Cerrar sesión</p></a>
                 </div>
             </div>
 
-            <?php else: ?>
-                <a href="../../inicio_registro/inicio_sesion.html" id="login_button">Iniciar sesión</a>
-                <a href="../../inicio_registro/registro.html" id="signup_button">Registrarse</a>
-            <?php endif ?>
-
-        </nav>
+        <?php else: ?>
+            <a href="../../inicio_registro/inicio_sesion.html" id="login_button">Iniciar sesión</a>
+            <a href="../../inicio_registro/registro.html" id="signup_button">Registrarse</a>
+        <?php endif ?>
+  </nav>
 
   <main class="pagina-principal">
     
     <section class="columna-izquierda">
       
-            <h1 class="titulo-principal"></h1>
+      <h1 class="titulo-principal">
+          <span class="skeleton_osc" style="width: 60%; height: 30px; display: block;"></span>
+      </h1>
+
       <div id="contenedor-autor" class="tarjeta-simple">
-        <img src="" alt="profile" id="foto-autor">
-        <div id="estado-autor">
-          <p id="nombre-autor"></p>
-          <p id="desc-autor">descripcion</p>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="loading" id="foto-autor" class="skeleton_img" style="width: 65px; height: 65px;">
+        
+        <div id="estado-autor" style="width: 100%;">
+          <p id="nombre-autor">
+              <span class="skeleton_osc" style="width: 150px; display: inline-block;"></span>
+          </p>
+          <p id="desc-autor">
+               <span class="skeleton_osc" style="width: 100px; display: inline-block;"></span>
+          </p>
         </div>
       </div>
 
       <div id="contenedor-media" class="grid-media">
-        <!-- media items van a ser controlado dinamicamente por aqui con js -->
-        
+        <div class="curso_img_skeleton" style="width: 100%; aspect-ratio: 16/9; border-radius: 12px; background-color: hsl(200, 20%, 85%);"></div>
+        <div class="curso_img_skeleton" style="width: 220px; height: 115px; border-radius: 8px; background-color: hsl(200, 20%, 85%);"></div>
+        <div class="curso_img_skeleton" style="width: 220px; height: 115px; border-radius: 8px; background-color: hsl(200, 20%, 85%);"></div>
       </div>
 
       <section class="seccion-resenas">
@@ -150,21 +135,38 @@ $is_logged_in = isset($_SESSION['usuario_id']);
 
         <div class="tarjeta-resena">
             <div class="encabezado-usuario">
-                <img src="" alt="User Avatar" class="avatar-usuario">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="User Avatar" class="avatar-usuario skeleton_img">
+                
                 <div class="meta-usuario">
-                    <span class="nombre-usuario"></span>
+                    <span class="nombre-usuario">
+                        <span class="skeleton_osc" style="width: 120px; display: inline-block;"></span>
+                    </span>
+
                     <span class="bloque-pais">
-                        <span style="font-size: 16px;" id="disminutivo_pais"></span><span id="pais"></span>
+                        <span style="font-size: 16px;" id="disminutivo_pais"></span>
+                        <span id="pais" style="display:none;"></span>
+                    </span>
+
                     <span class="separador">|</span>
+                    
                     <div class="rating-estrellas">
-                        ★★★★★ <span class="numero-rating"></span>
+                        ★★★★★ 
+                        <span class="numero-rating">
+                             <span class="skeleton_osc" style="width: 20px; display: inline-block;"></span>
+                        </span>
                     </div>
                 </div>
             </div>
+
             <p class="texto-comentario">
-                Mudasar es un profesional altamente cualificado en Java con un profundo conocimiento de POO. Es cooperativo, detallista y siempre entrega código limpio y optimizado.
+                <span class="skeleton_osc" style="width: 100%; display: block;"></span>
+                <span class="skeleton_osc" style="width: 90%; display: block;"></span>
+                <span class="skeleton_osc" style="width: 40%; display: block;"></span>
             </p>
-            <div class="fecha-resena">hace 1 mes</div>
+
+            <div class="fecha-resena">
+                <span class="skeleton_osc" style="width: 80px; display: inline-block;"></span>
+            </div>
         </div>
       </section>
 
@@ -172,10 +174,22 @@ $is_logged_in = isset($_SESSION['usuario_id']);
       
       <div class="contenedor-carrusel">
           <div class="pista-carrusel" id="contenedor-carrusel-id">
-
               
-                <!-- Los elementos del carrusel se cargaran dinámicamente aqui con js -->
-              
+              <?php for($i=0; $i<3; $i++): ?>
+              <div class="tarjeta-producto" style="pointer-events: none;">
+                  <div class="media-producto skeleton" style="background-color: hsl(200, 20%, 85%);"></div>
+                  <div class="detalles-producto">
+                      <div class="fila-autor">
+                          <div class="autor-izq" style="width: 100%;">
+                               <div class="skeleton_img" style="width: 24px; height: 24px;"></div>
+                               <div class="skeleton_osc" style="width: 80px; margin-left: 8px;"></div>
+                          </div>
+                      </div>
+                      <div class="skeleton_osc" style="width: 90%; margin-top: 10px;"></div>
+                      <div class="skeleton_osc" style="width: 60%;"></div>
+                  </div>
+              </div>
+              <?php endfor; ?>
 
           </div>
       </div>
@@ -183,27 +197,42 @@ $is_logged_in = isset($_SESSION['usuario_id']);
       <section class="contenedor-faq" id="contenedor_faq_id">
         <h2 class="titulo-faq">Preguntas Frecuentes (FAQ)</h2>
         
+        <?php for($i=0; $i<2; $i++): ?>
+        <div class="item-faq" style="pointer-events: none;">
+            <div style="padding: 15px 20px; display: flex; align-items: center; gap: 15px;">
+                <div class="skeleton_img" style="width: 40px; height: 40px;"></div>
+                <div style="flex: 1;">
+                    <div class="skeleton_osc" style="width: 80px;"></div>
+                    <div class="skeleton_osc" style="width: 200px;"></div>
+                </div>
+            </div>
+        </div>
+        <?php endfor; ?>
         
       </section>
-
 
     </section>
 
     <aside id="caja-compra" class="tarjeta-compra">
-     
-
       <div class="contenido-compra">
           <div class="cabecera-compra">
-             <!-- <h3 class="titulo-plan">Script o Solución de Errores en Java</h3> -->
-              <span class="precio-plan"></span>
+              <span class="precio-plan" style="width: 100px; display: block;">
+                  <span class="skeleton_osc" style="height: 28px; display: block;"></span>
+              </span>
           </div>
-          <p class="descripcion-plan"></p>
+          
+          <p class="descripcion-plan">
+              <span class="skeleton_osc" style="width: 100%; display: block;"></span>
+              <span class="skeleton_osc" style="width: 100%; display: block;"></span>
+              <span class="skeleton_osc" style="width: 60%; display: block;"></span>
+          </p>
           
           <ul class="lista-beneficios">
               <li><span class="check">✔</span> Código Fuente</li>
               <li><span class="check">✔</span> Uso Comercial</li>
               <li><span class="check">✔</span> Comentarios detallados</li>
           </ul>
+          
           <button class="btn-primario">
               Continuar <span style="font-size:16px">→</span>
           </button>
@@ -217,7 +246,7 @@ $is_logged_in = isset($_SESSION['usuario_id']);
   <section class="enlaces-extra">
       <div class="contenido-enlaces">
           <div class="columna-enlaces">
-              <h4>Tecnologías</h4>
+              <h4>Tecnologias</h4>
               <ul>
                   <li><a href="#">Java & Spring Boot</a></li>
                   <li><a href="#">Python & Django</a></li>
@@ -278,27 +307,11 @@ $is_logged_in = isset($_SESSION['usuario_id']);
         <div class="columna-pie">
             <h3>SÍGUENOS</h3>
             <div class="iconos-sociales">
-              
-  <a href="#" target="_blank">
-    <img src="https://img.icons8.com/ios-filled/50/000000/twitterx--v1.png" alt="X">
-  </a>
-
-  <a href="#" target="_blank">
-    <img src="https://img.icons8.com/ios-filled/50/000000/facebook-new.png" alt="Facebook">
-  </a>
-
-  <a href="#" target="_blank">
-    <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram">
-  </a>
-
-  <a href="#" target="_blank">
-    <img src="https://img.icons8.com/ios-filled/50/000000/tiktok.png" alt="TikTok">
-  </a>
-
-  <a href="#" target="_blank">
-    <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" alt="LinkedIn">
-  </a>
-
+                <a href="#" target="_blank"><img src="https://img.icons8.com/ios-filled/50/000000/twitterx--v1.png" alt="X"></a>
+                <a href="#" target="_blank"><img src="https://img.icons8.com/ios-filled/50/000000/facebook-new.png" alt="Facebook"></a>
+                <a href="#" target="_blank"><img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram"></a>
+                <a href="#" target="_blank"><img src="https://img.icons8.com/ios-filled/50/000000/tiktok.png" alt="TikTok"></a>
+                <a href="#" target="_blank"><img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" alt="LinkedIn"></a>
             </div>
         </div>
     </div>

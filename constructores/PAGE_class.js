@@ -44,7 +44,7 @@ export class page {
         else if (this.rating >= 3) stars = "★★★☆☆";
         else if (this.rating >= 2) stars = "★★☆☆☆";
         else if (this.rating >= 1) stars = "★☆☆☆☆";
-        
+        rating_desc.innerHTML = "";
         rating_desc.style.setProperty('--before', `"${stars}"`);
         rating_desc.style.setProperty('--after', `"${this.rating} (${this.rating_count} reviews)"`);
 
@@ -68,7 +68,7 @@ export class page {
         this.other_courses.forEach(element => {
       
             const precioDisplay = parseFloat(element.precio) > 0 ? element.precio + "$" : "Free";
-            
+            const prefijo = parseFloat(element.precio) > 0 ? "desde " : "";
             contenedor_carrusel.innerHTML += `
             <div class="tarjeta-producto">
                   <div class="media-producto">
@@ -87,7 +87,7 @@ export class page {
                           <span class="estrella">★</span> <span class="puntaje">${element.rating}</span> 
                           <span class="conteo">(${element.resenas_count || 0})</span>
                       </div>
-                      <div class="fila-precio">De <strong>${precioDisplay}</strong></div>
+                      <div class="fila-precio">${prefijo}<strong>${precioDisplay}</strong></div>
                   </div>
               </div>`;
         });
@@ -152,9 +152,14 @@ export class page {
  
     setup_review_carousel() {
         const texto_comentario = document.querySelector(".texto-comentario");
-
+        const encabezado_usuario = document.querySelector(".encabezado-usuario"); 
+        const flechas = document.querySelector(".contenedor-flechas");
      
         if (!this.rating_info || this.rating_info.length === 0) {
+            if(encabezado_usuario) encabezado_usuario.style.display = "none";
+            
+
+            if(flechas) flechas.style.display = "none";
             if(texto_comentario) texto_comentario.textContent = "No hay reseñas todavía.";
             return;
         }
@@ -213,7 +218,9 @@ export class page {
         setTimeout(() => {
 
             rating_user.textContent = review.rater_name;
+            
             avatar_user.src = review.rater_img;
+            
             rating_number_int.textContent = `(${review.calificacion})`;
             texto_comentario.textContent = review.comentario;
 
@@ -238,14 +245,30 @@ export class page {
             const diferenciaSegundos = Math.floor((ahora - fechaObj) / 1000);
             let textoFecha = "";
 
-            if (diferenciaSegundos < 60) textoFecha = "Justo ahora";
-            else if (diferenciaSegundos < 3600) textoFecha = `Hace ${Math.floor(diferenciaSegundos / 60)} min`;
-            else if (diferenciaSegundos < 86400) textoFecha = `Hace ${Math.floor(diferenciaSegundos / 3600)} h`;
-            else if (diferenciaSegundos < 604800) textoFecha = `Hace ${Math.floor(diferenciaSegundos / 86400)} días`;
+            if (diferenciaSegundos < 60) {
+                textoFecha = "Justo ahora";
+            } 
+            else if (diferenciaSegundos < 3600) {
+                const minutos = Math.floor(diferenciaSegundos / 60);
+         
+                textoFecha = minutos === 1 ? "Hace 1 minuto" : `Hace ${minutos} minutos`;
+            } 
+            else if (diferenciaSegundos < 86400) { // Menos de 24 horas
+                const horas = Math.floor(diferenciaSegundos / 3600);
+              
+                textoFecha = horas === 1 ? "Hace 1 hora" : `Hace ${horas} horas`;
+            } 
+            else if (diferenciaSegundos < 604800) { // Menos de 7 días
+                const dias = Math.floor(diferenciaSegundos / 86400);
+                
+                // Si dias es 1, escribe "Hace 1 día" (singular), si no "días" (plural)
+                textoFecha = dias === 1 ? "Hace 1 día" : `Hace ${dias} días`;
+            } 
             else {
                 const opciones = { day: 'numeric', month: 'short', year: 'numeric' };
                 textoFecha = fechaObj.toLocaleDateString('es-ES', opciones);
             }
+
             fechaElement.textContent = textoFecha;
 
           

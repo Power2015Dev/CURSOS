@@ -17,7 +17,7 @@ $resultado = $stmt->get_result();
 
 if ($fila = $resultado->fetch_assoc()) {
     
-    if ($pass_ingresada === $fila['password']) {
+    if (password_verify($pass_ingresada, $fila['password'])) {
         session_regenerate_id(true);
        
         $_SESSION['usuario_id'] = $fila['id'];
@@ -25,7 +25,7 @@ if ($fila = $resultado->fetch_assoc()) {
         $_SESSION['usuario_img'] = $fila['avatar_url'];
         
         http_response_code(200);
-        echo json_encode(["mensaje" => "Bienvenido"]);
+        echo json_encode(["mensaje" => "Bienvenido", "pass" => $fila['password']]);
         
     } else {
         

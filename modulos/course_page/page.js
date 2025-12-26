@@ -14,12 +14,12 @@ async function get_data() {
 
        
         if (!id_curso) {
-            console.error("No hay ID en la URL");
-            return; 
+            alert("No se ha especificado un curso valido.");
+            return window.location.href = "/dashboard/dashboard.php";; 
         }
         const response = await fetch(`/modulos/course_page/Query_page/query_page.php?id=${id_curso}`);
         const data = await response.json();
-        console.log(data);
+        //console.log(data);
         load_content(data);
     } catch (error) {
         console.log("No se pudo cargar la informacion por: " +error);
