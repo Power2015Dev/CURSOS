@@ -10,60 +10,9 @@
 </head>
 <body>
     
-    <nav id="navbar">
-        <div id="logo_container">
-            <img src="../../imagenes/kursa_logo_claro.png" alt="logo" class="vector_size" id="logo">
-            <a href="../../dashboard/dashboard.html" class="no-decorations"><p id="seller">Modo Vendedor</p></a>
-        </div>
-        <div id="search_bar">
-            <input type="text" name="search" placeholder="Buscar cursos o freelancers">
-            <img src="../../imagenes/dashboard_img/lupa.png" alt="lupa" class="vector_size"style="cursor: pointer;">
-        </div>
-
-        <div id="profile_bar">
-            <img src="../../imagenes/dashboard_img/perfil.png" alt="perfil" class="vector_size">
-            <div id ="bell_container">
-                <img src="../../imagenes/dashboard_img/bell.png" alt="campana" class="vector_size">
-                <div id="notifications">
-                    <h2>Notificaciones</h2>
-                    <div class="messages">
-                        
-                            
-                            <!--controlado por js-->
-                    
-                    </div> 
-                    <!--skeleto start-->
-                    <template id="notifications_skeleton">
-                        <div class="notification_card"> 
-        
-                            <div class="row_message">
-                                <div class="skeleton_img"></div>
-                                <div class="skeleton_osc" style="width: 40%; margin-left: 10px;"></div>
-                            </div>
-
-                            <div class="skeleton_osc" style="width: 90%;"></div>
-                            <div class="skeleton_osc" style="width: 30%;"></div>
-                            
-                        </div>
-                    </template>
-                    <!--skeleto end-->
-            </div>
-        </div>
-                    
-            
-            <div id="profile_picture_container">
-                <img src="../../imagenes/placeholder2.jpg" alt="profile" id="profile_picture">
-                <img src="../../imagenes/dashboard_img/arrow.png" alt="arrow" class="arrow_size">
-                <div id="profile_status">
-                        <a href="perfil.html"><p>Editar perfil</p></a>
-                        <a href="configuracion.html"><p>Configuración</p></a>
-                        <a href="ayuda.html"><p>Ayuda</p></a>
-                        <a href="courses.html"><p>Mis cursos</p></a>
-                        <a href="#"><p>Cerrar sesión</p></a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <?php 
+        include __DIR__ . '/../../modulos/navbar/navbar.php';
+    ?>
 
     <div id="flex_layout"> 
         

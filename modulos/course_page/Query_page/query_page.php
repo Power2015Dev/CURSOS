@@ -58,7 +58,7 @@ while($media = $res_galeria->fetch_assoc()){
 
 $datos_curso['other_courses'] = []; // esto es para el carrusel
 
-$query_other = "SELECT c.id, c.titulo, c.resenas_count, c.imagen_url, c.precio, c.rating, u.nombre AS author_name, u.avatar_url AS author_url FROM cursos c INNER JOIN usuarios u ON c.usuario_id = u.id";
+$query_other = "SELECT c.id, c.titulo, c.resenas_count, c.imagen_url, c.precio, c.rating, u.nombre AS author_name, u.avatar_url AS author_url FROM cursos c INNER JOIN usuarios u ON c.usuario_id = u.id LIMIT 20";
 $stmt_other = $conexion->prepare($query_other);
 $stmt_other->execute();
 $res_other = $stmt_other->get_result();
@@ -82,7 +82,7 @@ while($fila = $res_faq_rate->fetch_assoc()){
 
 $datos_curso['rating_info'] = []; // Valor por defecto
 
-$query_rating = 'SELECT r.calificacion, r.comentario, r.fecha, u.nombre AS rater_name, u.avatar_url AS rater_img, u.pais FROM rating r INNER JOIN usuarios u ON r.usuario_id = u.id where r.curso_id = ? ORDER BY r.fecha DESC';
+$query_rating = 'SELECT r.calificacion, r.comentario, r.fecha, u.nombre AS rater_name, u.avatar_url AS rater_img, u.pais FROM rating r INNER JOIN usuarios u ON r.usuario_id = u.id where r.curso_id = ? ORDER BY r.fecha DESC LIMIT 20';
 $stmt_rating = $conexion->prepare($query_rating);
 $stmt_rating->bind_param("i", $id);
 $stmt_rating->execute();

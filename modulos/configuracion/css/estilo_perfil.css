@@ -1,0 +1,156 @@
+/* css/estilo_perfil.css */
+
+/* --- 1. RESET DEL BODY --- */
+/* Quitamos cualquier centrado vertical que tuviera antes */
+body {
+    background-color: #F5F7FA;
+    min-height: 100vh;
+    display: block; /* Importante: Bloque normal, no Flex */
+    margin: 0;
+}
+
+/* --- 2. CONTENEDOR PRINCIPAL (GRID) --- */
+.page-wrapper {
+    max-width: 1200px;
+    /* Ajustamos el margen: 
+       40px arriba (separación del navbar) 
+       auto (centrado horizontal) 
+       40px abajo */
+    margin: 40px auto; 
+    padding: 0 20px; /* Un poco de aire a los lados */
+    
+    display: grid;
+    /* Columna 1: Sidebar (280px fijo) | Columna 2: Contenido (El resto) */
+    grid-template-columns: 280px 1fr; 
+    gap: 30px;
+    align-items: start; /* CRUCIAL: Alinea todo ARRIBA, no al centro */
+}
+
+/* --- 3. TARJETA DEL FORMULARIO --- */
+.profile-content {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 40px;
+    /* Aseguramos que no se desborde */
+    width: 100%;
+}
+
+.form-header {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+}
+
+.form-header h2 {
+    color: #0A1931; /* Usando tu azul oscuro */
+    margin: 0 0 5px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* --- 4. ESTILOS DEL FORMULARIO --- */
+.avatar-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.avatar-preview-container {
+    width: 100px;
+    height: 100px;
+}
+
+#avatar-preview {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #B3CFE5; /* Tu color azul claro */
+}
+
+.btn-upload-label {
+    background-color: #F6FAFD;
+    color: #0A1931;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid #B3CFE5;
+    transition: all 0.2s;
+}
+
+.btn-upload-label:hover {
+    background-color: #B3CFE5;
+    color: white;
+}
+
+/* Inputs Layout */
+.form-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #0A1931;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc; /* Borde suave */
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #0A1931;
+}
+
+.input-group input:disabled {
+    background-color: #f0f2f5;
+    color: #888;
+    cursor: not-allowed;
+}
+
+/* Botón Guardar */
+.form-actions {
+    margin-top: 30px;
+    text-align: right;
+}
+
+.btn-guardar {
+    background-color: #0A1931;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: opacity 0.2s;
+}
+
+.btn-guardar:hover {
+    opacity: 0.9;
+}
+
+/* --- 5. RESPONSIVE --- */
+@media (max-width: 850px) {
+    .page-wrapper {
+        grid-template-columns: 1fr; /* Una sola columna en tablets/móvil */
+        gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .profile-content {
+        padding: 20px;
+    }
+}
