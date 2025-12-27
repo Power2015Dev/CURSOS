@@ -14,33 +14,10 @@
 </head>
 <body>
 
-  <nav id="navbar">
-    <div id="logo_container">
-      <img src="../../imagenes/kursa_logo_claro.png" alt="logo" class="vector_size" id="logo">
-      <a href="index.html" class="no-decorations"><p id="seller">Modo Estudiante</p></a>
-    </div>
-    <div id="search_bar">
-      <input type="text" name="search" placeholder="Buscar en tu panel...">
-      <img src="../../imagenes/dashboard_img/lupa.png" alt="lupa" class="vector_size" style="cursor: pointer;">
-    </div>
-    <div id="profile_bar">
-      <img src="../../imagenes/dashboard_img/perfil.png" alt="perfil" class="vector_size">
-      <div id ="bell_container">
-        <img src="../../imagenes/dashboard_img/bell.png" alt="campana" class="vector_size">
-        <div id="notifications">
-          <h2>Notificaciones</h2>
-          <div class="messages"></div>
-        </div>
-      </div>
-      <div id="profile_picture_container">
-        <img src="../../imagenes/placeholder2.jpg" alt="profile" id="profile_picture">
-        <img src="../../imagenes/dashboard_img/arrow.png" alt="arrow" class="arrow_size">
-        <div id="profile_status">
-          <a href="#">Cerrar sesión</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+  <?php 
+        include __DIR__ . '/../../modulos/navbar/navbar.php';
+    ?>
+
 
   <div class="contenedor-dashboard">
     

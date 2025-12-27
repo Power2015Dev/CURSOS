@@ -18,7 +18,7 @@ async function get_data() {
         const data = await response.json();
         load_content(data);
     } catch (error) {
-        console.log(error);
+        console.log('lo mas probable sea que no hayas iniciado sesion, error: ' + error);
     }
 }
 
@@ -26,6 +26,10 @@ async function get_data() {
 function show_skeleton(Number_of_skeletons) {
     let content = document.querySelector(".mail_box");
     let skeleton = document.getElementById("messages_skeleton");
+
+    if(skeleton == null){
+        return;
+    }
 
     for(let i = 0; i < Number_of_skeletons; i++){
         let clone = skeleton.content.cloneNode(true);

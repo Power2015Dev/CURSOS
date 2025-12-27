@@ -1,5 +1,5 @@
-let Tipo_esfera = "../../imagenes/dashboard_img/esfera.png";
-let Tipo_check = "../../imagenes/dashboard_img/check.png";
+let Tipo_esfera = "/imagenes/dashboard_img/esfera.png";
+let Tipo_check = "/imagenes/dashboard_img/check.png";
 
 export class Notifications{
     constructor(Titulo, Tipo, fecha_texto, id){

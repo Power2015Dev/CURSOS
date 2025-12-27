@@ -1,7 +1,7 @@
 <?php
 session_start();
 $is_logged_in = isset($_SESSION['usuario_id']);
-
+$pagina_actual = basename($_SERVER['PHP_SELF']);
 if(isset($_SESSION['usuario_nombre'])){
         $nombre_usuario = $_SESSION['usuario_nombre'];
     } else {
@@ -17,12 +17,14 @@ if(isset($_SESSION['usuario_nombre'])){
             <div id="logo_container">
                 <a href="/dashboard/dashboard.php">
                 <img src="/imagenes/kursa_logo_claro.png" alt="logo" class="vector_size" id="logo">
-                <a href="#" class="no-decorations"><p style="font-weight: 700;color:white;">Modo Vendedor</p></a>
+                <a href=<?php echo $pagina_actual == 'dashboard_seller.php' ? '/dashboard/dashboard.php' :"/modulos/vendedor/dashboard_seller.php" ?> class="no-decorations"><p style="font-weight: 700;color:white;"><?php echo $pagina_actual == 'dashboard_seller.php' ? 'Modo Estudiante' : 'Modo Vendedor' ; ?></p></a>
                 </a>
             </div>
             <div id="search_bar">
-                <input type="text" name="search" placeholder="Buscar cursos o freelancers">
-                <img src="/imagenes/dashboard_img/lupa.png" alt="lupa" class="vector_size" style="cursor: pointer;">
+                <input type="text" name="search" placeholder="Buscar cursos o freelancers" id ="search_input">
+                <div>
+                <img src="/imagenes/dashboard_img/lupa.png" alt="lupa" class="vector_size" style="cursor: pointer;" id="search_lens">
+                </div>
             </div>
 
             
@@ -106,6 +108,7 @@ if(isset($_SESSION['usuario_nombre'])){
 
 
             <script src="/modulos/navbar/dashboard_navbar.js"></script>
+            <script src="/modulos/navbar/busqueda/search.js"></script>
             <script type="module" src="/modulos/navbar/notifications_loading.js"></script>
             <script type="module" src="/modulos/navbar/Mail_box_loading.js"></script>
 
