@@ -19,7 +19,7 @@
     <main class="results-container">
         
         <div class="results-header">
-            <h1>Resultados para: <span><?php  echo '"'. $_GET['search'] . '"';?></span></h1>
+            <h1>Resultados para: <span><?php  echo isset($_GET['search']) ? '"'. $_GET['search'] . '"' : 'Error, no hay termino de busqueda';?></span></h1>
             <p id="result-count"></p>
         </div>
 

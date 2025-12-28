@@ -6,10 +6,11 @@
   <title>Panel de Vendedor - Kursa</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-  
+
+
   <link rel="icon" type="image/png" href="/CURSOS/imagenes/icono2d.png" />
   
- <link rel="stylesheet" href="../navbar/navbar_style.css" />
+  <link rel="stylesheet" href="../navbar/navbar_style.css" />
   <link rel="stylesheet" href="style.css" /> 
 </head>
 <body>
@@ -143,6 +144,8 @@
 
     </main>
   </div>
+
+
 
 </body>
 </html>

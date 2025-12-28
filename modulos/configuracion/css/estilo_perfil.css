@@ -1,38 +1,32 @@
-/* css/estilo_perfil.css */
 
-/* --- 1. RESET DEL BODY --- */
-/* Quitamos cualquier centrado vertical que tuviera antes */
+
+
 body {
     background-color: #F5F7FA;
     min-height: 100vh;
-    display: block; /* Importante: Bloque normal, no Flex */
+    display: block; 
     margin: 0;
 }
 
-/* --- 2. CONTENEDOR PRINCIPAL (GRID) --- */
+
 .page-wrapper {
     max-width: 1200px;
-    /* Ajustamos el margen: 
-       40px arriba (separación del navbar) 
-       auto (centrado horizontal) 
-       40px abajo */
     margin: 40px auto; 
-    padding: 0 20px; /* Un poco de aire a los lados */
+    padding: 0 20px;
     
     display: grid;
-    /* Columna 1: Sidebar (280px fijo) | Columna 2: Contenido (El resto) */
+
     grid-template-columns: 280px 1fr; 
     gap: 30px;
-    align-items: start; /* CRUCIAL: Alinea todo ARRIBA, no al centro */
+    align-items: start; 
 }
 
-/* --- 3. TARJETA DEL FORMULARIO --- */
+
 .profile-content {
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     padding: 40px;
-    /* Aseguramos que no se desborde */
     width: 100%;
 }
 
@@ -43,12 +37,12 @@ body {
 }
 
 .form-header h2 {
-    color: #0A1931; /* Usando tu azul oscuro */
+    color: #0A1931;
     margin: 0 0 5px 0;
     font-family: 'Montserrat', sans-serif;
 }
 
-/* --- 4. ESTILOS DEL FORMULARIO --- */
+
 .avatar-section {
     display: flex;
     align-items: center;
@@ -66,7 +60,7 @@ body {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #B3CFE5; /* Tu color azul claro */
+    border: 3px solid #B3CFE5; 
 }
 
 .btn-upload-label {
@@ -86,7 +80,7 @@ body {
     color: white;
 }
 
-/* Inputs Layout */
+
 .form-grid {
     display: grid;
     gap: 20px;
@@ -103,7 +97,7 @@ body {
 .input-group input {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ccc; /* Borde suave */
+    border: 1px solid #ccc; 
     border-radius: 8px;
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
@@ -120,7 +114,24 @@ body {
     cursor: not-allowed;
 }
 
-/* Botón Guardar */
+.input-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    cursor: pointer;
+    appearance: none; /* Quita la flecha fea por defecto de algunos navegadores */
+    /* Agregamos una flechita personalizada */
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right .7em top 50%;
+    background-size: .65em auto;
+}
+
+
 .form-actions {
     margin-top: 30px;
     text-align: right;
@@ -142,10 +153,153 @@ body {
     opacity: 0.9;
 }
 
-/* --- 5. RESPONSIVE --- */
+.avatar-section {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.avatar-preview-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.avatar-info h3 {
+    margin: 0 0 5px 0;
+    color: #0A1931;
+    font-size: 1.1rem;
+}
+
+.text-muted {
+    color: #888;
+    font-size: 0.85rem;
+    margin: 0 0 10px 0;
+}
+
+
+.camera-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #0A1931;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+/* css/estilo_pagos.css */
+
+/* Contenedor de las opciones de pago (Grid responsivo) */
+.payment-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+/* Ocultar el radio button nativo */
+.payment-option input[type="radio"] {
+    display: none;
+}
+
+/* Estilo de la tarjeta de opción */
+.payment-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #fff;
+    color: #666;
+    height: 100%; /* Asegura altura uniforme */
+    min-height: 110px;
+}
+
+.payment-card i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.payment-card span {
+    font-weight: 600;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Efecto Hover */
+.payment-card:hover {
+    border-color: #B3CFE5;
+    background-color: #F6FAFD;
+}
+
+/* ESTADO SELECCIONADO (Cuando el radio está checked) */
+.payment-option input[type="radio"]:checked + .payment-card {
+    border-color: #0A1931;
+    background-color: #F0F4F8;
+    color: #0A1931;
+    box-shadow: 0 4px 10px rgba(10, 25, 49, 0.1);
+}
+
+/* --- Formulario de Tarjeta (Oculto por defecto) --- */
+#credit-card-form {
+    display: none; /* JS lo mostrará */
+    background-color: #F9F9F9;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    margin-top: 20px;
+    animation: fadeIn 0.4s ease;
+}
+
+/* Animación suave de aparición */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Layout interno de la tarjeta (filas y columnas) */
+.card-row {
+    display: flex;
+    gap: 15px;
+}
+
+.card-col-half {
+    flex: 1; /* Ocupan 50% cada uno */
+}
+
+/* Estilo para el mensaje de PayPal */
+#paypal-info {
+    display: none;
+    text-align: center; 
+    padding: 20px; 
+    background: #F6FAFD; 
+    border-radius: 12px; 
+    border: 1px solid #B3CFE5;
+    margin-top: 20px;
+    animation: fadeIn 0.4s ease;
+}
+
+#paypal-info p {
+    color: #0A1931;
+    font-size: 0.95rem;
+}
+
+
 @media (max-width: 850px) {
     .page-wrapper {
-        grid-template-columns: 1fr; /* Una sola columna en tablets/móvil */
+        grid-template-columns: 1fr; 
         gap: 20px;
         margin-top: 20px;
     }

@@ -23,8 +23,7 @@ document.getElementById("formulario").addEventListener("submit", async function(
         });
 
         if (peticion.status === 200) {
-            alert("Usuario registrado con exito");
-            window.location.href = "inicio_sesion.html"; 
+            window.location.href = "redireccionable.html"; 
         } else {
  
             const errorData = await peticion.json();

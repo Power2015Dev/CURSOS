@@ -1,3 +1,18 @@
+<?php
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if(isset($_SESSION['usuario_id'])){
+header("Location: ../dashboard/dashboard.php");
+exit();
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kursa | Iniciar sesión</title>
   <link rel="stylesheet" href="styles.css" >
-<link rel="icon" type="image/png" href="/CURSOS/imagenes/imagen_sin_fondo.png">
+<link rel="icon" type="image/png" href="/imagenes/imagen_sin_fondo.png">
 </head>
 <body>
   <div class="container">
@@ -13,7 +28,7 @@
     <div class="left-panel">
       <div class="overlay">
        
-        <img src="/CURSOS/imagenes/kursa_logo_claro.png" alt="Logo Kursa" class="logo-img" />
+        <img src="/imagenes/kursa_logo_claro.png" alt="Logo Kursa" class="logo-img" />
         <p>Explora, vende y aprende con los mejores cursos online </p>
       </div>
     </div>

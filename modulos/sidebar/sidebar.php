@@ -2,6 +2,11 @@
 // Obtenemos el nombre del archivo actual
 // Esto sirve para saber qué botón pintar de azul
 $pagina_actual = basename($_SERVER['PHP_SELF']);
+
+
+$nombre_usuario = $_SESSION['usuario_nombre'] ?? "Usuario";
+$ruta_avatar = !empty($_SESSION['usuario_img']) ? $_SESSION['usuario_img'] : '../../imagenes/dashboard_img/perfil.png';
+
 ?>
 
 <aside class="sidebar">

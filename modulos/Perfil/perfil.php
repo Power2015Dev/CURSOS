@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    perfil
+    perfil para cuando el cliente quiera ver el perfil de otra persona
 </body>
 </html>

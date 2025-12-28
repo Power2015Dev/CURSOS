@@ -1,5 +1,8 @@
 <?php
-session_start();
+
+if(session_status() === PHP_SESSION_NONE){
+    session_start();
+}
 $is_logged_in = isset($_SESSION['usuario_id']);
 $pagina_actual = basename($_SERVER['PHP_SELF']);
 if(isset($_SESSION['usuario_nombre'])){
@@ -94,7 +97,7 @@ if(isset($_SESSION['usuario_nombre'])){
                     <div id="profile_status">
                             <a href="/modulos/configuracion/editar_perfil.php"><p>Editar perfil</p></a>
                             <a href="/modulos/configuracion/ayuda.html"><p>Ayuda</p></a>
-                            <a href="/modulos/configuracion/courses.html"><p>Mis cursos</p></a>
+                            <a href="/modulos/configuracion/courses.php"><p>Mis cursos</p></a>
                             <a href="/modulos/PHP/cerrar_sesion.php"><p>Cerrar sesión</p></a>
                       
                     </div>
@@ -102,7 +105,7 @@ if(isset($_SESSION['usuario_nombre'])){
             </div>
 
             <?php else: ?>
-                <a href="/inicio_registro/inicio_sesion.html" id="login_button">Iniciar sesión</a>
+                <a href="/inicio_registro/inicio_sesion.php" id="login_button">Iniciar sesión</a>
                 <a href="/inicio_registro/registro.html" id="signup_button">Registrarse</a>
             <?php endif ?>
 

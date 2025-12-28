@@ -1,3 +1,18 @@
+<?php
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if(!isset($_SESSION['usuario_id'])){
+header("Location: ../../dashboard/dashboard.php");
+exit();
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +21,10 @@
     <title>Mis cursos</title>
     <link rel="stylesheet" href="../../modulos/navbar/navbar_style.css">
     <link rel="stylesheet" href="css/courses.css">
-    
+    <link rel="stylesheet" href="/modulos/footer/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/imagenes/icono2d.png">
+
 </head>
 <body>
     
@@ -98,6 +116,8 @@
 </template>
 
     </div> 
+
+        <?php include __DIR__ . '/../footer/footer.php'; ?>
         <script src="../navbar/dashboard_navbar.js"></script>
         <script type="module" src="js/skeleton_loading.js"></script>
         <script type="module" src="../configuracion/js/courses.js"></script>

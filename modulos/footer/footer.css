@@ -1,0 +1,119 @@
+.site-footer {
+    background-color: white; 
+    padding: 60px 0 40px 0;
+    margin-top: 50px;
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 40px;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+
+.footer-section.brand-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.copyright-text {
+    font-size: 0.9rem;
+    color: #0A1931; 
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+
+.footer-section.links-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.never_visited:visited{
+    color: #0A1931;
+}
+
+.never_visited:link{
+    color: #0A1931;
+}
+
+.footer-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #4fa4e6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 1;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:visited {
+    color: #333;
+    
+}
+
+.footer-section ul li a:hover {
+    color: #3498db; 
+}
+
+
+.footer-section.social-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.social-icons svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+
+.social-icons a:hover {
+    color: #000; 
+    transform: translateY(-3px); 
+}

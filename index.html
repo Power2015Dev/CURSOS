@@ -7,49 +7,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="icon" type="image/png" href="imagenes/icono2d.png"> <!--copiar esta linea de codigo en todos sus html para el icono del navegador-->
+<link rel="icon" type="image/png" href="imagenes/imagen_sin_fondo.png"> <!--copiar esta linea de codigo en todos sus html para el icono del navegador-->
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header id="inicio">
-
+        
         <nav class="nav">
-            
-            <ul class="nav_list"> 
-                
-                <a href="#" class="nav_logo">
-        <img src="imagenes/kursa_logo_claro.png" alt="Logo">
-                </a>
-                
-                <li  class="nav_list_items">
-                    <a href="#inicio" class="nav_link">Inicio</a>
-                </li>
+    <div class="nav_container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        
+        <a href="#" class="nav_logo">
+            <img src="imagenes/kursa_logo_claro.png" alt="Logo">
+        </a>
 
-                <li  class="nav_list_items">
-                    <a href="#Beneficio" class="nav_link">Beneficios</a>
-                </li class="nav_list_items">
-
-                <li  class="nav_list_items">
-                    <a href="#profesor" class="nav_link">Profesores</a>
-                </li class="nav_list_items">
-
-                <li  class="nav_list_items">
-                    <a href="#ayuda" class="nav_link">Ayuda</a>
-                </li>
-
-                <li  class="nav_list_items no-style">
-                    <a href="inicio_registro/inicio_sesion.html" class="nav_iniciar">Iniciar sesión</a>
-                </li>
-            </ul>
-
-        </nav>
-
+        <ul class="nav_list"> 
+            <li class="nav_list_items"><a href="/dashboard/dashboard.php" class="nav_link">Ver Cursos</a></li>
+            <li class="nav_list_items"><a href="#inicio" class="nav_link">Inicio</a></li>
+            <li class="nav_list_items"><a href="#Beneficio" class="nav_link">Beneficios</a></li>
+            <li class="nav_list_items"><a href="#profesor" class="nav_link">Profesores</a></li>
+            <li class="nav_list_items"><a href="#ayuda" class="nav_link">Ayuda</a></li>
+            <li class="nav_list_items no-style">
+                <a href="inicio_registro/inicio_sesion.php" class="nav_iniciar">Iniciar sesion</a>
+            </li>
+        </ul>
+        
+    </div>
+</nav>
+        <div id="capa_oscura"></div>
         <div class="caja_titulo">
             <h1 id="titulo">Kursa</h1>
             <p class="titulo_descripcion">Aprende nuevas habilidades o monetiza tu talento enseñando al mundo. </p>
             <a href="inicio_registro/Registro.html" class="nav_registrarse">Registrarse</a>
         </div>
-
+        
     </header>
 
     <section class="section_beneficios" id="Beneficio">
