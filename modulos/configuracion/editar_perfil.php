@@ -91,7 +91,7 @@ exit();
 
                         <div class="input-group">
                             <label style="color:#888;"><i class="fas fa-envelope"></i> Email (No editable)</label>
-                            <input type="email" id="email" disabled style="background-color: #f9f9f9; color: #666; cursor: not-allowed;">
+                            <input type="email" id="email" disabled style="background-color: #f9f9f9; color: #666; cursor: not-allowed;" value="">
                         </div>
 
                     </div>

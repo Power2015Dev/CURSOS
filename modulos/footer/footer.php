@@ -6,6 +6,7 @@
             <p class="copyright-text">
                 &copy; 2025 Kursa Inc.<br>
                 Todos los derechos reservados.
+                
             </p>
         </div>
 
@@ -17,6 +18,7 @@
                 <li><a href="#">Términos y Condiciones</a></li>
                 <li><a href="#">Política de Privacidad</a></li>
             </ul>
+            <a href="https://lordicon.com/" style="text-decoration: none; color: inherit;">Icons by Lordicon.com</a>
         </div>
 
         <div class="footer-section social-section">
