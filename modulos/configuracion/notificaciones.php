@@ -23,7 +23,7 @@ exit();
     <link rel="stylesheet" href="../navbar/navbar_style.css">
     <link rel="stylesheet" href="../sidebar/sidebar.css">       
     <link rel="stylesheet" href="css/estilo_perfil.css"> 
-    
+    <link rel="stylesheet" href="/modulos/footer/footer.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/png" href="/imagenes/icono2d.png"> 

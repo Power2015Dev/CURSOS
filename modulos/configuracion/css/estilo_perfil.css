@@ -9,6 +9,15 @@ body {
 }
 
 
+
+.hide_avatar {
+    display: none;
+}
+
+.show_avatar {
+    display: block;
+}
+
 .page-wrapper {
     max-width: 1200px;
     margin: 40px auto; 
@@ -124,7 +133,7 @@ body {
     background-color: white;
     cursor: pointer;
     appearance: none; /* Quita la flecha fea por defecto de algunos navegadores */
-    /* Agregamos una flechita personalizada */
+   
     background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
     background-repeat: no-repeat;
     background-position: right .7em top 50%;
@@ -197,7 +206,7 @@ body {
 
 /* css/estilo_pagos.css */
 
-/* Contenedor de las opciones de pago (Grid responsivo) */
+
 .payment-options {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -205,12 +214,11 @@ body {
     margin-bottom: 30px;
 }
 
-/* Ocultar el radio button nativo */
+
 .payment-option input[type="radio"] {
     display: none;
 }
 
-/* Estilo de la tarjeta de opción */
 .payment-card {
     display: flex;
     flex-direction: column;
@@ -223,7 +231,7 @@ body {
     transition: all 0.3s ease;
     background: #fff;
     color: #666;
-    height: 100%; /* Asegura altura uniforme */
+    height: 100%;
     min-height: 110px;
 }
 
@@ -238,13 +246,13 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/* Efecto Hover */
+
 .payment-card:hover {
     border-color: #B3CFE5;
     background-color: #F6FAFD;
 }
 
-/* ESTADO SELECCIONADO (Cuando el radio está checked) */
+
 .payment-option input[type="radio"]:checked + .payment-card {
     border-color: #0A1931;
     background-color: #F0F4F8;
@@ -252,7 +260,7 @@ body {
     box-shadow: 0 4px 10px rgba(10, 25, 49, 0.1);
 }
 
-/* --- Formulario de Tarjeta (Oculto por defecto) --- */
+
 #credit-card-form {
     display: none; /* JS lo mostrará */
     background-color: #F9F9F9;
@@ -269,17 +277,16 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Layout interno de la tarjeta (filas y columnas) */
 .card-row {
     display: flex;
     gap: 15px;
 }
 
 .card-col-half {
-    flex: 1; /* Ocupan 50% cada uno */
+    flex: 1; 
 }
 
-/* Estilo para el mensaje de PayPal */
+
 #paypal-info {
     display: none;
     text-align: center; 

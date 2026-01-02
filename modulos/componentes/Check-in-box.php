@@ -1,23 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body style="background-image: url('/imagenes/fondo_redireccion.jpg');">
-    <section class="main">
+
+        <?php 
+        $titulo_mensaje = $mensaje ?? "null"; 
+        $icon_mensaje = $icono ?? "null";
+        ?>
+
+    <section class="check-in-section hide-check-in-box">
     
-        <div class="container">
+        <div class="check-in-container">
             <dotlottie-player 
-                src="/imagenes/wired-outline-37-approve-checked-simple-hover-pinch.json" 
+                src="/imagenes/lordicon json/<?php echo $icon_mensaje; ?>" 
                 background="transparent" 
                 speed="0.3" 
                 style="width: 150px; height: 150px;" 
                 loop 
                 autoplay>
             </dotlottie-player>
-            <span class="texto">Cambiado con exito</span>
+            <span class="check-in-text"><?php echo $titulo_mensaje; ?></span>
             
         
       
@@ -27,7 +25,16 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0');
 
-        .main{
+
+        .show-check-in-box{
+            display: flex !important; 
+        }
+
+        .hide-check-in-box{
+            display: none !important;
+        }
+
+        .check-in-section{
             position: fixed;
             width: 500px;
             height: 300px;
@@ -41,7 +48,7 @@
             
         }
 
-        .main::before{
+        .check-in-section::before{
             content: '';
             position: fixed;
             top: 0;
@@ -55,7 +62,7 @@
             pointer-events: all;
         }
 
-        .main::after{
+        .check-in-section::after{
             content: '';
             position: fixed;
             inset: 0;
@@ -72,7 +79,7 @@
 	        animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
         }
 
-        .container{
+        .check-in-container{
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -83,11 +90,13 @@
 	        animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
         }
         
-        .texto{
-            font-size: 2rem;
+        .check-in-text{
+            font-size: 1.5rem;
             font-weight: 600;
             color: #0A1931;
             font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            overflow-wrap: break-word;
         }
 
                     /* ----------------------------------------------
@@ -146,5 +155,3 @@
     </style>
 
         <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-</body>
-</html>

@@ -22,7 +22,7 @@ $ruta_avatar = !empty($_SESSION['usuario_img']) ? $_SESSION['usuario_img'] : '..
     <link rel="stylesheet" href="../navbar/navbar_style.css">
     <link rel="stylesheet" href="../sidebar/sidebar.css">       
     <link rel="stylesheet" href="css/estilo_perfil.css"> 
-    
+    <link rel="stylesheet" href="/modulos/footer/footer.css">
     <link rel="stylesheet" href="css/estilo_pagos.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -118,7 +118,10 @@ $ruta_avatar = !empty($_SESSION['usuario_img']) ? $_SESSION['usuario_img'] : '..
             </form>
         </main>
     </div>
+
+
     <?php include '../footer/footer.php'; ?>
+    
     <script src="js/pagos.js"></script>
 
 </body>

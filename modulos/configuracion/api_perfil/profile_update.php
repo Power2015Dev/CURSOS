@@ -46,7 +46,7 @@ if(!empty($pais)){
 
 if(empty($atributos)){
     http_response_code(400);
-    echo json_encode(["error" => "No se proporcionaron datos para actualizar"]);
+    echo json_encode(["error" => "No se proporcionaron datos para actualizar"]); // esto esta demas porque me di cuenta que siempre que envies el formulario siempre va a tener datos
     exit();
 }
 
@@ -73,12 +73,19 @@ if ($stmt->execute()) {
         http_response_code(200);
         echo json_encode(["success" => "Perfil actualizado correctamente"]);
     } 
+    else {
+        http_response_code(500);
+        echo json_encode([
+            "error" => "Error al actualizar el perfil",
+            "filas_afectadas" => "sin_cambios"
+    ]);
+    }
     
 
 } else {
     // Si execute() devuelve false, hubo un error real de SQL
     http_response_code(500);
-    echo json_encode(["error" => "Error crítico al guardar en la base de datos"]);
+    echo json_encode(["error" => "Error critico al guardar en la base de datos"]);
 }
 
 
