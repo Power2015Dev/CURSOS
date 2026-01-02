@@ -9,35 +9,26 @@
 
 
   <link rel="icon" type="image/png" href="/CURSOS/imagenes/icono2d.png" />
-  
+   <link rel="stylesheet" href="/CURSOS/modulos/barra_lateral/barra.css">
   <link rel="stylesheet" href="../navbar/navbar_style.css" />
   <link rel="stylesheet" href="style.css" /> 
 </head>
 <body>
 
   <?php 
-        include __DIR__ . '/../../modulos/navbar/navbar.php';
+        include __DIR__ . '/../../modulos/navbar/navbar.php'
     ?>
+    <?php include __DIR__ . '/../barra_lateral/barra.php'; ?>
 
 
   <div class="contenedor-dashboard">
     
-    <aside class="barra-lateral">
+    <aside >
         
-
-        <ul class="menu-lateral">
-           
-           <li class="item-menu activo">Resumen</li>  
-            <li class="item-menu">Gestionar Cursos</li>
-            <li class="item-menu">Ingresos</li>
-            <li class="item-menu">Configuración</li>
-</ul>
-            
+         
        
 
-        <div class="boton-crear-contenedor">
-            <button class="btn-crear-curso">+ Nuevo Curso</button>
-        </div>
+        
     </aside>
 
     <main class="area-trabajo">
