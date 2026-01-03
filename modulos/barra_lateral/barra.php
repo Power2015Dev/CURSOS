@@ -35,4 +35,6 @@
     <div class="inferior">
         <button class="boton">+ Nuevo Curso</button>
     </div>
+
+    
 </aside>
