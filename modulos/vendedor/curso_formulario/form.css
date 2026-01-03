@@ -1,0 +1,358 @@
+:root {
+    --color-completed: #A0E7E5; /* Cian/Verde agua para lo ya hecho */
+    --color-active: #ffffff;    /* Blanco puro para el paso actual */
+    --color-future: rgba(255, 255, 255, 0.5); /* Blanco transparente para el futuro */
+    --color-separator: rgba(255, 255, 255, 0.3); /* Color de la flechita > */
+}
+
+body {
+    height: 100%; 
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; 
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.bg {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+    
+ 
+    min-height: 100vh; 
+    min-height: 100dvh;
+    
+    background-image: url('/imagenes/form_bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    background-attachment: fixed;
+
+    
+
+}
+
+.breadcrumb{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_container {
+    backdrop-filter: blur(7px);
+    width: 50%;
+    padding: 60px 80px; 
+    display: flex;
+    flex-direction: column;
+    gap: 30px; 
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    position: relative;
+    border-radius: 15px;
+    height: auto;
+}
+
+
+.form_container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+    border-radius: 15px;
+}
+
+.section_wrap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    flex-wrap: wrap;
+
+    border: none; 
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+
+fieldset.input_form {
+    border: solid 2px white;
+    
+    border-radius: 5px;
+    margin: 0;
+    padding: 0; 
+    min-width: 250px;
+    flex: 1;
+}
+
+fieldset.input_form:has(input[type="checkbox"]) {
+    
+    background-color: transparent;
+    backdrop-filter: none; 
+    padding: 10px;
+}
+
+legend {
+    font-weight: bold;
+    color: white;
+    padding: 0 8px; 
+    margin-left: 15px; 
+    font-size: 0.9rem;
+    transition: all 0.2s ease-in-out;
+}
+
+
+
+
+.input_text {
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    padding: 12px 15px;
+    box-sizing: border-box; 
+    font-family: inherit;
+    font-size: 1rem;
+    color: white; 
+    outline: none;
+    cursor: text;
+    z-index: 1;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+
+    
+}
+
+.input_text[type="button"] {
+    display: flex; 
+    align-items: center;
+    justify-content: space-between; 
+    cursor: pointer;
+    color: white; 
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-weight: bold;
+  
+    
+}
+
+.input_text[type="button"]:hover {
+    color: white;
+   
+    opacity: 1;
+}
+
+.input_text::placeholder {
+    color: white;
+
+}
+
+.input_text:focus::placeholder {
+    color: #333;
+}
+
+
+
+fieldset.input_form:focus-within:not(:has(button)) legend { /* para hacerle focus al legend cuando se haga focus en el input */
+    color: #333;
+    background-color: white;
+    border-radius: 15px;
+    
+}
+
+fieldset.input_form:focus-within:not(:has(button)) .input_text { /*el not es para decirle que no se haga focus en el button*/
+    color: #333; 
+}
+
+i {
+    opacity: 0; 
+    transform: translateX(-20px);
+    transition: all 0.3s ease; 
+    margin-right: 20px; 
+    font-size: 1.5rem; 
+
+}
+
+
+fieldset.input_form:hover i,
+.input_text[type="button"]:hover i {
+    opacity: 1;
+    transform: translateX(0);
+    scale: 1.2; 
+
+}
+
+
+
+
+
+
+button.input_text {
+    text-align: left;
+    cursor: pointer;
+    color: #555;
+}
+
+
+.input_form:focus-within:not(:has(button)):not(:has(input[type="checkbox"])) {
+    border-color: #333;
+    background-color: rgb(230, 230, 230); 
+    transition: all 0.3s ease;
+}
+
+.input_form:has(button):focus-within {
+    border-color: white; 
+    
+}
+
+
+button[type="submit"] {
+    padding: 15px 40px;
+    border-radius: 30px;
+    border: none;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+    transform: scale(1.05);
+    background-color: #f1f1f1;
+}
+
+#siguiente_miga{
+    padding: 15px 40px;
+    border-radius: 30px;
+    border: none;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    margin-top: 20px;
+}
+
+#siguiente_miga:hover{
+    transform: scale(1.05);
+    background-color: #f1f1f1;
+}
+
+#anterior_miga{
+    padding: 15px 40px;
+    border-radius: 30px;
+    border: solid 2px white;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    margin-top: 20px;
+}
+
+#anterior_miga:hover{
+    transform: scale(1.05);
+}
+
+.glass-breadcrumbs {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); 
+    background-color: rgba(255, 255, 255, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    padding: 10px 25px;
+    border-radius: 50px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+    display: inline-block;
+}
+
+
+.glass-breadcrumbs ol {
+    list-style: none; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+}
+
+
+.step {
+    color: var(--color-future);
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+
+.step a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+
+
+.step.completed {
+    color: var(--color-completed);
+    font-weight: 500;
+}
+
+.step.completed a:hover {
+  
+    color: white; 
+    text-shadow: 0 0 5px var(--color-completed);
+}
+
+
+
+.step.active {
+    color: var(--color-active);
+    font-weight: 700; 
+ 
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+
+
+
+.step::after {
+
+    content: '\f054';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    margin-left: 15px; 
+    font-size: 0.8rem;
+    color: var(--color-separator);
+}
+
+
+.step:last-child::after {
+    content: none;
+    margin-left: 0;
+}

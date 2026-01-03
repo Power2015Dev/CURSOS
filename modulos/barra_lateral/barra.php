@@ -1,4 +1,14 @@
 <?php
+    if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+    }
+
+    if(!isset($_SESSION['usuario_id'])){
+        header("Location: ../../dashboard/dashboard.php");
+        exit();
+}
+
+
     // Detecta el nombre del archivo actual (ej: ingresos.php)
     $pagina_actual = basename($_SERVER['PHP_SELF']);
 ?>
@@ -33,7 +43,9 @@
     </ul>
 
     <div class="inferior">
+        <a href="/modulos/vendedor/curso_formulario/form.php">
         <button class="boton">+ Nuevo Curso</button>
+        </a>
     </div>
 
     
