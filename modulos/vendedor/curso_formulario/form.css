@@ -35,10 +35,17 @@ body {
 }
 
 .breadcrumb{
-    display: flex;
+    
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    animation: fadeIn 0.5s;
+
+}
+
+.breadcrumb.active{
+    display: flex !important;
 }
 
 .form {
@@ -183,6 +190,7 @@ fieldset.input_form:focus-within:not(:has(button)) .input_text { /*el not es par
     color: #333; 
 }
 
+
 i {
     opacity: 0; 
     transform: translateX(-20px);
@@ -200,6 +208,7 @@ fieldset.input_form:hover i,
     scale: 1.2; 
 
 }
+
 
 
 
@@ -243,7 +252,7 @@ button[type="submit"]:hover {
     background-color: #f1f1f1;
 }
 
-#siguiente_miga{
+.siguiente_miga{
     padding: 15px 40px;
     border-radius: 30px;
     border: none;
@@ -256,12 +265,12 @@ button[type="submit"]:hover {
     margin-top: 20px;
 }
 
-#siguiente_miga:hover{
+.siguiente_miga:hover{
     transform: scale(1.05);
     background-color: #f1f1f1;
 }
 
-#anterior_miga{
+.anterior_miga{
     padding: 15px 40px;
     border-radius: 30px;
     border: solid 2px white;
@@ -274,7 +283,7 @@ button[type="submit"]:hover {
     margin-top: 20px;
 }
 
-#anterior_miga:hover{
+.anterior_miga:hover{
     transform: scale(1.05);
 }
 
@@ -355,4 +364,31 @@ button[type="submit"]:hover {
 .step:last-child::after {
     content: none;
     margin-left: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Para Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+#icono_precio{
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+fieldset.input_form:focus-within #icono_precio {
+    color: #333;
+    
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
