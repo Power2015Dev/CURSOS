@@ -27,7 +27,7 @@ if(!isset($_SESSION['usuario_id'])){
     
     <section class="bg">
 
-    <form class="form" id="formulario" action="#" method="POST">
+    <form class="form" id="formulario" method="POST" enctype="multipart/form-data">
     
 
         <div class="form_container">
@@ -170,7 +170,7 @@ if(!isset($_SESSION['usuario_id'])){
                     <span style="margin: 0;">Subir Galeria</span>
                 </button>
                 
-                <input type="file" id="media" name="galeria" class="file_text" hidden accept="image/*,video/*" multiple required>
+                <input type="file" id="media" name="galeria[]" class="file_text" hidden accept="image/*,video/*" multiple required>
             </fieldset>
             
             </aside>
@@ -182,12 +182,12 @@ if(!isset($_SESSION['usuario_id'])){
             
                 <fieldset class="input_form">
                 <legend class="legend-top"><label for="FAQ1">FAQ #1</label></legend>
-                <input type="text" class="input_text" name="FAQ1" id="FAQ1" placeholder="Preguntas Frecuentes (Opcional)">
+                <input type="text" class="input_text faq" name="FAQ1" id="FAQ1" placeholder="Preguntas Frecuentes (Opcional)">
                 </fieldset>
 
                 <fieldset class="input_form">
                 <legend class="legend-top"><label for="FAQ1_R">FAQ #1 Respuesta</label></legend>
-                <input type="text" class="input_text" name="FAQ1_R" id="FAQ1_R" placeholder="Respuesta" disabled>
+                <input type="text" class="input_text res" name="FAQ1_R" id="FAQ1_R" placeholder="Respuesta" disabled>
                 </fieldset>
 
             </aside>
@@ -196,12 +196,12 @@ if(!isset($_SESSION['usuario_id'])){
             
                 <fieldset class="input_form">
                 <legend class="legend-top"><label for="FAQ2">FAQ #2</label></legend>
-                <input type="text" class="input_text" name="FAQ2" id="FAQ2" placeholder="Preguntas Frecuentes (Opcional)">
+                <input type="text" class="input_text faq" name="FAQ2" id="FAQ2" placeholder="Preguntas Frecuentes (Opcional)">
                 </fieldset>
 
                 <fieldset class="input_form">
                 <legend class="legend-top"><label for="FAQ2_R">FAQ #2 Respuesta</label></legend>
-                <input type="text" class="input_text" name="FAQ2_R" id="FAQ2_R" placeholder="Respuesta" disabled>
+                <input type="text" class="input_text res" name="FAQ2_R" id="FAQ2_R" placeholder="Respuesta" disabled>
                 </fieldset>
 
             </aside>
@@ -210,12 +210,12 @@ if(!isset($_SESSION['usuario_id'])){
             
                 <fieldset class="input_form">
                 <legend class="legend-top"><label for="FAQ3">FAQ #3</label></legend>
-                <input type="text" class="input_text" name="FAQ3" id="FAQ3" placeholder="Preguntas Frecuentes (Opcional)">
+                <input type="text" class="input_text faq" name="FAQ3" id="FAQ3" placeholder="Preguntas Frecuentes (Opcional)">
                 </fieldset>
 
                 <fieldset class="input_form">
                 <legend class="legend-top"><label for="FAQ3_R">FAQ #3 Respuesta</label></legend>
-                <input type="text" class="input_text" name="FAQ3_R" id="FAQ3_R" placeholder="Respuesta" disabled>
+                <input type="text" class="input_text res" name="FAQ3_R" id="FAQ3_R" placeholder="Respuesta" disabled>
                 </fieldset>
 
             </aside>
@@ -224,12 +224,12 @@ if(!isset($_SESSION['usuario_id'])){
             
                 <fieldset class="input_form">
                 <legend class="legend-top"><label for="FAQ4">FAQ #4</label></legend>
-                <input type="text" class="input_text" name="FAQ4" id="FAQ4" placeholder="Preguntas Frecuentes (Opcional)">
+                <input type="text" class="input_text faq" name="FAQ4" id="FAQ4" placeholder="Preguntas Frecuentes (Opcional)">
                 </fieldset>
 
                 <fieldset class="input_form">
                 <legend class="legend-top"><label for="FAQ4_R">FAQ #4 Respuesta</label></legend>
-                <input type="text" class="input_text" name="FAQ4_R" id="FAQ4_R" placeholder="Respuesta" disabled>
+                <input type="text" class="input_text res" name="FAQ4_R" id="FAQ4_R" placeholder="Respuesta" disabled>
                 </fieldset>
 
             </aside>
@@ -238,12 +238,12 @@ if(!isset($_SESSION['usuario_id'])){
             
                 <fieldset class="input_form">
                 <legend class="legend-top"><label for="FAQ5">FAQ #5</label></legend>
-                <input type="text" class="input_text" name="FAQ5" id="FAQ5" placeholder="Preguntas Frecuentes (Opcional)">
+                <input type="text" class="input_text faq" name="FAQ5" id="FAQ5" placeholder="Preguntas Frecuentes (Opcional)">
                 </fieldset>
 
                 <fieldset class="input_form">
                 <legend class="legend-top"><label for="FAQ5_R">FAQ #5 Respuesta</label></legend>
-                <input type="text" class="input_text" name="FAQ5_R" id="FAQ5_R" placeholder="Respuesta" disabled>
+                <input type="text" class="input_text res" name="FAQ5_R" id="FAQ5_R" placeholder="Respuesta" disabled>
                 </fieldset>
 
             </aside>
@@ -263,22 +263,23 @@ if(!isset($_SESSION['usuario_id'])){
     <!-- CONTENIDO DEL CURSO -->
 
     <article class="breadcrumb">
+        <div class="modulo"> <!-- inicio del modulo -->
 
         <aside class="section_wrap">
             
             <fieldset class="input_form">
                 <legend class="legend-top"><label for="nombre_modulo">Modulo / Seccion</label></legend>
-                <input type="text" class="input_text" name="nombre_modulo" id="nombre_modulo" placeholder="Ej: Introducción a las Salsas" required>
+                <input type="text" class="input_text" name="nombre_modulo[]" id="nombre_modulo" placeholder="Ej: Introducción a las Salsas" required>
             </fieldset>
 
             <fieldset class="input_form">
                 <legend class="legend-top"><label for="titulo_leccion">Titulo de la Leccion</label></legend>
-                <input type="text" class="input_text" name="titulo_leccion" id="titulo_leccion" placeholder="Ej: Preparando el entorno" required>
+                <input type="text" class="input_text" name="titulo_leccion[]" id="titulo_leccion" placeholder="Ej: Preparando el entorno" required>
             </fieldset>
 
             <fieldset class="input_form">
                 <legend class="legend-top"><label for="desc_leccion">Descripcion de la Leccion</label></legend>
-                <input type="text" class="input_text" name="desc_leccion" id="desc_leccion" placeholder="Ej: Aqui te voy a ensenar como preparar el entorno... (Opcional)" >
+                <input type="text" class="input_text" name="desc_leccion[]" id="desc_leccion" placeholder="Ej: Aqui te voy a ensenar como preparar el entorno... (Opcional)" >
             </fieldset>
 
         </aside>
@@ -288,24 +289,24 @@ if(!isset($_SESSION['usuario_id'])){
                 <fieldset class="input_form">
                     <legend class="legend-top">Video de la Clase</legend>
                     
-                    <button class="input_text" type="button" onclick="document.getElementById('video_source').click()">
+                    <button class="input_text" type="button">
                         <i class="fa-solid fa-play-circle" style="color: white;"></i> 
                         <span class="file_text"></span>
                         <span style="margin: 0;">Seleccionar Video (MP4)</span>
                     </button>
                     
-                    <input type="file" name="video_source" id="video_source" hidden accept="video/*" required>
+                    <input type="file" name="video_source[]" id="video_source" hidden accept="video/*" required>
                 </fieldset>
 
                 <fieldset class="input_form">
                     <legend class="legend-top">Recursos (Opcional)</legend>
                     
-                    <button class="input_text" type="button" onclick="document.getElementById('material_source').click()">
+                    <button class="input_text" type="button">
                         <i class="fa-solid fa-folder-open" style="color: white;"></i> 
                         <span style="margin: 0;">Adjuntar Material (PDF, ZIP)</span>
                     </button>
                     
-                    <input type="file" name="material_source" id="material_source" hidden accept=".pdf,.zip,.rar,.doc,.docx,.png,.jpg">
+                    <input type="file" name="material_source[]" id="material_source" hidden accept=".pdf,.zip,.rar,.doc,.docx,.png,.jpg">
                 </fieldset>
 
             </aside>
@@ -315,13 +316,16 @@ if(!isset($_SESSION['usuario_id'])){
                     <legend class="legend-top"><label for="link_externo">Enlace Externo (Opcional)</label></legend>
                     <div style="display: flex; align-items: center;">
                         <i class="fa-solid fa-link" style="color: white; margin-left: 15px; opacity: 1; transform: none;"></i>
-                        <input type="url" name="link_externo" class="input_text" id="link_externo" placeholder="Ej: https://github.com/mi-proyecto">
+                        <input type="url" name="link_externo[]" class="input_text" id="link_externo" placeholder="Ej: https://github.com/mi-proyecto">
                     </div>
                 </fieldset>
             </aside>
 
-            <button type="button" class="input_text" id="agregar_leccion" style="justify-content: center;cursor: default;"><i class="fa-solid fa-plus" style="opacity: 1; transform: none;cursor: pointer;" onclick="new_lesson()"></i></button>
             
+            
+        </div> <!-- fin del modulo -->
+
+        <button type="button" class="input_text" id="agregar_leccion" style="justify-content: center;cursor: default;"><i class="fa-solid fa-plus" style="opacity: 1; transform: none;cursor: pointer;"></i></button>
 
             <div style="display: flex; gap: 20px;">
                 <button type="button" class="anterior_miga">Atras</button>
@@ -439,8 +443,16 @@ if(!isset($_SESSION['usuario_id'])){
  
     </form>
 
+    <?php include dirname(__DIR__, 2) . '/componentes/Check-in-box.php'; ?>
+    <?php include dirname(__DIR__, 2) . '/componentes/Confirm-box.php'; ?>
+    <?php include dirname(__DIR__, 2) . '/componentes/Error.php'; ?>
+
     </section>
-        <script src="api_form/fetch.js"></script>
+
+
+
         <script src="form.js"></script>
+        <script src="api_form/fetch.js"></script> 
+        
 </body>
 </html>

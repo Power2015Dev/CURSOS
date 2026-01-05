@@ -1,99 +1,176 @@
 document.addEventListener('DOMContentLoaded', function() {
+    
 
-   
     const steps = document.querySelectorAll('.breadcrumb');
     const next_buttons = document.querySelectorAll('.siguiente_miga');
     const prev_buttons = document.querySelectorAll('.anterior_miga');
-    const breadcrumb_nav = document.querySelectorAll('.glass-breadcrumbs .step'); // estoy agarrando todos los steps que esten dentro de la clase .glass-breadcrumbs
-
+    const breadcrumb_nav = document.querySelectorAll('.glass-breadcrumbs .step');
     let currentStep = 0;
 
-    const fileInputs = document.querySelectorAll('input[type="file"]');
-    fileInputs.forEach(input => {
-        input.addEventListener('change', () => {
-            const button = input.previousElementSibling;
-            const fileText = button.querySelector("span");
-            const fileName = input.files[0].name;
-
-            if(input.files && input.files.length > 0) {
-                fileText.textContent = fileName;
-                const icon = button.querySelector("i");
-                if(icon){
-                    icon.className = "fa-solid fa-check"; 
-                    icon.style.color = "#A0E7E5";
-                }
-            }
-            
-        });
-    });
-
-   
-                
-
     function showStep(index) {
-
         steps.forEach((step, i) => {
             step.classList.remove('active');
-            // Actualizar la barrita de navegación de arriba
             if(breadcrumb_nav[i]) {
                 if(i === index) breadcrumb_nav[i].classList.add('active');
                 else if (i < index) breadcrumb_nav[i].classList.add('completed');
                 else breadcrumb_nav[i].classList.remove('active', 'completed');
             }
         });
-
-        // esto muestra el paso en que estamos
         steps[index].classList.add('active');
     }
-
-    // primero mostramos el paso inicial
     showStep(currentStep);
 
 
+    function configurarInputArchivo(input) {
+     
+        const button = input.previousElementSibling;
+        
+    
+        button.onclick = function() {
+            input.click();
+        };
 
+        input.addEventListener('change', () => {
+            const fileText = button.querySelector(".file_text"); 
+            const fileName = input.files[0] ? input.files[0].name : "Seleccionar Video (MP4)";
+            const icon = button.querySelector("i");
+
+            if(input.files && input.files.length > 0) {
+                if(fileText) fileText.textContent = fileName;
+                
+                if(icon){
+               
+                    if(!icon.dataset.originalClass) icon.dataset.originalClass = icon.className;
+                    
+                    icon.className = "fa-solid fa-check"; 
+                    icon.style.color = "#A0E7E5";
+                }
+            } else {
+         
+                if(fileText) fileText.textContent = "";
+                if(icon && icon.dataset.originalClass) {
+                    icon.className = icon.dataset.originalClass;
+                    icon.style.color = "white";
+                }
+            }
+        });
+    }
+
+   
+    const existingFileInputs = document.querySelectorAll('input[type="file"]');
+    existingFileInputs.forEach(input => {
+        configurarInputArchivo(input);
+    });
+
+
+ 
+    const btnAgregar = document.getElementById('agregar_leccion');
+    
+    btnAgregar.addEventListener('click', () => {
+   
+        const modulos = document.querySelectorAll('.modulo');
+        const original = modulos[0]; 
+        
+
+        const clone = original.cloneNode(true);
+        
+  
+        const inputs = clone.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.value = ""; 
+        });
+
+      
+        const fileButtons = clone.querySelectorAll('button.input_text');
+        fileButtons.forEach(btn => {
+            
+            const spanTexto = btn.querySelector('.file_text'); 
+            if(spanTexto) spanTexto.textContent = "";
+            
+          
+            const icon = btn.querySelector('i');
+            if(icon) {
+            
+                if(btn.textContent.includes("Video")) {
+                    icon.className = "fa-solid fa-play-circle";
+                } else if(btn.textContent.includes("Material")) {
+                    icon.className = "fa-solid fa-folder-open";
+                }
+                icon.style.color = "white";
+                delete icon.dataset.originalClass;
+            }
+        });
+
+  
+        const newFileInputs = clone.querySelectorAll('input[type="file"]');
+        newFileInputs.forEach(input => {
+            configurarInputArchivo(input);
+        });
+
+ 
+    
+        btnAgregar.parentNode.insertBefore(clone, btnAgregar);
+    });
+
+
+
+    const faqInputs = document.querySelectorAll('.faq');
+    const resInputs = document.querySelectorAll('.res');
+
+    faqInputs.forEach((faqInput, i) => {
+        faqInput.addEventListener('input', () => {
+            const respuestaInput = resInputs[i];
+            
+            if(faqInput.value.trim() !== ""){
+                respuestaInput.disabled = false;
+             
+                respuestaInput.required = true; 
+                respuestaInput.placeholder = "Respuesta (Obligatorio)";
+            }
+            else{
+                respuestaInput.disabled = true;
+                respuestaInput.required = false; // Ya no es requerido si no hay pregunta
+                respuestaInput.value = "";
+                respuestaInput.placeholder = "Respuesta";
+            }
+        });
+    });
+
+
+  
     next_buttons.forEach(button => {
         button.addEventListener('click', () => {
-
             const currentSection = steps[currentStep];
-            const inputs = currentSection.querySelectorAll('input, select, textarea');
+            // Buscamos inputs que NO esten deshabilitados (para ignorar las respuestas de FAQ vacías)
+            const inputs = currentSection.querySelectorAll('input:not([disabled]), select:not([disabled]), textarea:not([disabled])');
             
             let allValid = true;
 
             for (const input of inputs) {
-                // CheckValidity es una funcion nativa del navegador
-                // Verifica si cumple con el 'required', el tipo de dato, etc.
                 if (!input.checkValidity()) {
                     allValid = false;
-                    input.reportValidity(); // Muestra el globito de error del navegador
-
+                    input.reportValidity(); 
+                    
+          
                     if(input.type == "file"){
                         const button = input.previousElementSibling;
-                        const span = button.querySelector("span") ? button.querySelector("span") : null;
+                        const span = button.querySelector(".file_text"); 
                         
                         if(span){
-                            span.textContent = "No se ha seleccionado ningun archivo";
+                            span.textContent = "Campo requerido";
                             const icon = button.querySelector("i");
                             if(icon){
-                                icon.className = "fa-solid fa-xmark"; 
-                                icon.style.color = "red";
+                                icon.className = "fa-solid fa-circle-exclamation"; 
+                                icon.style.color = "#ff4d4d"; 
                             }
                         }
-                        
                     }
-
-                    break; // Detenemos el bucle al primer error
+                    break; 
                 }
-
-                
-                
             }
 
-
             if (allValid) {
-
-               
-
-                if (currentStep < steps.length - 1) {// - 1 porque empezamos a contar desde el cero
+                if (currentStep < steps.length - 1) {
                     currentStep++;
                     showStep(currentStep);
                 }
@@ -101,7 +178,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    
     prev_buttons.forEach(button => {
         button.addEventListener('click', () => {
             if (currentStep > 0) {
@@ -111,9 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-
-  
-let isSubmitting = false;
+    let isSubmitting = false;
 
 
 const form = document.querySelector('form'); 
@@ -142,11 +216,11 @@ function formHasData() {
     const inputs = document.querySelectorAll('input, textarea, select');
     
     for (const input of inputs) {
-        // Ignoramos los botones y los hidden (como los de breadcrumbs)
+       
         if (input.type === 'submit' || input.type === 'button' || input.type === 'hidden') continue;
         
   
-        if ((input.type === 'checkbox' || input.type === 'radio')) { // tanto este como el select y el input es para que no cuenten la seleccion por defecto
+        if ((input.type === 'checkbox' || input.type === 'radio')) { 
             if (input.checked !== input.defaultChecked) {
                 return true; 
             }
@@ -169,10 +243,15 @@ function formHasData() {
     return false;
 }
 
+window.getCurrentStep = function() {
+    return currentStep; 
+};
+
+window.showStep = function(index) {
+    showStep(index); 
+    currentStep = index;
+};
+
 });
 
 
-function new_lesson(){
-    console.log("nueva leccion");
-    
-}
