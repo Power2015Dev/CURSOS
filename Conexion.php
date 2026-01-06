@@ -12,4 +12,6 @@
     die("Error fatal: " . mysqli_connect_error());
     }
     $conexion->set_charset("utf8");
+
+    echo "Conexión exitosa a la base de datos.";
 ?>
