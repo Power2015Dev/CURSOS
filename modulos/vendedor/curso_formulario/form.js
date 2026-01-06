@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const next_buttons = document.querySelectorAll('.siguiente_miga');
     const prev_buttons = document.querySelectorAll('.anterior_miga');
     const breadcrumb_nav = document.querySelectorAll('.glass-breadcrumbs .step');
+    const navSpans = document.querySelectorAll('.glass-breadcrumbs .step span');
     let currentStep = 0;
 
     function showStep(index) {
@@ -21,8 +22,16 @@ document.addEventListener('DOMContentLoaded', function() {
     showStep(currentStep);
 
 
+    navSpans.forEach((element, index) => {
+        element.addEventListener('click', () => {
+            if(index <= currentStep + 1) {
+                showStep(index);
+                currentStep = index;
+            }
+        });
+    });
+
     function configurarInputArchivo(input) {
-     
         const button = input.previousElementSibling;
         
     
@@ -35,9 +44,20 @@ document.addEventListener('DOMContentLoaded', function() {
             const fileName = input.files[0] ? input.files[0].name : "Seleccionar Video (MP4)";
             const icon = button.querySelector("i");
 
-            if(input.files && input.files.length > 0) {
-                if(fileText) fileText.textContent = fileName;
+            if(input.files && input.files.length > 1) {
+
+                if(fileText) fileText.textContent = input.files.length + " archivos seleccionados";
                 
+
+            } else if(input.files && input.files.length > 0){
+
+                if(fileText) fileText.textContent = fileName;
+                    
+               
+               
+                    
+                    
+               
                 if(icon){
                
                     if(!icon.dataset.originalClass) icon.dataset.originalClass = icon.className;
@@ -45,7 +65,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     icon.className = "fa-solid fa-check"; 
                     icon.style.color = "#A0E7E5";
                 }
-            } else {
+
+
+            }else {
          
                 if(fileText) fileText.textContent = "";
                 if(icon && icon.dataset.originalClass) {
@@ -153,11 +175,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     
           
                     if(input.type == "file"){
-                        const button = input.previousElementSibling;
-                        const span = button.querySelector(".file_text"); 
+                        const button = input.previousElementSibling; // El botoon anterior
+                        const span = button.querySelector(".file_text"); // esto esta dentro del botoon
                         
                         if(span){
-                            span.textContent = "Campo requerido";
+                            span.textContent = "No seleciono ningun archivo";
                             const icon = button.querySelector("i");
                             if(icon){
                                 icon.className = "fa-solid fa-circle-exclamation"; 
@@ -251,6 +273,10 @@ window.showStep = function(index) {
     showStep(index); 
     currentStep = index;
 };
+
+
+
+
 
 });
 

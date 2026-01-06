@@ -23,14 +23,11 @@ $titulo = $_POST['titulo'];
 $descripcion = $_POST['descripcion'];
 $miniatura = $_FILES['miniatura']; // esto es un file
 $id = $_SESSION['usuario_id'];
-$checkbox_descargable = $_POST['descargable'] ?? null;
-$checkbox_principiante = $_POST['principiante'] ?? null;
-$checkbox_certificado = $_POST['certificado'] ?? null;
-$checkbox_pratico = $_POST['pratico'] ?? null;
+$checkbox_violencia = isset($_POST['violencia']) ? 1 : 0;
+$checkbox_principiante = isset($_POST['principiante']) ? 1 : 0;
+$checkbox_certificado = isset($_POST['certificado']) ? 1 : 0;
+$checkbox_pratico = isset($_POST['pratico']) ? 1 : 0;
 $galeria_media = $_FILES['galeria']; // esto es un array de files
-
-
-
 $FAQ['pregunta'][] = $_POST['FAQ1'] ?? null;
 $FAQ['respuesta'][] = $_POST['FAQ1_R'] ?? null;
 $FAQ['pregunta'][] = $_POST['FAQ2'] ?? null;
@@ -41,10 +38,6 @@ $FAQ['pregunta'][] = $_POST['FAQ4'] ?? null;
 $FAQ['respuesta'][] = $_POST['FAQ4_R'] ?? null;
 $FAQ['pregunta'][] = $_POST['FAQ5'] ?? null;
 $FAQ['respuesta'][] = $_POST['FAQ5_R'] ?? null;
-
-
-
-
 $seccion = $_POST['nombre_modulo'];
 $titulo_leccion = $_POST['titulo_leccion'];
 $desc_leccion = $_POST['desc_leccion'];
@@ -56,7 +49,7 @@ $mensaje_bienvenida = $_POST['mensaje_bienvenida'] ?? null;
 $precio = $_POST['precio'];
 $dificultad = $_POST['dificultad'] ?? null;
 $redes = $_POST['redes'] ?? null;
-//TODO: no olvidar que en la bd tengo curso_galeria y curso_faqs aparte de los checkbox
+
 
 if(empty($miniatura) || empty($leccion_video)){
     http_response_code(400);
@@ -70,9 +63,9 @@ if(empty($miniatura) || empty($leccion_video)){
 try{
     
     //cursos
-    $query_cursos = "INSERT INTO cursos(titulo, descripcion, imagen_url, precio, usuario_id) VALUES (?, ?, NULL, ?, ?)"; 
+    $query_cursos = "INSERT INTO cursos(titulo, descripcion, imagen_url, precio, usuario_id, mensaje_bienvenida) VALUES (?, ?, NULL, ?, ?, ?)"; 
     $stmt_curso = $conexion->prepare($query_cursos);
-    $stmt_curso->bind_param("ssdi", $titulo, $descripcion, $precio, $id);
+    $stmt_curso->bind_param("ssdis", $titulo, $descripcion, $precio, $id, $mensaje_bienvenida);
 
 
     if (!$stmt_curso->execute()) {
@@ -91,6 +84,19 @@ try{
     if (!$stmt_update->execute()) {
         throw new Exception("Error al actualizar la miniatura del curso.");
     }
+
+    //checkbox
+
+    $query_checkbox = "INSERT INTO filtros_generales_cursos(cursos_id, violencia, conocimiento, certificado, proyectos_practicos) VALUES (?, ?, ?, ?, ?)";
+    $stmt_checkbox = $conexion->prepare($query_checkbox);
+    $stmt_checkbox->bind_param("iiiii", $curso_id, $checkbox_violencia, $checkbox_principiante, $checkbox_certificado, $checkbox_pratico);
+    
+    if (!$stmt_checkbox->execute()) {
+        throw new Exception("Error al crear el checkbox: " . $stmt_checkbox->error);
+    }
+
+
+
     $type = "";
     //curso_galeria
     for($i = 0; $i < count($ruta_media['galeria']); $i++){
@@ -121,7 +127,7 @@ try{
             $pregunta_actual = trim($FAQ['pregunta'][$i] ?? '');
             $respuesta_actual = trim($FAQ['respuesta'][$i] ?? '');
 
-            if(!empty($pregunta_actual) || !empty($respuesta_actual)){
+            if(empty($pregunta_actual) || empty($respuesta_actual)){
                 continue;
             }
     
@@ -217,20 +223,15 @@ function upload_media($id){
         //el uso de uniqid es unicamente por el cache del navegador
         // y no remplazar la imagen cuando cargen una nueva 
         //sino todo esto se simplificaria
-        // ACTUALIZACION: y todo pa nada porque al final voy a quitar uniqid en todo pq no joda
-        
-        
-        
 
-        //adios nadie te va a extrañar 🖕​
-       // $id_subida = uniqid();// aqui creo un solo uniqid 
+        $id_subida = uniqid();// aqui creo un solo uniqid 
 
         if(!file_exists($directorio_destino_videos . "Course_"  . $id)){
             mkdir($directorio_destino_videos . "Course_"  . $id, 0777, true);
         }
 
         $extension_miniatura = pathinfo($_FILES['miniatura']['name'], PATHINFO_EXTENSION); 
-        $nombre_miniatura = "user_" . $id . "." . $extension_miniatura; 
+        $nombre_miniatura = "user_" . $id . "_" . $id_subida . "_" . $id . "." . $extension_miniatura; 
         $ruta_miniatura = $directorio_destino_miniatura . $nombre_miniatura;
 
         if(move_uploaded_file($_FILES['miniatura']['tmp_name'], $ruta_miniatura)){ // tmp_name es la ruta temporal del archivo
@@ -252,13 +253,13 @@ function upload_media($id){
 
                     $nombre_base = pathinfo($_FILES['video_source']['name'][$i], PATHINFO_FILENAME);
                     $extension_video = pathinfo($_FILES['video_source']['name'][$i], PATHINFO_EXTENSION);
-                    $nombre_video = "course_" . $id . preg_replace("/[^a-zA-Z0-9_-]/", "_", $nombre_base) . "." . $extension_video;
+                    $nombre_video = "lesson_" . $id . preg_replace("/[^a-zA-Z0-9_-]/", "_", $nombre_base) . "_" . $id_subida . "_" . $id . "." . $extension_video;
 
                
-                    $ruta_video = $directorio_destino_videos . $id . "_" . $id_subida . "/" . $nombre_video;
+                    $ruta_video = $directorio_destino_videos . "Course_"  . $id . "/" . $nombre_video;
 
                     if(move_uploaded_file($_FILES['video_source']['tmp_name'][$i], $ruta_video)){
-                        $ruta_web['ruta_video'][] = "/Course_media/Courses/" . $id . "_" . $id_subida . "/" . $nombre_video;
+                        $ruta_web['ruta_video'][] = "/Course_media/Courses/" . "Course_" . $id . "/" . $nombre_video;
                         $ruta_web['orden'][] = $i + 1; // Orden empieza en 1
                     } else {
                         throw new Exception("Error al subir el video " . ($i+1));
@@ -272,12 +273,13 @@ function upload_media($id){
                 if(isset($_FILES['material_source']['name'][$i]) && $_FILES['material_source']['error'][$i] === UPLOAD_ERR_OK){
                     
                     $ext_mat = pathinfo($_FILES['material_source']['name'][$i], PATHINFO_EXTENSION);
-                    $nombre_mat = "mat_" . $id . uniqid() . "_" . $i . "." . $ext_mat;
-                    $destino_mat = $directorio_destino_videos . $id . "_" . $id_subida . "/" . $nombre_mat;
+                    $nombre_base_mat = pathinfo($_FILES['material_source']['name'][$i], PATHINFO_FILENAME);
+                    $nombre_mat = "mat_" . $id . "_" . preg_replace("/[^a-zA-Z0-9_-]/", "_", $nombre_base_mat) . "_" . $id_subida . "_" . $id . "." . $ext_mat;
+                    $destino_mat = $directorio_destino_videos . "Course_" . $id . "/" . $nombre_mat;
 
                     if(move_uploaded_file($_FILES['material_source']['tmp_name'][$i], $destino_mat)){
                         // Asignamos explícitamente a la posición $i
-                        $ruta_web['material'][$i] = "/Course_media/Courses/" . $id . "_" . $id_subida . "/" . $nombre_mat;
+                        $ruta_web['material'][$i] = "/Course_media/Courses/" . "Course_" . $id . "/" . $nombre_mat;
                     }
                 }
             }
@@ -299,11 +301,11 @@ function upload_media($id){
                        // $nombre_galeria = "user_" . $id . uniqid() . "_" . $i . "." . $extension_galeria;
 
                         $ext = pathinfo($_FILES['galeria']['name'][$i], PATHINFO_EXTENSION); 
-                        $nombre_secuencial = "user_" . $id . uniqid(). "_" . $i . "." . $ext; // uniqid() genera un identificador unico
+                        $nombre_secuencial = "user_" . $id . "_" . $id_subida . "_" . $i . "." . $ext; 
                         $destino = $directorio_destino_galeria . $nombre_secuencial;
 
                         if (move_uploaded_file($_FILES['galeria']['tmp_name'][$i], $destino)) {
-                        // Guardamos la ruta en el array
+
                         $ruta_web['galeria'][] = "/Course_media/Presentation/" . $nombre_secuencial;
                         }
                         else{
@@ -316,26 +318,7 @@ function upload_media($id){
 
         }
 
-        // if(isset($_FILES['material_source'])){
-        //         for($i = 0; $i < count($_FILES['material_source']['name']); $i++){
-        //             if($_FILES['material_source']['error'][$i] === UPLOAD_ERR_OK){ // UPLOAD_ERR_OK = 0
-        //                 $ext = pathinfo($_FILES['material_source']['name'][$i], PATHINFO_EXTENSION); 
-        //                 $nombre_secuencial = "user_" . $id . uniqid(). "_" . $i . "." . $ext; // uniqid() genera un identificador unico
-        //                 $destino = $directorio_destino_videos . $id . "_" . $id_subida . "/" . $nombre_secuencial;
 
-        //                 if (move_uploaded_file($_FILES['material_source']['tmp_name'][$i], $destino)) {
-        //                 // Guardamos la ruta en el array
-        //                 $ruta_web['material'][] = "/Course_media/Courses/" . $id . "_" . $id_subida . "/" . $nombre_secuencial;
-        //                 }
-        //                 else{
-        //                     echo json_encode(["error" => "Error al subir el material"]);
-        //                     throw new Exception("Error al subir el material");
-        //                 }
-        //             }
-
-        //         }
-
-        // }
 
         
 

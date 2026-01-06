@@ -25,7 +25,7 @@ export class ScrollerAdder {
                 </a>
             </div> 
             <div class="card_body"> 
-            <a href="/modulos/course_page/page.html?id=${this.id}" style="text-decoration: none;" class="never_visited">
+            <a href="/modulos/course_page/page.php?id=${this.id}" style="text-decoration: none;" class="never_visited">
                 <h3>${this.Titulo}</h3> 
                 <p class="author">by ${this.Autor}</p>
             </a>
@@ -49,7 +49,7 @@ export class ScrollerAdder {
             card.innerHTML = `
             
             
-                <a href="/modulos/course_page/page.html?id=${this.id}">
+                <a href="/modulos/course_page/page.php?id=${this.id}">
                     <img src="${this.Imagen}" alt="placeholder" class="card_bg">
                     
                     <div class="card_content">

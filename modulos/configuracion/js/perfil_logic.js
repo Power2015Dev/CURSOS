@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     preview.src = URL.createObjectURL(archivo);
                 } else {
                
-                    errorText.textContent = 'El archivo es demasiado grande (Máx 3MB)';
+                    errorText.textContent = 'El archivo es demasiado grande (Max 3MB)';
                     errorSection.classList.remove("hide-error-box");
                     errorSection.classList.add("show-error-box");
 
@@ -185,11 +185,11 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
         } catch (error) {
-            console.error("Error de conexión:", error);
+            console.error("Error de conexion:", error);
             Confirm_box.classList.remove("show-confirm-box");
             Confirm_box.classList.add("hide-confirm-box");
 
-            errorText.textContent = "Hubo un error de conexión.";
+            errorText.textContent = "Hubo un error de conexion.";
             errorSection.classList.remove("hide-error-box");
             errorSection.classList.add("show-error-box");
 

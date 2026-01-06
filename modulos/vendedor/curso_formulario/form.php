@@ -8,6 +8,16 @@ if(!isset($_SESSION['usuario_id'])){
     exit();
 }
 
+$mensaje = "¡Curso publicado con exito!";
+$icono = "confetti.json";
+$errormsg = "Desconocido";
+$erroricon = "error.json";
+$mensaje_promise = "¿Deseas Publicar el Curso?";
+$caja_resuelta = "Publicar";
+$caja_rechazada = "Cancelar";
+$color_resuelto = "#27F53C";
+$color_rechazado = "#F52727"; 
+$icono_resolve_reject = "questionmark.json";
 ?>
 
 
@@ -34,19 +44,19 @@ if(!isset($_SESSION['usuario_id'])){
             <nav aria-label="Breadcrumb" class="glass-breadcrumbs">
             <ol>
                 <li class="step active">
-                    <a href="#">Informacion General</a>
+                    <span onclick="step_1()" style="cursor: pointer;">Informacion General</span>
                 </li>
                 
                 <li class="step font-weight-normal">
-                    <a href="#">Contenido de Galeria</a>
+                    <span onclick="step_2()" style="cursor: pointer;">Contenido de Galeria</span>
                 </li>
                 
                 <li class="step font-weight-normal" aria-current="step">
-                    Contenido del curso
+                    <span onclick="step_3()" style="cursor: pointer;">Contenido del curso</span>
                 </li>
                 
                 <li class="step font-weight-normal">
-                    Pasos Finales
+                    <span onclick="step_4()" style="cursor: pointer;">Pasos Finales</span>
                 </li>
             </ol>
         </nav>
@@ -86,8 +96,9 @@ if(!isset($_SESSION['usuario_id'])){
                     <i class="fa-solid fa-upload" style="color: white;"></i> 
                     <span class="file_text"></span>
                     <span style="margin: 0;">Subir Miniatura</span>
+                    
                 </button>
-                
+        
                 <input type="file" id="img" name="miniatura" hidden accept=".jpg, .jpeg, .png" required>
             </fieldset>
            
@@ -116,8 +127,8 @@ if(!isset($_SESSION['usuario_id'])){
             
                 <fieldset class="input_form">
                 
-                <input type="checkbox" id="descargable" name="descargable">
-                <label for="descargable" name="descargable" style="color: white;">¿compartes material descargable?</label>
+                <input type="checkbox" id="violencia" name="violencia">
+                <label for="violencia" style="color: white;">¿Tu contenido trae violencia o Imagenes Graficas?</label>
                 
                 </fieldset>
 
@@ -130,7 +141,7 @@ if(!isset($_SESSION['usuario_id'])){
             <fieldset class="input_form">
 
                 <input type="checkbox" id="principiante" name="principiante">
-                <label for="principiante" name="principiante" style="color: white;">¿Es apto para principiantes?</label>
+                <label for="principiante" name="principiante" style="color: white;">¿Requiere Conocimientos previos?</label>
 
             </fieldset>
 
@@ -141,7 +152,7 @@ if(!isset($_SESSION['usuario_id'])){
             <fieldset class="input_form">
 
                 <input type="checkbox" id="certificado" name="certificado">
-                <label for="certificado" name="certificado" style="color: white;">¿Incluye certificado de finalización?</label>
+                <label for="certificado" name="certificado" style="color: white;">¿Incluye certificado de finalizacion?</label>
 
             </fieldset>
 
@@ -152,7 +163,7 @@ if(!isset($_SESSION['usuario_id'])){
             <fieldset class="input_form">
 
                 <input type="checkbox" id="pratico" name="pratico">
-                <label for="pratico" name="pratico" style="color: white;">¿Incluye proyectos prácticos?</label>
+                <label for="pratico" name="pratico" style="color: white;">¿Incluye proyectos practicos?</label>
 
             </fieldset>
 
@@ -168,6 +179,7 @@ if(!isset($_SESSION['usuario_id'])){
                     <i class="fa-solid fa-upload" style="color: white;"></i> 
                     <span class="file_text"></span>
                     <span style="margin: 0;">Subir Galeria</span>
+                    
                 </button>
                 
                 <input type="file" id="media" name="galeria[]" class="file_text" hidden accept="image/*,video/*" multiple required>
@@ -435,7 +447,7 @@ if(!isset($_SESSION['usuario_id'])){
                 <div style="display: flex; gap: 20px; margin-top: 10px;">
                     <button type="button" class="anterior_miga">Atras</button>
                     
-                    <button type="submit" id="btn_finalizar">Publicar Curso</button>
+                    <button id="btn_finalizar">Publicar Curso</button>
                 </div>
 
     </article>
@@ -443,13 +455,13 @@ if(!isset($_SESSION['usuario_id'])){
  
     </form>
 
-    <?php include dirname(__DIR__, 2) . '/componentes/Check-in-box.php'; ?>
-    <?php include dirname(__DIR__, 2) . '/componentes/Confirm-box.php'; ?>
-    <?php include dirname(__DIR__, 2) . '/componentes/Error.php'; ?>
+    
 
     </section>
 
-
+    <?php include dirname(__DIR__, 2) . '/componentes/Check-in-box.php'; ?>
+    <?php include dirname(__DIR__, 2) . '/componentes/Confirm-box.php'; ?>
+    <?php include dirname(__DIR__, 2) . '/componentes/Error.php'; ?>
 
         <script src="form.js"></script>
         <script src="api_form/fetch.js"></script> 
