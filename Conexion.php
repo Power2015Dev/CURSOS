@@ -13,5 +13,5 @@
     }
     $conexion->set_charset("utf8");
 
-    echo "Conexión exitosa a la base de datos.";
+   
 ?>
