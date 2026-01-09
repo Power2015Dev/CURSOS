@@ -41,6 +41,7 @@ exit();
                 <div class="tabs">
                     <div class="filter_button">
                     <span>Todos</span>
+                    
                     </div>
 
                     <div class="filter_button">
@@ -114,6 +115,9 @@ exit();
         </div>
     </div>
 </template>
+
+
+
 
     </div> 
 

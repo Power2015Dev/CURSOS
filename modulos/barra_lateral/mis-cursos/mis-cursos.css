@@ -1,0 +1,264 @@
+
+:root {
+    --primero: #0A1931; 
+    --segundo: #1A3D63; 
+    --tercero: #4A7FA7; 
+    --cuarto:  #B3CFE5;
+    --quinto:  #F6FAFD; 
+    --blanco:  #ffffff;
+    --verde:   #27ae60;
+    --naranja: #e67e22;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--quinto); 
+    color: var(--primero);
+}
+
+.contenedor {
+    display: flex;
+    margin-top: 10px; 
+    max-width : 1600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.izq {
+    width: 70%;
+    background: var(--blanco);
+    border-right: 1px solid var(--cuarto);
+    min-height: calc(100vh - 100px);
+}
+
+/* Video */
+.video-box {
+    background: var(--primero); 
+    padding: 0;
+}
+.video-box video {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16/9;
+}
+.titulo-video {
+    padding: 20px;
+    background: var(--blanco);
+    border-bottom: 1px solid var(--quinto);
+}
+.titulo-video h2 {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primero);
+    font-size: 22px;
+}
+
+/* Pestañas */
+.pestanas {
+    display: flex;
+    gap: 20px;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--cuarto);
+    margin-top: 10px;
+}
+.boton {
+    background: none;
+    border: none;
+    padding: 15px 5px;
+    font-size: 16px;
+    color: var(--tercero); 
+    cursor: pointer;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s;
+}
+.boton:hover { color: var(--segundo); }
+
+/* Pestaña Activa */
+.boton.activo {
+    color: var(--primero);
+    font-weight: 700;
+    border-bottom: 3px solid var(--primero); 
+}
+
+/* Contenido */
+/* =========================================
+   CONTENIDO DE LAS PESTAÑAS (IZQUIERDA)
+   ========================================= */
+.contenido-pestanas { 
+    padding: 30px;
+}
+
+.info h3 {
+    margin-top: 0; 
+    font-family: 'Montserrat', sans-serif; 
+    color: var(--segundo);
+}
+
+.lista-recursos { 
+    list-style: none; 
+    padding: 0; 
+    line-height: 2.2; 
+}
+
+.lista-recursos i { 
+    margin-right: 10px; 
+    color: var(--tercero); 
+}
+
+/* --- Estilos para Anuncios --- */
+.tarjeta-anuncio {
+    border: 1px solid var(--cuarto);
+    padding: 20px;
+    border-radius: 12px;
+    background: var(--quinto);
+}
+
+.profe { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    margin-bottom: 10px; 
+}
+
+.profe img { 
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    border: 2px solid var(--tercero); 
+}
+
+.fecha { 
+    color: var(--tercero); 
+}
+
+/* --- Estilos para Reseñas --- */
+.puntos { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    color: var(--naranja); 
+    font-weight: bold; 
+}
+
+.grande { 
+    font-size: 32px; 
+    color: var(--primero); 
+}
+
+.comentario { 
+    display: flex; 
+    gap: 15px; 
+    margin-top: 20px; 
+}
+
+.inicial { 
+    width: 40px; 
+    height: 40px; 
+    background: var(--primero); 
+    color: var(--blanco); 
+    border-radius: 50%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    font-weight: bold; 
+}
+
+.estrellas-chicas { 
+    color: var(--naranja); 
+    font-size: 12px; 
+}
+
+
+.der {
+    width: 30%;
+    background: var(--blanco);
+    position: sticky; 
+    top: 100px; 
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+    border-left: 1px solid var(--cuarto);
+}
+
+.cabecera {
+    padding: 20px;
+    background: var(--quinto);
+    border-bottom: 1px solid var(--cuarto);
+}
+
+.cabecera h3 { 
+    margin: 0; 
+    font-family: 'Montserrat', sans-serif; 
+    color: var(--primero); 
+    font-size: 18px; 
+}
+
+.lista-cursos { 
+    padding: 10px; 
+}
+
+
+.item {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    text-decoration: none;
+    color: var(--primero);
+    border-bottom: 1px solid var(--quinto);
+    transition: 0.2s;
+    border-radius: 8px;
+}
+
+.item:hover { 
+    background: var(--quinto); 
+}
+
+.item img {
+    width: 100px; 
+    height: 65px; 
+    object-fit: cover; 
+    border-radius: 6px; 
+    border: 1px solid var(--cuarto);
+}
+
+.datos h4 { 
+    margin: 0 0 5px 0; 
+    font-size: 14px; 
+    color: var(--segundo); 
+}
+
+.datos small { 
+    color: var(--tercero); 
+    font-size: 11px; 
+    font-weight: 500; 
+}
+
+/* Barra de Progreso  */
+.barra-fondo {
+    width: 100%; 
+    height: 6px; 
+    background: var(--cuarto); 
+    border-radius: 3px; 
+    margin: 8px 0;
+}
+
+.relleno {
+    height: 100%; 
+    background: var(--verde); /* Verde para indicar progreso */
+    border-radius: 3px;
+}
+
+
+@media (max-width: 900px) {
+    .contenedor { 
+        flex-direction: column; 
+    }
+    
+    .izq, .der { 
+        width: 100%; 
+        height: auto; 
+        border: none; 
+    }
+}
