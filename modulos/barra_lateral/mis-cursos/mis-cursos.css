@@ -84,9 +84,7 @@ body {
 }
 
 /* Contenido */
-/* =========================================
-   CONTENIDO DE LAS PESTAÑAS (IZQUIERDA)
-   ========================================= */
+
 .contenido-pestanas { 
     padding: 30px;
 }
@@ -108,7 +106,7 @@ body {
     color: var(--tercero); 
 }
 
-/* --- Estilos para Anuncios --- */
+/*  Estilos para Anuncios  */
 .tarjeta-anuncio {
     border: 1px solid var(--cuarto);
     padding: 20px;
@@ -134,7 +132,7 @@ body {
     color: var(--tercero); 
 }
 
-/* --- Estilos para Reseñas --- */
+/*  Estilos para Reseñas  */
 .puntos { 
     display: flex; 
     align-items: center; 
