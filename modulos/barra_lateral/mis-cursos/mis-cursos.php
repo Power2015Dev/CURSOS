@@ -82,37 +82,58 @@
             </div>
         </main>
 
-        <aside class="der">
-            <div class="cabecera">
-                <h3>Mis Cursos Comprados</h3>
-            </div>
-            
-            <div class="lista-cursos">
-                
-                <a href="#" class="item">
-                    <img src="https://img.freepik.com/foto-gratis/codigo-html-css-desarrollador-web_23-2150038859.jpg">
-                    <div class="datos">
-                        <h4>Desarrollo Web Completo</h4>
-                        <div class="barra-fondo">
-                            <div class="relleno" style="width: 80%;"></div>
-                        </div>
-                        <small>80% completado</small>
-                    </div>
-                </a>
+      <aside class="lateral">
+    
+    <div class="titulo-seccion">
+        <h3>Contenido del Curso</h3>
+        <small>Progreso: 15%</small>
+    </div>
+    
+    <div class="lista">
+        
+        <a href="#" class="item activo">
+    <div class="icono">
+        <i class="fa-solid fa-play"></i>
+    </div>
+    <div class="datos"> 
+        <span class="titulo">1. Introducción al curso</span>
+        <span class="tiempo">10 min</span>
+    </div>
+</a>
 
-                <a href="#" class="item">
-                    <img src="https://img.freepik.com/foto-gratis/programacion-fondo-collage_23-2149901770.jpg">
-                    <div class="datos">
-                        <h4>JavaScript Moderno</h4>
-                        <div class="barra-fondo">
-                            <div class="relleno" style="width: 25%;"></div>
-                        </div>
-                        <small>25% completado</small>
-                    </div>
-                </a>
-
+        <a href="#" class="item visto">
+            <div class="icono">
+                <i class="fa-solid fa-check"></i>
             </div>
-        </aside>
+            <div class="datos">
+                <span class="titulo">2. Instalación de herramientas</span>
+                <span class="tiempo">5 min</span>
+            </div>
+        </a>
+
+        <a href="#" class="item">
+            <div class="icono">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <div class="datos">
+                <span class="titulo">3. Estructura HTML básica</span>
+                <span class="tiempo">15 min</span>
+            </div>
+        </a>
+
+        <a href="#" class="item">
+            <div class="icono">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <div class="datos">
+                <span class="titulo">4. Etiquetas de texto</span>
+                <span class="tiempo">12 min</span>
+            </div>
+        </a>
+
+    </div>
+
+</aside>
 
     </div>
 
@@ -128,6 +149,8 @@
             event.currentTarget.classList.add('activo');
         }
     </script>
+    
+    
 
 </body>
 </html>
