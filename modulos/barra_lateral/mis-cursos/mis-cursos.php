@@ -1,3 +1,18 @@
+<?php
+
+if(session_status() === PHP_SESSION_NONE){
+    session_start();
+}
+
+if(!isset($_SESSION['usuario_id'])){
+    header("Location: ../../../dashboard/dashboard.php");
+    exit();
+}
+
+//RECORDATORIO la clase "visto" es para colorear el icono de color verde
+// "activo" es la seleccion de la barra lateral
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,19 +35,19 @@
         <main class="izq">
             
             <div class="video-box">
-                <video controls poster="https://img.freepik.com/foto-gratis/fondo-programacion-collage_23-2149901770.jpg">
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                <video controls poster="">
+                    <source src="" type="video/mp4">
                     Tu navegador no soporta el video.
                 </video>
                 <div class="titulo-video">
-                    <h2>1. Introducción: Configuración del entorno</h2>
+                    <h2></h2>
                 </div>
             </div>
 
             <div class="pestanas">
                 <button class="boton activo" onclick="abrir('desc')">Descripción</button>
                 <button class="boton" onclick="abrir('anun')">Anuncios</button>
-                <button class="boton" onclick="abrir('res')">Reseñas</button>
+                
             </div>
 
             <div class="contenido-pestanas">
@@ -62,22 +77,7 @@
                     </div>
                 </div>
 
-                <div id="res" class="caja info" style="display: none;">
-                    <div class="puntos">
-                        <span class="grande">4.9</span>
-                        <div class="estrellas">★★★★★</div>
-                        <span>Valoración</span>
-                    </div>
-                    <hr>
-                    <div class="comentario">
-                        <div class="inicial">A</div>
-                        <div>
-                            <b>Ana Torres</b>
-                            <div class="estrellas-chicas">★★★★★</div>
-                            <p>Explicación muy clara y directa.</p>
-                        </div>
-                    </div>
-                </div>
+                
 
             </div>
         </main>
@@ -89,49 +89,16 @@
         <small>Progreso: 15%</small>
     </div>
     
-    <div class="lista">
+    <div class="lista" id="list"> <!-- AQUI COMIENZA LA LISTA -->
+    
+      
+
+    
+
+    
         
-        <a href="#" class="item activo">
-    <div class="icono">
-        <i class="fa-solid fa-play"></i>
-    </div>
-    <div class="datos"> 
-        <span class="titulo">1. Introducción al curso</span>
-        <span class="tiempo">10 min</span>
-    </div>
-</a>
 
-        <a href="#" class="item visto">
-            <div class="icono">
-                <i class="fa-solid fa-check"></i>
-            </div>
-            <div class="datos">
-                <span class="titulo">2. Instalación de herramientas</span>
-                <span class="tiempo">5 min</span>
-            </div>
-        </a>
-
-        <a href="#" class="item">
-            <div class="icono">
-                <i class="fa-solid fa-lock"></i>
-            </div>
-            <div class="datos">
-                <span class="titulo">3. Estructura HTML básica</span>
-                <span class="tiempo">15 min</span>
-            </div>
-        </a>
-
-        <a href="#" class="item">
-            <div class="icono">
-                <i class="fa-solid fa-lock"></i>
-            </div>
-            <div class="datos">
-                <span class="titulo">4. Etiquetas de texto</span>
-                <span class="tiempo">12 min</span>
-            </div>
-        </a>
-
-    </div>
+    </div> <!-- AQUI TERMINA LA LISTA -->
 
 </aside>
 
@@ -150,7 +117,7 @@
         }
     </script>
     
-    
+    <script type="module" src="get_url.js"></script>
 
 </body>
 </html>

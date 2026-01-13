@@ -197,6 +197,20 @@ body {
     padding: 0;
 }
 
+.father_section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: fle;
+}
+
+.seccion{
+    list-style: none;
+    margin: 0 auto;
+    padding: 0.8rem;
+
+}
+
 
 .item {
     display: flex;

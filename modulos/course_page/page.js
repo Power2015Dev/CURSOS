@@ -22,7 +22,7 @@ async function get_data() {
         //console.log(data);
         load_content(data);
     } catch (error) {
-        console.log("No se pudo cargar la informacion por: " +error);
+        console.log("No se pudo cargar la informacion por: " + error);
     }
 }
 
