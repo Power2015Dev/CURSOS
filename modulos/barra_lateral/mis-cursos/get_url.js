@@ -32,17 +32,21 @@ async function get_data() {
 
 function load_content(data) {
 const video = document.querySelector("video");
-const h2 = document.querySelector("h2");
+const h2 = document.getElementById("titulo-h2");
+const descripcion = document.getElementById("descripcion-detalles");
 const urlParams = new URLSearchParams(window.location.search);
 const lesson_id = urlParams.get('lesson');
     data.forEach(element => {
         video.poster = element.imagen;
-        h2.textContent = element.titulo_curso; // mas tarde lo termino
-        console.log(typeof element.titulo, typeof h2);
+        
+        descripcion.textContent = element.descripcion_curso;
         
         element.lecciones.forEach((leccion, index) => {
-            if(parseInt(leccion.id_leccion) == lesson_id) video.src = leccion.lecciones;
-        
+            if(parseInt(leccion.id_leccion) == lesson_id){
+                video.src = leccion.lecciones;
+                h2.textContent = leccion.titulo;
+            } 
+            
          
         
             const side_bar = new Reproductor();

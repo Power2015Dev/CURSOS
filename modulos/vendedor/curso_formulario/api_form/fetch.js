@@ -86,10 +86,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         try {
 
+        
             const formData = new FormData(this);
-            
-          
-            
+                        
             const response = await fetch('/modulos/vendedor/curso_formulario/api_form/form_query.php', {
                 method: 'POST',
                 body: formData

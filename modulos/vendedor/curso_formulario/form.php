@@ -281,7 +281,8 @@ $icono_resolve_reject = "questionmark.json";
             
             <fieldset class="input_form">
                 <legend class="legend-top"><label for="nombre_modulo">Modulo / Seccion</label></legend>
-                <input type="text" class="input_text" name="nombre_modulo[]" id="nombre_modulo" placeholder="Ej: Introducción a las Salsas" required>
+                <input type="text" class="input_text identificator" name="nombre_modulo[]" id="nombre_modulo" placeholder="Ej: Introducción a las Salsas" required>
+                 <span class="seccion"></span>
             </fieldset>
 
             <fieldset class="input_form">
@@ -336,9 +337,10 @@ $icono_resolve_reject = "questionmark.json";
             
             
         </div> <!-- fin del modulo -->
-
-        <button type="button" class="input_text" id="agregar_leccion" style="justify-content: center;cursor: default;"><i class="fa-solid fa-plus" style="opacity: 1; transform: none;cursor: pointer;"></i></button>
-
+       
+            <button type="button" class="input_text" id="agregar_leccion" style="justify-content: center;cursor: default;"><i class="fa-solid fa-plus" style="opacity: 1; transform: none;cursor: pointer;"></i></button>
+            <button type="button" class="input_text delete" id="eliminar_leccion" style="justify-content: center;cursor: default;"><i class="fa-solid fa-trash" style="opacity: 1; transform: none;cursor: pointer;"></i></button>
+        
             <div style="display: flex; gap: 20px;">
                 <button type="button" class="anterior_miga">Atras</button>
                 

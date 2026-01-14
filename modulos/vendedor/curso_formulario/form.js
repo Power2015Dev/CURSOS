@@ -102,6 +102,17 @@ document.addEventListener('DOMContentLoaded', function() {
             input.value = ""; 
         });
 
+        const seccion = clone.querySelectorAll('.identificator');
+        const text_after = clone.querySelectorAll('.seccion');
+        seccion.forEach(not_required => {
+            not_required.required = false;
+        })
+
+        text_after.forEach(text => {
+            text.classList.add('not_required');
+        });
+        
+
       
         const fileButtons = clone.querySelectorAll('button.input_text');
         fileButtons.forEach(btn => {
@@ -133,6 +144,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
         btnAgregar.parentNode.insertBefore(clone, btnAgregar);
     });
+
+    const btnEliminar = document.getElementById('eliminar_leccion');
+
+    btnEliminar.addEventListener('click', () => {
+        const modulos = document.querySelectorAll('.modulo');
+        const lastModulo = modulos[modulos.length - 1];
+        if(modulos.length === 1) return;
+        lastModulo.remove();
+    })
+        
 
 
 

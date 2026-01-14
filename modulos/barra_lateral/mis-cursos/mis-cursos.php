@@ -40,7 +40,7 @@ if(!isset($_SESSION['usuario_id'])){
                     Tu navegador no soporta el video.
                 </video>
                 <div class="titulo-video">
-                    <h2></h2>
+                    <h2 id="titulo-h2"></h2>
                 </div>
             </div>
 
@@ -52,14 +52,15 @@ if(!isset($_SESSION['usuario_id'])){
 
             <div class="contenido-pestanas">
                 
-                <div id="desc" class="caja info">
+                <div id="desc" class="caja info" style="display: flex;flex-direction: column; gap: 20px;">
                     <h3>Detalles de la clase</h3>
-                    <p>En esta lección aprenderemos a instalar las herramientas necesarias (VS Code, Git) y escribiremos nuestra primera estructura HTML.</p>
+                    <p id="descripcion-detalles"></p>
                     
                     <h4>Recursos descargables:</h4>
-                    <ul class="lista-recursos">
-                        <li><i class="fa-solid fa-file-pdf"></i> Guía_Instalación.pdf</li>
-                        <li><i class="fa-solid fa-code"></i> Ejercicio_Inicial.zip</li>
+                    <ul class="lista-recursos" style="display: flex;flex-direction: column; gap: 40px;">
+                        <li><i class="fa-solid fa-file-pdf"></i><a href="" class="material_link"></a></li>
+                        
+                        <li><i class="fa-solid fa-code"></i><a href="" class="material_link"></a></li>
                     </ul>
                 </div>
 
