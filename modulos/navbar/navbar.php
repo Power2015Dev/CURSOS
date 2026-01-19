@@ -105,7 +105,7 @@ if(isset($_SESSION['usuario_nombre'])){
             </div>
 
             <?php else: ?>
-                <a href="/inicio_registro/inicio_sesion.php" id="login_button">Iniciar sesión</a>
+                <a href="/inicio_registro/inicio_sesion.php" id="login_button">Iniciar sesion</a>
                 <a href="/inicio_registro/registro.html" id="signup_button">Registrarse</a>
             <?php endif ?>
 
