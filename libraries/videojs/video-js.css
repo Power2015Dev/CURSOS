@@ -1009,6 +1009,7 @@ body.vjs-pip-window .video-js {
   align-items: center;
   min-width: 4em;
   touch-action: none;
+  
 }
 
 .video-js .vjs-progress-control.disabled {
@@ -1028,6 +1029,7 @@ body.vjs-pip-window .video-js {
   flex: auto;
   transition: all 0.2s;
   height: 0.3em;
+
 }
 
 .video-js .vjs-progress-control .vjs-progress-holder {
@@ -1063,6 +1065,7 @@ body.vjs-pip-window .video-js {
   right: -0.5em;
   line-height: 0.35em;
   z-index: 1;
+
 }
 
 .vjs-svg-icons-enabled .vjs-play-progress:before {
