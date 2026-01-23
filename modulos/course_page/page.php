@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="../navbar/navbar_style.css" />
   <link rel="icon" type="image/png" href="/imagenes/imagen_sin_fondo.png" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/libraries/videojs/video-js.min.css" />
+  <link rel="stylesheet" href="/video_stylesheet/video-js_kursa.css" />
 </head>
 <body>
 
@@ -239,5 +241,6 @@
   </footer>
 
     <script type="module" src="page.js"></script>
+    <script src="https://vjs.zencdn.net/8.23.4/video.min.js"></script>
 </body>
 </html>

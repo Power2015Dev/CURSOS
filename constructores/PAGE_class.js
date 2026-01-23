@@ -17,7 +17,7 @@ export class page {
         this.other_courses = other_courses || [];
         this.fecha_creacion = fecha_creacion;
         this.rating_info = rating_info || []; 
-
+        this.players = [];
         
         this.currentReviewIndex = 0; 
     }
@@ -118,9 +118,11 @@ export class page {
       
         media_adder.innerHTML = "";
         let mediaHTML = "";
+
+        
         
     
-        this.video_url_arr.forEach(element => {
+        this.video_url_arr.forEach((element, index) => {
       
             if (element.includes("youtube.com") || element.includes("youtu.be")) {
                 const videoId = element.split('v=')[1] || element.split('/').pop();
@@ -130,10 +132,25 @@ export class page {
                 </div>`;
             } else {
                 mediaHTML += `
-                <video controls class="item-media" width="100%" style="aspect-ratio: 16/9;">
-                    <source src="${element}" type="video/mp4">
-                    Tu navegador no soporta el video.
-                </video>`;
+            <video
+                id="video-${index}"
+                class="video-js vjs-fluid vjs-modern"
+                controls
+                preload="auto"
+                width="720px"
+                height="540px"
+                poster="/Course_media/thumbnails/user_8_69659ef009754_8.jpg"
+               
+               
+            >
+            <source src="${element}" type="video/mp4" />
+            
+            <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a web browser that
+            <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+            </video>
+                `;
             }
         });
         
@@ -143,6 +160,35 @@ export class page {
         });
         
         media_adder.innerHTML = mediaHTML;
+
+        if (this.players && this.players.length > 0) {
+            this.players.forEach(player => {
+                if (player) player.dispose();
+            });
+        }
+        this.players = [];
+
+       this.video_url_arr.forEach((element, index) => {
+         
+            if (!element.includes("youtube.com") && !element.includes("youtu.be")) {
+
+                // Verificamos que el elemento exista en el DOM
+            
+                const videoElement = document.getElementById(`video-${index}`);
+
+                if (videoElement) {
+             
+                    if (window.videojs) {
+                        const player = window.videojs(`video-${index}`, {
+                            fluid: true
+                        });
+                        this.players.push(player);
+                    } else {
+                        console.error("La libreria Video.js no ha cargado aun.");
+                    }
+                }
+            }
+        });
 
     
         this.setup_review_carousel();

@@ -143,6 +143,8 @@ h1, h2, h3, h4,
 .item-media {
   border-radius: var(--radio);
   border: 1px solid var(--cuarto);
+  width: 100%;
+
 }
 
 #video {

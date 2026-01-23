@@ -47,7 +47,7 @@ $stmt_galeria->execute();
 $res_galeria = $stmt_galeria->get_result(); 
 
 while($media = $res_galeria->fetch_assoc()){
-    // Aquí llenamos los arrays que creamos arriba
+    // Aqui llenamos los arrays que creamos arriba
     if($media['tipo'] === 'imagen'){
         $datos_curso['img_url_arr'][] = $media['ruta_archivo'];
     } elseif($media['tipo'] === 'video'){
