@@ -1,3 +1,5 @@
+import { skipButtons, cleanplayer } from "../video_stylesheet/Skipbutton_inject.js";
+
 export class page {
 
     constructor(id, titulo, descripcion, autor_nombre, precio, rating, rating_count, img_url_arr, video_url_arr, autor_pais, user_rating, autor_avatar, FAQs, other_courses, fecha_creacion, rating_info) {
@@ -123,7 +125,7 @@ export class page {
         
     
         this.video_url_arr.forEach((element, index) => {
-      
+            
             if (element.includes("youtube.com") || element.includes("youtu.be")) {
                 const videoId = element.split('v=')[1] || element.split('/').pop();
                 mediaHTML += `
@@ -151,7 +153,12 @@ export class page {
             </p>
             </video>
                 `;
+
+                
+
             }
+
+            
         });
         
      
@@ -161,33 +168,17 @@ export class page {
         
         media_adder.innerHTML = mediaHTML;
 
-        if (this.players && this.players.length > 0) {
-            this.players.forEach(player => {
-                if (player) player.dispose();
-            });
-        }
-        this.players = [];
+        cleanplayer(this.players);
+
+        
 
        this.video_url_arr.forEach((element, index) => {
          
-            if (!element.includes("youtube.com") && !element.includes("youtu.be")) {
 
-                // Verificamos que el elemento exista en el DOM
-            
-                const videoElement = document.getElementById(`video-${index}`);
+       const player = skipButtons(element, index);
 
-                if (videoElement) {
-             
-                    if (window.videojs) {
-                        const player = window.videojs(`video-${index}`, {
-                            fluid: true
-                        });
-                        this.players.push(player);
-                    } else {
-                        console.error("La libreria Video.js no ha cargado aun.");
-                    }
-                }
-            }
+       this.players.push(player);
+
         });
 
     
