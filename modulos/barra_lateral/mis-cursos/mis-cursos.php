@@ -23,6 +23,8 @@ if(!isset($_SESSION['usuario_id'])){
     <link rel="stylesheet" href="/modulos/navbar/navbar_style.css">
     <link rel="icon" type="image/png" href="/imagenes/icono2d.png">
     <link rel="stylesheet" href="mis-cursos.css">
+    <link rel="stylesheet" href="/libraries/videojs/video-js.min.css" />
+    <link rel="stylesheet" href="/video_stylesheet/video-js_kursa.css" />
 </head>
 <body>
 
@@ -35,9 +37,11 @@ if(!isset($_SESSION['usuario_id'])){
         <main class="izq">
             
             <div class="video-box">
-                <video controls poster="">
-                    <source src="" type="video/mp4">
-                    Tu navegador no soporta el video.
+                <video controls id="video-player" class="video-js vjs-fluid vjs-modern" preload="auto" width="720" height="540">
+                    <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                    </p>
                 </video>
                 <div class="titulo-video">
                     <h2 id="titulo-h2"></h2>
@@ -119,6 +123,6 @@ if(!isset($_SESSION['usuario_id'])){
     </script>
     
     <script type="module" src="get_url.js"></script>
-
+    <script src="https://vjs.zencdn.net/8.23.4/video.min.js"></script>
 </body>
 </html>

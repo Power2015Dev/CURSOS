@@ -141,7 +141,7 @@ export class page {
                 preload="auto"
                 width="720px"
                 height="540px"
-                poster="/Course_media/thumbnails/user_8_69659ef009754_8.jpg"
+                
                
                
             >
