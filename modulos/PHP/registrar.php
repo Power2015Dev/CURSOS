@@ -7,10 +7,14 @@ header('Content-Type: application/json');
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 $data = json_decode(file_get_contents("php://input"), true);
-$nombre = $data['user'];
-$email = $data['email'];
-$pass_ingresada = $data['pass'];
-$telefono = $data['phone'];
+$nombre = $data['user'] ?? null;
+$email = $data['email'] ?? null;
+$pass_ingresada = $data['pass'] ?? null;
+$telefono = null;
+
+if(!empty($data['phone'])){
+    $telefono = $data['phone'];
+}
 
 if (empty($nombre) || empty($email) || empty($pass_ingresada)) {
     http_response_code(400);
@@ -43,7 +47,7 @@ try {
 
     if ($e->getCode() == 1062) { 
         http_response_code(409);
-        echo json_encode(["error" => "El correo electrónico ya está registrado"]);
+        echo json_encode(["error" => "El correo electrónico ya esta registrado"]);
     } else {
         http_response_code(500);
         echo json_encode(["error" => "Error SQL: " . $e->getMessage()]);
