@@ -97,7 +97,7 @@ if(isset($_SESSION['usuario_nombre'])){
                     <div id="profile_status">
                             <a href="/modulos/configuracion/editar_perfil.php"><p>Editar perfil</p></a>
                             <a href="/modulos/configuracion/ayuda.html"><p>Ayuda</p></a>
-                            <a href="/modulos/configuracion/courses.php"><p>Mis cursos</p></a>
+                            <a href="/modulos/configuracion/courses.php?id=<?php echo $_SESSION['usuario_id']; ?>"><p>Mis cursos</p></a>
                             <a href="/modulos/PHP/cerrar_sesion.php"><p>Cerrar sesión</p></a>
                       
                     </div>

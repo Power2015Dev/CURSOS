@@ -28,16 +28,46 @@ import { MyCourses } from '../../../constructores/Courses_class.js';
 //     }
 // });
 
+const dropdown = document.getElementById('myDropdown');
+        const btn = dropdown.querySelector('.dropdown-btn');
+        const selectionText = document.getElementById('current-selection');
+        const options = dropdown.querySelectorAll('.dropdown-content a');
 
 
-export function agregar_tarjetas(Titulo, Completacion, Imagen){
-    const Course_Card = new MyCourses(Titulo, Completacion, Imagen);
+        
+        options.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.preventDefault();
+                const value = option.getAttribute('data-value');
+                selectionText.innerText = value;
+    
+                dropdown.classList.remove('active');
+                
+     
+                console.log("Filtrando por: " + value);
+            });
+        });
+
+        
+        window.addEventListener('click', () => {
+            dropdown.classList.remove('active');
+
+        
+        });
+
+
+        
+export function agregar_tarjetas(Titulo, Imagen, id, id_leccion){
+    const Course_Card = new MyCourses(Titulo, Imagen, id, id_leccion);
     const message = document.getElementById("Courses_available");
     if(message){
         message.remove();
     }
     Course_Card.add_courses();
 }
+
+
+
 
 
 

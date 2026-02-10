@@ -1,223 +1,251 @@
+/* Configuración Base */
+body {
+    background-color: #e5f1fd;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+}
+
 #flex_layout {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    justify-content: center;
     margin-top: 1.2rem;
 }
 
-#flex_layout h2, #flex_layout hr {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 600;
+.box_container {
+    padding: 20px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- HEADER Y CONTROLES --- */
+.header-cursos {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header-cursos h2 {
     color: #0A1931;
     font-size: 2rem;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+    margin-bottom: 10px;
 }
 
-body {
-    background-color: #e5f1fd;
-    color: #333;
+.header-cursos hr {
+    width: 100px;
+    margin: 0 auto 30px auto;
+    border: 2px solid #0A1931;
+    border-radius: 5px;
 }
 
-.course_style{
-    height: 300px;
-    font-size: 36px;
-    color: rgba(10, 25, 49, 0.3);
+.controls-container {
     display: flex;
     justify-content: center;
     align-items: center;
- 
-}
-
-.tabs{
-    display: flex;
-    justify-content: center;
     gap: 20px;
-    
-}
-
-.filter_button{
-    font-size: 0.9rem;
-    color: white;
-    background-color: #0A1931;
-    padding: 0.5rem;
-    border-radius: 10px;
-    cursor: pointer;
-    border: none;
-    box-shadow: 0px 15px 25px rgba(10, 25, 49, 0.1);
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-
-.cursos_actuales{
-    font-size: 16px;
-    color: #333;
-    height: 100%;
-    display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    padding: 1.2rem;
-    overflow-y: auto;
-
 }
 
-.cursos_actuales h3{
-    white-space: normal;
-    overflow-wrap: break-word; /* Si hay una palabra gigante, la corta para bajarla */
-    word-wrap: break-word;
+.filter-wrapper {
+    min-width: 150px;
+}
+
+/* --- BARRA DE BUSQUEDA --- */
+.search-container {
+    display: flex;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 400px;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 50px 0 0 50px;
+}
+
+.search-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+/* --- DROPDOWN (Tus estilos originales) --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.dropdown-btn {
+    background: #fff;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 140px;
+    font-family: inherit;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    z-index: 10;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.dropdown.active .dropdown-content { display: block; }
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover { background-color: #f1f1f1; }
+
+.arrow {
+    border: solid #333;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    margin-left: 10px;
+}
+
+/* =========================================
+   DISEÑO DE TARJETAS (GRID + CAPAS)
+   ========================================= */
+
+.cursos_actuales {
+    display: grid;
+    /* Grid automático: columnas mínimo de 280px */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    width: 100%;
+    padding: 10px;
+}
+
+.curso_actual {
+    position: relative; /* Necesario para que los hijos absolute se guíen por esto */
+    height: 350px;      /* Altura fija */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    background-color: #000; /* Fondo negro por defecto */
+}
+
+/* Estilo específico para cuando es skeleton (fondo gris en vez de negro) */
+.curso_actual.skeleton_card_container {
+    background: #f0f0f0 !important;
+}
+
+.curso_actual:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+/* 1. IMAGEN DE FONDO */
+.curso_img_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cubre todo el cuadro sin deformarse */
+    z-index: 1;
+    transition: transform 0.5s ease;
+}
+
+.curso_actual:hover .curso_img_bg {
+    transform: scale(1.05);
+}
+
+/* 2. CAPA OSCURA (OVERLAY) */
+.curso_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Degradado de transparente a negro oscuro abajo */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.9) 100%);
+    z-index: 2; /* Encima de la imagen */
+    pointer-events: none;
+}
+
+/* 3. CONTENEDOR DE INFORMACIÓN (TEXTO) */
+.curso_info_overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    box-sizing: border-box;
+    z-index: 3; /* Encima de la capa oscura */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.curso_info_overlay h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    line-height: 1.2;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Barra de progreso */
+.progress_container {
+    background-color: rgba(255,255,255,0.3); /* Barra fondo semi-transparente */
+    height: 6px;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 8px;
 }
 
 .progress_fill {
-    height: 0.5rem;
-    background-color: #0A1931;
+    height: 100%;
+    background-color: #4CAF50; /* Verde */
     border-radius: 10px;
-    transition: width 0.3s ease;
-  
-    /* La anchura se define en el HTML con style="width: 45%" */
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
 }
 
-.cursos_actuales::-webkit-scrollbar {
-    width: 6px;
-}
-.cursos_actuales::-webkit-scrollbar-thumb {
-    background-color: #B3CFE5;
-    border-radius: 10px;
-}
-
-.curso_actual{
-    display: flex;
-    flex-direction: column;
-    background-color: #F6FAFD; 
-    border-radius: 15px;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
-    box-shadow: 0px 25px 20px -15px rgba(0, 0, 0, 0.2);
-    max-width: 350px;
-    cursor: pointer;
-}
-
-.curso_img{
-    width: 100%;
-    height: 200px;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    border-radius: 15px 15px 0 0;
-    
-}
-
-.curso_info{
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    height: auto;
-}
-
-.stats-row {
-    display: flex;
-    gap: 15px;
-    width: 100%;
-}
-
-.stat-item {
-    flex: 1; /* Que ocupen 50% cada uno aunque no soy fan de usar esto */
-    background-color: #F6FAFD;
-    border-radius: 15px;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.stat-val { font-size: 24px; font-weight: 800; color: #0A1931; }
-.stat-lbl { font-size: 12px; color: #888; margin-top: 5px; font-weight: 500;}
-.stat-item.fire .stat-val { color: #e67e22; }
-
-
-.chart-wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.chart-header {
-    font-size: 14px;
-    color: #888;
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-
-.chart-area {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end; 
-    height: 200px; 
-    width: 100%;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #eee;
-}
-
-
-.bar-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end; 
-    height: 100%; 
-    width: 30px; 
-    gap: 8px;
-}
-
-
-.bar-visual {
-    width: 12px;
-    background-color: #dcebf7;
-    border-radius: 20px;
-    min-height: 4px; 
-}
-
-.bar-visual.active {
-    background-color: #0A1931;
-    box-shadow: 0 4px 10px rgba(10, 25, 49, 0.2);
-}
-
-.day-label {
-    font-size: 12px;
-    color: #888;
-    font-weight: 600;
-}
-
-.box_container{
-    padding: 100px;
-    margin: 0px 50px 0px 50px;
-   
-}
-
-.box_container h2{
-    font-weight: 600;
-    color: #0A1931;
-    font-size: 32px;
-    margin-bottom: 20px;
-}
-
-.center_text{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center
-}
-
-.center_text hr{
-    margin-bottom: 50px;
-
+.progress_text {
+    font-size: 0.8rem;
+    color: #eee;
+    font-weight: 500;
+    display: block;
+    text-align: right;
 }

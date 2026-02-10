@@ -1,12 +1,25 @@
-import { listaCursos } from './fakeDB.js';
+
 import { agregar_tarjetas } from './courses.js';
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
     show_skeleton(4);
+    const params = new URLSearchParams(window.location.search);
+    const id_curso = params.get('id');
 
 
-    setTimeout(() => {
+    let data = null;
+    try {
+        const response = await fetch(`../configuracion/api_course/get_my_courses.php?id=${id_curso}`);
+        if (!response.ok) {
+            throw new Error('Error al cargar los cursos');
+        }
+        data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error('Error:', error);
+        data = { error: true };
+    }
 
-    if(listaCursos.length === 0){
+    if(!data || data.error){
         let content = document.querySelector(".cursos_actuales");
         content.innerHTML = "";
         const message = document.createElement("p");
@@ -17,11 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
         
     }
     else {
-    load_content();
+    load_content(data);
     }
 
         
-    }, 3000);
+
 });
 
 
@@ -37,9 +50,9 @@ function show_skeleton(Number_of_skeletons) {
     }
 }
 
-function load_content(){
+function load_content(data){
     let content = document.querySelector(".cursos_actuales");
 
     content.innerHTML = "";
-     listaCursos.forEach(element => {agregar_tarjetas(element.Titulo, element.Completacion, element.Imagen);});
+    data.forEach(element => { agregar_tarjetas(element.titulo, element.imagen_url, element.id, element.first_lesson_id); });
 }
