@@ -73,6 +73,7 @@ export class page {
             const prefijo = parseFloat(element.precio) > 0 ? "desde " : "";
             contenedor_carrusel.innerHTML += `
             <div class="tarjeta-producto">
+            <a href="/modulos/course_page/page.php?id=${element.id}" style="text-decoration: none; color: inherit;">
                   <div class="media-producto">
                       <img src="${element.imagen_url}" alt="Service" class="imagen-producto">
                       <div class="icono-corazon">♥</div>
@@ -91,7 +92,8 @@ export class page {
                       </div>
                       <div class="fila-precio">${prefijo}<strong>${precioDisplay}</strong></div>
                   </div>
-              </div>`;
+            </a>
+            </div>`;
         });
 
        

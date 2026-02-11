@@ -1,3 +1,23 @@
+<?php
+
+// Variables para Confirm Box
+$mensaje_promise = "¿Deseas confirmar la compra?";
+$caja_resuelta = "Confirmar";
+$caja_rechazada = "Cancelar";
+$color_resuelto = "#27F53C";
+$color_rechazado = "#F52727"; 
+$icono_resolve_reject = "questionmark.json"; 
+
+// Variables para Check-in Box
+$mensaje = "Compra exitosa!";
+$icono = "Check-in.json";
+
+// Variables para Error Box
+$errormsg = "Error al completar la compra. Por favor, intentalo de nuevo.";
+$erroricon = "error.json";
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -156,8 +176,8 @@
               <li><span class="check">✔</span> Comentarios detallados</li>
           </ul>
           
-          <button class="btn-primario">
-              Continuar <span style="font-size:16px">→</span>
+          <button class="btn-primario" id="compra">
+              Comprar <span style="font-size:16px">→</span>
           </button>
           <button class="btn-secundario">
               Contactar al vendedor
@@ -239,6 +259,12 @@
         </div>
     </div>
   </footer>
+
+  <?php 
+    include '../componentes/Confirm-box.php';
+    include '../componentes/Check-in-box.php';
+    include '../componentes/Error.php';
+    ?>
 
     <script type="module" src="page.js"></script>
     <script src="https://vjs.zencdn.net/8.23.4/video.min.js"></script>
