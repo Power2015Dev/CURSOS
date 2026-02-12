@@ -1,3 +1,16 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* Esto corta cualquier cosa que se salga a la derecha */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Asegura que todos los elementos calculen bien su tamaño */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 /* aqui define los colores para no estar buscando el color exacto a cada rato*/
 :root {
   --primero: #0A1931; 
@@ -818,30 +831,65 @@ details[open] summary::after {
 /*  responsiva*/
 
 @media (max-width: 900px) {
+  /* 1. Quitamos la grilla para que sea una sola columna */
   .pagina-principal {
     grid-template-columns: 1fr;
+    padding: 20px 15px; /* Reducir padding lateral en móviles */
+    gap: 20px;
   }
 
-  
+  /* 2. Ajustamos la columna izquierda para que no se desborde */
+  .columna-izquierda {
+    width: 100%;
+    min-width: 0; /* Truco CSS para evitar desbordes en Flexbox */
+  }
+
+  /* 3. Ajustamos la tarjeta de compra (Aside) */
   aside.tarjeta-compra {
-    position: static;
-    order: 10;
-    margin-top: 30px;
+    position: relative; /* Ya no sticky para que no moleste al hacer scroll */
+    top: 0;
+    width: 100%; /* Que ocupe todo el ancho */
+    order: -1;   /* OPCIONAL: Pon esto si quieres que el precio salga ARRIBA de todo en celular */
+    margin-top: 0;
+    margin-bottom: 30px;
+    box-shadow: none; /* Quitamos sombra pesada en movil si prefieres */
+    border: 1px solid var(--cuarto);
+  }
+  
+  /* 4. Ajustar imágenes y videos */
+  .grid-media {
+    flex-direction: column; /* Una imagen debajo de otra */
+  }
+  
+  .miniatura {
+    width: 100%; /* Miniaturas al 100% del ancho */
+    height: auto;
+    aspect-ratio: 16/9; /* Mantener proporción */
   }
 
+  /* 5. Ajustar cabecera de autor */
+  .tarjeta-simple {
+    flex-direction: row; /* Mantener fila pero ajustar tamaños */
+  }
+  
+  #foto-autor {
+    width: 50px; /* Un poco más pequeña */
+    height: 50px;
+  }
+
+  /* 6. Footer responsive */
   .contenido-pie {
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
+    text-align: center;
   }
-
-  .encabezado-resenas {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .acciones-derecha {
+  
+  .columna-pie {
     width: 100%;
-    justify-content: space-between;
-    margin-top: 10px;
+    align-items: center; /* Centrar items flex */
+  }
+  
+  .iconos-sociales {
+    justify-content: center;
   }
 }

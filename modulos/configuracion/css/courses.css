@@ -60,8 +60,27 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     width: 100%;
     max-width: 400px;
+    
+    /* AGREGADO: Esto evita que el padding sume tamaño extra */
+    box-sizing: border-box; 
 }
 
+/* DE PASO: Arregla la esquina del botón para que encaje con el input */
+.search-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    
+    /* CAMBIADO: Antes tenías 50px en todo, ahora solo a la derecha */
+    border-radius: 0 50px 50px 0; 
+    
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+/* Y asegúrate que el input no tenga borde derecho ni esquinas derechas */
 .search-input {
     flex: 1;
     border: none;
@@ -69,17 +88,9 @@ body {
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 50px 0 0 50px;
-}
-
-.search-button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.3s;
+    
+    /* AGREGADO: Para evitar que un texto largo rompa el ancho en flexbox */
+    min-width: 0; 
 }
 
 .search-button:hover {
@@ -248,4 +259,14 @@ body {
     font-weight: 500;
     display: block;
     text-align: right;
+}
+
+@media (max-width: 480px) {
+    .search-button {
+        padding: 10px 15px; /* Reducimos el padding lateral */
+        font-size: 14px;
+    }
+    .search-input {
+        padding: 10px 15px;
+    }
 }

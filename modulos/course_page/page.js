@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", function() {
         //mostrar todos los botones de confirm
         confirm_box.classList.remove("hide-confirm-box");
         confirm_box.classList.add("show-confirm-box");
-
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
          });
 
         Confirm_btn.forEach((btn, index) => {
@@ -44,7 +45,8 @@ document.addEventListener("DOMContentLoaded", function() {
                             check_in_box.classList.remove("show-check-in-box");
                             check_in_box.classList.add("hide-check-in-box");
                         }, 3000);
-                        
+                        document.body.style.overflow = '';
+                        document.documentElement.style.overflow = '';
                     }
                     else{
                         btn.disabled = false; // Rehabilitar el botón en caso de error
@@ -68,7 +70,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     })
                     loading_box.classList.remove("Confirm-box-loading_on");
                     loading_box.classList.add("Confirm-box-loading_off");
-                        
+                        document.body.style.overflow = '';
+                        document.documentElement.style.overflow = '';
                     }
                 });
 
@@ -78,7 +81,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 btn.addEventListener("click", function() {
                     confirm_box.classList.remove("show-confirm-box");
                     confirm_box.classList.add("hide-confirm-box");
-
+                    document.body.style.overflow = '';
+                    document.documentElement.style.overflow = '';
                 });
 
                 

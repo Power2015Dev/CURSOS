@@ -75,57 +75,50 @@
 
     .Confirm-box-section {
         position: fixed;
-        width: 550px;
-        height: 350px;
-        inset: 0; 
-        margin: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999; /* Muy alto para tapar todo */
+    
+    /* Centramos el contenido (la caja blanca) con Flexbox */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* El fondo oscuro va aquí directamente */
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     }
 
-    .Confirm-box-section::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-        background-color: rgba(0, 0, 0, 0.4);
-        z-index: -1;
-        pointer-events: all;
-    }
+    .Confirm-box-section::before,
+.Confirm-box-section::after {
+    display: none; /* Ya no los necesitamos, la section hace de fondo */
+}
 
 
-    .Confirm-box-section::after {
-        content: '';
-        position: fixed;
-        inset: 0;
-        margin: auto;
-        width: 500px;
-        height: 350px;
-        background-color: #fff;
-        z-index: -1;
-        pointer-events: none;
-        box-shadow: 0px 16px 35px 4px rgba(255,255,255,0.5);
-       
-        
-        -webkit-animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
-        animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
-    }
+
 
     .Confirm-box-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        position: relative;
-        -webkit-animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
-        animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+        background-color: #fff;
+    width: 90%;          /* En celular ocupa el 90% */
+    max-width: 500px;    /* En PC no pasa de 500px */
+    padding: 30px 20px;  /* Un poco de aire interno */
+    border-radius: 12px; /* Bordes redondeados */
+    
+    /* Sombras y animación */
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    
+    /* La animación de entrada */
+    -webkit-animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+    animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
     }
     
     .Confirm-box-text {

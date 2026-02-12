@@ -148,6 +148,19 @@ hr{
     margin: 15px 0px 10px 0px;
 }
 
+/* Desktop: keep navbar items on one line and remove extra logo top margin */
+@media (min-width: 901px) {
+    #navbar {
+        flex-wrap: nowrap;
+    }
+    #logo_container p{
+        margin: 0;
+    }
+    #search_bar{
+        align-items: center;
+    }
+}
+
 
 
 #profile_picture_container .arrow_size {

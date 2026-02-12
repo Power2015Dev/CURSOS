@@ -1,12 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden; /* Corta lo que sobre a la derecha */
+    max-width: 100%;
+}
 
 
-
-body {
+/* body {
     background-color: #F5F7FA;
     min-height: 100vh;
     display: block; 
     margin: 0;
-}
+} */
 
 
 
@@ -36,7 +43,8 @@ body {
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     padding: 40px;
-    width: 100%;
+    /* width: 100%;  <--- BORRA ESTA LÍNEA, no es necesaria y causa el desborde */
+    box-sizing: border-box;
 }
 
 .form-header {
@@ -306,12 +314,34 @@ body {
 
 @media (max-width: 850px) {
     .page-wrapper {
-        grid-template-columns: 1fr; 
+        /* Cambiamos Grid por Flex para que se apilen limpiamente */
+        display: flex;
+        flex-direction: column;
         gap: 20px;
         margin-top: 20px;
+        padding: 0 15px; /* Reducimos padding lateral del contenedor general */
+        width: 100%; /* Aseguramos que no se pase */
     }
     
     .profile-content {
-        padding: 20px;
+        padding: 25px 20px; /* Menos padding interno en celular */
+        width: 100%;
     }
+
+    /* OJO: Esto es para el Sidebar que se incluye con PHP */
+    /* Como ahora es una columna, el sidebar quedará arriba del todo. */
+    /* Si quieres ocultarlo en celular o ajustarlo, agrega esto: */
+    
+    /* Opción A: Que el sidebar ocupe el 100% del ancho */
+    .sidebar {  /* Asumiendo que tu sidebar tiene esta clase o ID */
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Opción B: Si prefieres ocultar el sidebar en celular y poner un botón hamburguesa después */
+    /*
+    .sidebar-container { 
+        display: none; 
+    }
+    */
 }
